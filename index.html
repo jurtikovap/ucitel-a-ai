@@ -1,1 +1,110 @@
-<h1>Ahoj, web pro ucitele!</h1>
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI pro učitele</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html" style="color:white; text-decoration:none;">AI pro učitele</a>
+            </div>
+            
+            <div class="nav-right-section">
+                <ul class="nav-links">
+                    <li><a href="index.html">Domů</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+                <div class="nav-search">
+                    <input type="text" id="courseSearch" placeholder="Hledat téma...">
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-title">
+            <h1>AI na pomoc učitelům</h1>
+        </div>
+        
+        <section id="kurzy" class="list-container">
+            <a href="kapitoly/nastroje.html" class="list-item cat-nastroj">
+                <div class="list-icon"><i class="fas fa-robot"></i></div> <div class="list-content">
+                    <h3>Nástroje AI</h3> <p>Přehled nejlepších AI aplikací pro pedagogy.</p>
+                </div>
+            </a>
+
+            <a href="kapitoly/nastaveni.html" class="list-item cat-nastav">
+                <div class="list-icon"><i class="fas fa-cog"></i></div>
+                <div class="list-content">
+                    <h3>Nastavení</h3>
+                    <p>Jak si vše správně nakonfigurovat pro práci.</p>
+                </div>
+            </a>
+
+            <a href="kapitoly/generovani.html" class="list-item cat-gener">
+                <div class="list-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+                <div class="list-content">
+                    <h3>Generování promptů</h3>
+                    <p>Tvorba efektivních zadání pro umělou inteligenci.</p>
+                </div>
+            </a>
+
+            <a href="kapitoly/vyuka.html" class="list-item cat-vyuka">
+                <div class="list-icon"><i class="fas fa-chalkboard-user"></i></div>
+                <div class="list-content">
+                    <h3>Výuka promptů</h3>
+                    <p>Jak učit studenty správně komunikovat s AI.</p>
+                </div>
+            </a>
+
+            <a href="kapitoly/ukazky.html" class="list-item cat-ukazka">
+                <div class="list-icon"><i class="fas fa-lightbulb"></i></div>
+                <div class="list-content">
+                    <h3>Ukázky a nápady</h3>
+                    <p>Inspirace a hotové příklady z reálných hodin.</p>
+                </div>
+            </a>
+
+            <a href="kapitoly/etika.html" class="list-item cat-etika">
+                <div class="list-icon"><i class="fas fa-shield-halved"></i></div>
+                <div class="list-content">
+                    <h3>Etika</h3>
+                    <p>Bezpečnost, autorská práva a fér používání AI.</p>
+                </div>
+            </a>
+
+            <a href="kapitoly/odpocinek.html" class="list-item cat-odpocin">
+                <div class="list-icon"><i class="fas fa-mug-hot"></i></div>
+                <div class="list-content">
+                    <h3>Odpočinek</h3>
+                    <p>Tipy pro relaxaci a pohodu učitele v digitální době.</p>
+                </div>
+            </a>
+
+            <a href="kapitoly/prostee-ai.html" class="list-item cat-ai">
+                <div class="list-icon"><i class="fas fa-brain"></i></div>
+                <div class="list-content">
+                    <h3>Prostě AI</h3>
+                    <p>Základy a principy, jak umělá inteligence funguje.</p>
+                </div>
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <span>&copy; 2026 Generováno AI modelem Gemini 3 Flash</span>
+            <span class="separator">|</span>
+            <span>Správce webu: Mgr. Petra Jurtíková</span>
+        </div>
+    </footer>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
