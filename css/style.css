@@ -1,0 +1,177 @@
+/* --- 1. ZÁKLADNÍ NASTAVENÍ --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    background-color: #ffffff;
+    color: #333333;
+}
+
+/* --- 2. NAVIGACE --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2c3e50;
+    color: white;
+    padding: 0.8rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-right-section {
+    display: flex;
+    align-items: center;
+    gap: 30px; 
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
+
+.nav-links a:hover { opacity: 0.8; }
+
+.nav-search input {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+    width: 180px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.nav-search input:focus {
+    width: 250px;
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
+}
+
+/* --- 3. NADPISY --- */
+.main-title {
+    text-align: center;
+    padding: 40px 20px 10px 20px;
+}
+
+.main-title h1 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+}
+
+.main-title h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #3498db;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* --- 4. ROZCESTNÍK (DVA SLOUPCE) --- */
+.list-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+    padding: 30px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    background-color: #f0f7ff; /* Jemně modrá jako na tvém vzoru */
+    text-decoration: none;
+    color: inherit;
+    padding: 15px 25px;
+    border-radius: 8px;
+    border-left: 5px solid #ccc;
+    transition: all 0.2s ease;
+}
+
+.list-item:hover {
+    background-color: #e3f0ff;
+    transform: translateX(5px);
+}
+
+.list-icon {
+    font-size: 1.8rem;
+    margin-right: 25px;
+    min-width: 40px;
+    text-align: center;
+    color: #4a5568;
+}
+
+.list-content h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+    color: #2c3e50;
+    transition: color 0.3s ease;
+}
+
+/* --- 5. BAREVNÉ KATEGORIE --- */
+.cat-nastroj { border-left-color: #ba68c8; }
+.cat-nastav { border-left-color: #3498db; }
+.cat-gener { border-left-color: #d3b22f; }
+.cat-vyuka { border-left-color: #f06292; }
+.cat-ukazka { border-left-color: #4dd0e1; }
+.cat-etika { border-left-color: #aed581; }
+.cat-odpocin { border-left-color: #ff7de1; }
+.cat-ai { border-left-color: #ffb74d; }
+
+/* Hover efekty pro nadpisy v kartách */
+.cat-nastroj:hover h3 { color: #ba68c8; }
+.cat-nastav:hover h3 { color: #3498db; }
+.cat-gener:hover h3 { color: #d3b22f; }
+.cat-vyuka:hover h3 { color: #f06292; }
+.cat-ukazka:hover h3 { color: #4dd0e1; }
+.cat-etika:hover h3 { color: #aed581; }
+.cat-odpocin:hover h3 { color: #ff7de1; }
+.cat-ai:hover h3 { color: #ffb74d; }
+
+
+/* --- 6. PATIČKA --- */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 12px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.separator { color: #3498db; font-weight: bold; }
+
+/* --- 7. RESPONZIVITA --- */
+@media (max-width: 900px) {
+    .list-container { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+    .nav-links { display: none; }
+    .footer-content { flex-direction: column; gap: 5px; }
+    .separator { display: none; }
+}
