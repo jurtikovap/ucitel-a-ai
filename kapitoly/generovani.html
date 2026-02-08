@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><path d=%22M30 30h40v40H30zM45 15v15M55 15v15M85 45h-15M85 55h-15M55 85V70M45 85V70M15 55h15M15 45h15%22 stroke=%22black%22 stroke-width=%226%22 fill=%22none%22 stroke-linecap=%22round%22/></svg>">
+    <title>Generování promptů - AI pro učitele</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="../index.html" style="color:white; text-decoration:none;">AI pro učitele</a>
+            </div>
+            <div class="nav-right-section">
+                <i class="fa-solid fa-diagram-project"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="lesson-container">
+        <div class="lesson-header cat-gener">
+            <h1>
+                <i class="fas fa-wand-magic-sparkles" style="margin-right: 12px; color: #d3b22f; opacity: 0.7;"></i>
+                Generování promptů
+            </h1>
+        </div>
+
+        <section class="lesson-content">
+            <p>Umění psát správná zadání (prompty) je klíčem k tomu, aby vám AI poskytla skutečně užitečné výsledky. Zde se naučíte, jak na to.</p>
+            
+            <div class="tab-menu cat-gener">
+                <button class="tab-btn active" onclick="openTab(event, 'tab1')">Tvořič promptů materiálů</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab2')">Tlačítko 2</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab3')">Tlačítko 3</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab4')">Tlačítko 4</button>
+            </div>
+
+            <div id="tab1" class="tab-content active">
+                <h3>Tvořič promptů pro výukové materiály</h3>
+                <p>Zde bude tvůj první text k tématu generování promptů...</p>
+                <section class="prompt-builder">
+                    <div class="builder-wrapper">
+                        <div class="builder-left">
+                            <div class="builder-header-section">
+                                <h3><i class="fas fa-sliders-h"></i> Nastavení</h3>
+                                <div class="modes-inline-row">
+                                    <label class="toggle-mode">
+                                        <input type="checkbox" id="dictationMode" onchange="applyDictationMode()" />
+                                        <span class="mode-label"><i class="fas fa-pen-nib"></i>Režim: Diktát</span>
+                                    </label>
+                                    <label class="toggle-mode">
+                                        <input type="checkbox" id="useSVP" />
+                                        <span class="mode-label"><i class="fas fa-book"></i>Použít ŠVP</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="builder-grid">
+                                <div class="input-group">
+                                    <label>Předmět <span class="required">*</span></label>
+                                    <input type="text" id="subject" placeholder="Informatika" />
+                                </div>
+                                <div class="input-group">
+                                    <label>Téma <span class="required">*</span></label>
+                                    <input type="text" id="topic" placeholder="Kyberbezpečnost" />
+                                </div>
+                                <div class="input-group">
+                                    <label>Ročník:</label>
+                                    <input type="text" id="grade" placeholder="9. ročník ZŠ" />
+                                </div>
+                                <div class="input-group">
+                                    <label>Typ úkolu <span class="required">*</span></label>
+                                    <input type="text" id="outputType" placeholder="Test, Pracovní list..." />
+                                </div>
+                                <div class="input-group">
+                                    <label>Rozsah:</label>
+                                    <input type="text" id="count" placeholder="10 otázek" />
+                                </div>
+                                <div class="input-group">
+                                    <label>Jazyk:</label>
+                                    <input type="text" id="language" value="Čeština" />
+                                </div>
+
+                                <div class="input-group">
+                                    <label>Druhy otázek:</label>
+                                    <div class="checkbox-box-unit">
+                                        <label><input type="checkbox" name="qType" value="Otevřená"/> Otevřená</label>
+                                        <label><input type="checkbox" name="qType" value="ANO/NE"/> ANO/NE</label>
+                                        <label><input type="checkbox" name="qType" value="Výběr: 1 správná"/> Výběr (1 spr.)</label>
+                                        <label><input type="checkbox" name="qType" value="Výběr: více spr."/> Výběr (více spr.)</label>
+                                        <label><input type="checkbox" name="qType" value="Doplňovačka"/> Doplňovačka</label>
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <label>Obtížnost:</label>
+                                    <div class="checkbox-box-unit">
+                                        <label><input type="checkbox" name="difficulty" value="Lehká"/> 1 - Lehká</label>
+                                        <label><input type="checkbox" name="difficulty" value="Střední"/> 2 - Střední</label>
+                                        <label><input type="checkbox" name="difficulty" value="Těžká"/> 3 - Těžká</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input-group" style="margin-top: 15px;">
+                                <label>Další upřesnění:</label>
+                                <textarea id="extraNotes" placeholder="Specifické požadavky..."></textarea>
+                            </div>
+
+                            <div class="generate-action">
+                                <button onclick="generatePrompt()" class="generate-btn">Vytvořit prompt</button>
+                                <button onclick="clearFields()" class="clear-btn">Smazat</button>
+                            </div>
+                        </div>
+
+                        <div class="builder-right">
+                            <h3><i class="fas fa-eye"></i> Náhled</h3>
+                            <div class="result-area">
+                                <textarea id="finalPrompt" readonly placeholder="Zde uvidíte svůj prompt..."></textarea>
+                                <button onclick="copyPrompt()" id="copyBtn" class="copy-btn">
+                                    <i class="fas fa-copy"></i> Kopírovat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <div id="tab2" class="tab-content">
+                <h3>Obsah pro Tlačítko 2</h3>
+                <p>Tady může být další zajímavý obsah, který se zobrazí po kliknutí na druhé tlačítko.</p>
+            </div>
+
+            <div id="tab3" class="tab-content">
+                <h3>Obsah pro Tlačítko 3</h3>
+                <p>Třetí sekce obsahu...</p>
+            </div>
+
+            <div id="tab4" class="tab-content">
+                <h3>Obsah pro Tlačítko 4</h3>
+                <p>Čtvrtá sekce obsahu...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <span>&copy; 2026 Generováno AI modelem Gemini 3 Flash</span>
+            <span class="separator">|</span>
+            <span>Správce webu: Mgr. Petra Jurtíková</span>
+        </div>
+    </footer>
+
+   <script src="../js/script.js"></script>
+</body>
+</html>

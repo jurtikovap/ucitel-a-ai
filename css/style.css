@@ -1,11 +1,18 @@
 /* --- 1. ZÁKLADNÍ NASTAVENÍ --- */
+html, body {
+    height: 100%; /* Důležité: prohlížeč musí vědět, že stránka má 100% výšky */
+}
+
 body {
+    display: flex;
+    flex-direction: column; /* Seřadíme obsah (header, main, footer) pod sebe */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
+    line-height: 1.4; /* Sníženo z 1.6 - text bude více u sebe */
     margin: 0;
     background-color: #ffffff;
     color: #333333;
-}
+    font-size: 0.95rem; /* Celkové jemné zmenšení písma */
+    }
 
 /* --- 2. NAVIGACE --- */
 .navbar {
@@ -62,11 +69,11 @@ body {
 /* --- 3. NADPISY --- */
 .main-title {
     text-align: center;
-    padding: 40px 20px 10px 20px;
+    padding: 30px 20px 5px 20px; /* Méně místa kolem nadpisu */
 }
 
 .main-title h1 {
-    font-size: 2.2rem;
+    font-size: 1.8rem; /* Zmenšeno z 2.2rem */
     color: #2c3e50;
     margin: 0;
     position: relative;
@@ -84,23 +91,29 @@ body {
 }
 
 /* --- 4. ROZCESTNÍK (DVA SLOUPCE) --- */
+main {
+    flex: 1 0 auto; /* Tímto řekneme hlavnímu obsahu: "Zaber veškeré volné místo a odtlač patičku dolů" */
+}
+
+/* Úprava seznamu (mřížky) */
 .list-container {
-    display: grid;
+    display: grid !important;
     grid-template-columns: repeat(2, 1fr); 
-    gap: 20px;
-    padding: 30px 5%;
-    max-width: 1200px;
+    gap: 15px; /* Menší mezera mezi kartami (bylo 20px) */
+    padding: 20px 5%; /* Menší horní a dolní odsazení */
+    max-width: 1100px;
     margin: 0 auto;
 }
 
+/* Úprava samotné karty */
 .list-item {
     display: flex;
     align-items: center;
     background-color: #f0f7ff; /* Jemně modrá jako na tvém vzoru */
     text-decoration: none;
     color: inherit;
-    padding: 15px 25px;
-    border-radius: 8px;
+    padding: 10px 20px; /* Sníženo (bylo 15px 25px) */
+    border-radius: 6px;
     border-left: 5px solid #ccc;
     transition: all 0.2s ease;
 }
@@ -111,16 +124,22 @@ body {
 }
 
 .list-icon {
-    font-size: 1.8rem;
-    margin-right: 25px;
+    font-size: 1.5rem; /* Menší ikony (bylo 1.8rem) */
+    margin-right: 15px; /* Menší mezera mezi ikonou a textem */
     min-width: 40px;
     text-align: center;
     color: #4a5568;
 }
 
+.list-content p {
+    font-size: 0.85rem; /* Menší popisek v kartě */
+    margin: 0;
+}
+
 .list-content h3 {
     margin: 0 0 5px 0;
-    font-size: 1.2rem;
+    margin-bottom: 2px; /* Těsnější mezera pod nadpisem */
+    font-size: 1.1rem; /* Menší nadpis karty (bylo 1.2rem) */
     color: #2c3e50;
     transition: color 0.3s ease;
 }
@@ -131,7 +150,7 @@ body {
 .cat-gener { border-left-color: #d3b22f; }
 .cat-vyuka { border-left-color: #f06292; }
 .cat-ukazka { border-left-color: #4dd0e1; }
-.cat-etika { border-left-color: #aed581; }
+.cat-etika { border-left-color: #7ec46b; }
 .cat-odpocin { border-left-color: #ff7de1; }
 .cat-ai { border-left-color: #ffb74d; }
 
@@ -141,13 +160,13 @@ body {
 .cat-gener:hover h3 { color: #d3b22f; }
 .cat-vyuka:hover h3 { color: #f06292; }
 .cat-ukazka:hover h3 { color: #4dd0e1; }
-.cat-etika:hover h3 { color: #aed581; }
+.cat-etika:hover h3 { color: #7ec46b; }
 .cat-odpocin:hover h3 { color: #ff7de1; }
 .cat-ai:hover h3 { color: #ffb74d; }
 
-
 /* --- 6. PATIČKA --- */
 footer {
+    flex-shrink: 0; /* Patička se nesmí smrsknout */
     background-color: #2c3e50;
     color: white;
     padding: 12px 0;
@@ -175,3 +194,525 @@ footer {
     .footer-content { flex-direction: column; gap: 5px; }
     .separator { display: none; }
 }
+
+/* --- 8. STYL PRO KAPITOLY (JEMNĚJŠÍ) --- */
+
+/* Kontejner pro text, aby nebyl přes celou šířku a dobře se četl */
+.lesson-container {
+    max-width: 850px; 
+    margin: 20px auto;
+    padding: 0 20px;
+    flex: 1 0 auto;
+}
+
+
+
+/* Nadpis kapitoly s tenčí čarou */
+.lesson-header h1 {
+    display: flex;
+    align-items: center; /* Ikonka a text budou v jedné rovině */
+    font-size: 1.6rem; /* Menší písmo */
+    color: #2c3e50;
+    margin-bottom: 2px;
+}
+
+.lesson-header {
+    border-bottom: 3px solid #ccc; /* Tenčí čára */
+    margin-bottom: 15px;
+    padding-bottom: 2px;
+}
+
+/* Barvy čar podle kategorií (využíváme tvé stávající barvy) */
+.lesson-header.cat-nastroj { border-bottom-color: #ba68c8; }
+.lesson-header.cat-nastav { border-bottom-color: #3498db; }
+.lesson-header.cat-gener { border-bottom-color: #d3b22f; }
+.lesson-header.cat-vyuka { border-bottom-color: #f06292; }
+.lesson-header.cat-ukazka { border-bottom-color: #4dd0e1; }
+.lesson-header.cat-etika { border-bottom-color: #7ec46b; }
+.lesson-header.cat-odpocin { border-bottom-color: #ff7de1; }
+.lesson-header.cat-ai { border-bottom-color: #ffb74d; }
+
+/* Textový obsah */
+.lesson-intro {
+    font-size: 1.1rem;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.lesson-section h2 {
+    font-size: 1.4rem;
+    margin-top: 30px;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lesson-section p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* --- 9. STYL PRO PŘEPÍNACÍ TLAČÍTKA (TABY) --- */
+.tab-menu {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 8px 16px;
+    border: none;
+    background-color: #f0f7ff; /* Základní jemná modrá jako u karet */
+    color: #2c3e50;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.tab-btn:hover {
+    background-color: #e3f0ff;
+}
+
+/* Aktivní tlačítko dostane barvu podle kategorie */
+.tab-btn.active {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Dynamické barvy aktivního tlačítka (jemné odstíny) */
+.tab-menu.cat-gener .tab-btn.active { border-bottom: 3px solid #d3b22f; color: #d3b22f; }
+.tab-menu.cat-nastroj .tab-btn.active { border-bottom: 3px solid #ba68c8; color: #ba68c8; }
+.tab-menu.cat-vyuka .tab-btn.active { border-bottom: 3px solid #f06292; color: #f06292; }
+.tab-menu.cat-nastav .tab-btn.active { border-bottom: 3px solid #3498db; color: #3498db; }
+.tab-menu.cat-ukazka .tab-btn.active { border-bottom: 3px solid #4dd0e1; color: #4dd0e1; }
+.tab-menu.cat-etika .tab-btn.active { border-bottom: 3px solid #7ec46b; color: #7ec46b; }
+.tab-menu.cat-odpocin .tab-btn.active { border-bottom: 3px solid #ff7de1; color: #ff7de1; }
+.tab-menu.cat-ai .tab-btn.active { border-bottom: 3px solid #ffb74d; color: #ffb74d; }
+
+/* Obsah tabů */
+.tab-content {
+    display: none; /* Skryje obsah */
+    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 8px;
+    animation: fadeIn 0.4s;
+}
+
+.tab-content.active {
+    display: block; /* Zobrazí aktivní obsah */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Úprava nadpisu a čáry v lekci */
+.lesson-header h1 {
+    font-size: 1.6rem; /* Ještě o kousek menší */
+    margin-bottom: 5px;
+}
+
+.lesson-header {
+    border-bottom: 3px solid #ccc; /* Ještě o kousek tenčí čára */
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+}
+
+/* --- PROMPT BUILDER KOMPAKTNÍ --- */
+.prompt-builder {
+    background: transparent;
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+
+.builder-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start; /* Toto drží Nastavení a Náhled v jedné rovině */
+    margin-top: 10px;
+}
+
+.builder-left {
+    flex: 1.2;
+}
+
+.builder-right {
+    flex: 0.8;
+}
+
+/* Sjednocení nadpisů Nastavení a Náhled */
+.builder-left h3, 
+.builder-right h3 {
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+    font-size: 1.1rem; 
+    color: #d3b22f;
+    display: flex;
+    align-items: center;
+    height: 1.6rem; /* Fixní výška pro dokonalé lícování */
+}
+
+/* 3. Mezera mezi ikonou a textem v "Nastavení" a "Náhled" */
+.builder-left h3 i, 
+.builder-right h3 i {
+    margin-right: 12px; /* Mezera mezi ikonou a nápisem Nastavení / Náhled */
+}
+
+/* Režimy Diktát a ŠVP v řádku pod nadpisem */
+.modes-inline-row {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+/* Společný styl pro všechna zaškrtávátka - OPRAVA MEZER */
+.checkbox-box-unit label, 
+.toggle-mode {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 8px !important; /* Těsná mezera mezi čtverečkem a textem */
+    white-space: nowrap; 
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: normal !important; /* Zrušení tučného písma */
+    width: fit-content;
+}
+
+.toggle-mode i {
+    color: #d3b22f;
+    margin-right: 5px; /* Přitažení ikonky k checkboxu */
+    font-size: 0.9rem;
+    width: 18px;
+    text-align: center;
+}
+
+/* Mřížka vstupů */
+.builder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #444;
+}
+
+/* Jednotný styl polí a bílých boxů pro checkboxy */
+.prompt-builder input[type="text"], 
+.checkbox-box-unit {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: white;
+    font-family: inherit;
+}
+
+/* Vnitřek boxu se zaškrtávátky */
+.checkbox-box-unit {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-height: 145px; /* Sjednocení výšky obou boxů */
+}
+
+.required { color: #e74c3c; }
+
+/* Akční tlačítka */
+.generate-action {
+    display: flex;
+    gap: 10px;
+    
+}
+
+.generate-btn {
+    background: #d3b22f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    flex: 2;
+    transition: background 0.2s;
+    margin-top: 10px;
+}
+
+.generate-btn:hover { background: #b89a25; }
+
+.clear-btn {
+    background: #f1f1f1;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    flex: 1;
+    margin-top: 10px;
+}
+
+/* Pravá strana - Černý Náhled */
+#finalPrompt {
+    width: 100%; /* Opraveno z 92% na 100% */
+    height: 574px; /* Výška doladěna k levé straně */
+    background: white; /* Vrácena černá */
+    color: black;    /* Bílé písmo */
+    padding: 15px;
+    border-radius: 4px;
+    resize: none;
+    font-family: 'Consolas', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.copy-btn {
+    width: 100%;
+    margin-top: 9px;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 9.5px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Pole pro další upřesnění */
+#extraNotes {
+    width: 100%;
+    min-height: 80px;
+    max-height: 80px;
+    resize: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Responzivita - pod sebou až na malém mobilu */
+@media (max-width: 768px) {
+    .builder-wrapper { grid-template-columns: 1fr; }
+}
+
+/* NÁSTROJE */
+/* Kontejner pro karty */
+.tools-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 sloupce jako na obrázku */
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* Karta nástroje */
+/* Kontejner pro mřížku karet */
+.tools-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* Karta nástroje */
+
+/* Kontejner - stejný jako v index.html */
+.tools-list-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 30px auto;
+    align-items: start; /* TENTO ŘÁDEK ZAJISTÍ NEZÁVISLOU VÝŠKU */
+}
+
+/* Karta řádkového typu */
+.tool-row-card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease;
+}
+
+.tool-row-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Černý název a pilulka v řádku */
+.tool-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.tool-name-black {
+    margin: 0;
+    color: #000000 !important;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.tool-row-desc {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0 0 15px 0;
+    line-height: 1.4;
+}
+
+/* Oddělující čára s mezerami na okrajích */
+.summary-line {
+    height: 1px;
+    background: #eee;
+    margin: 10px 15px; /* Mezery na okrajích (vlevo/vpravo) */
+}
+
+/* Horní barva čáry po rozbalení (volitelně) */
+.tool-row-accordion[open] .summary-line {
+    background: #ccc; /* Trošku výraznější při rozbalení */
+}
+
+/* Podrobnosti a šipečka */
+.summary-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+}
+
+.tool-row-accordion summary { list-style: none; }
+.tool-row-accordion summary::-webkit-details-marker { display: none; }
+.tool-row-accordion[open] .arrow { transform: rotate(180deg); }
+
+/* Vnitřní obsah po rozbalení */
+.tool-row-content {
+    padding: 20px 15px 10px 15px;
+    font-size: 0.88rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.sub-title {
+    font-size: 0.95rem;
+    margin: 15px 0 10px 0;
+    font-weight: bold;
+}
+
+.features-list-clean {
+    list-style: none;
+    padding: 0;
+}
+
+.features-list-clean li {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+/* SPECIFICKÉ BARVY PRO IKONKY A PROUŽKY */
+
+/* Specifické 3px proužky a barvy pilulek */
+
+.icon-copilot, .color-copilot { color: #00A4EF !important; }
+.icon-chatgpt, .color-chatgpt { color: #10A37F !important; }
+.icon-deepl, .color-deepl { color: #0F2F3E !important; }
+.icon-canva, .color-canva { color: #00C4CC !important; }
+
+.icon-scio, .color-scio { color: #E5004F !important; }
+.icon-gamma, .color-gamma { color: #9333EA !important; }
+.icon-napkin, .color-napkin { color: #FF6B6B !important; }
+.icon-suno, .color-suno { color: #333333 !important; }
+
+/* 1. Gemini */
+
+.icon-gemini, .color-gemini { color: #ED1C24 !important; }
+.border-gemini { border-left: 3px solid #ED1C24; }
+.bg-gemini { background: #FFEBEE; color: #C62828; }
+
+/* 2. Copilot */
+.border-copilot { border-left: 3px solid #00A4EF; }
+.bg-copilot { background: #E1F5FE; color: #00A4EF; }
+
+/* 3. ChatGPT */
+.border-chatgpt { border-left: 3px solid #10A37F; }
+.bg-chatgpt { background: #E6F4F1; color: #10A37F; }
+
+/* 4. NotebookLM */
+.icon-notebook, .color-notebook { color: #F4B400 !important; }
+.border-notebook { border-left: 3px solid #F4B400; }
+.bg-notebook { background: #FFF8E1; color: #B08200; }
+
+/* 5. DeepL */
+.border-deepl { border-left: 3px solid #0F2F3E; }
+.bg-deepl { background: #F0F4F5; color: #0F2F3E; }
+
+/* 6. Volno / Připravujeme (přerušovaná čára) */
+.border-placeholder { border-left: 3px dashed #CCCCCC; background: #FAFAFA !important; }
+.bg-placeholder { background: #EEEEEE; color: #999999; }
+
+/* 7. Canva */
+.border-canva { border-left: 3px solid #00C4CC; }
+.bg-canva { background: #E0F7F8; color: #008B91; }
+
+/* 8. ScioBot */
+.border-scio { border-left: 3px solid #E5004F; }
+.bg-scio { background: #FCE4EC; color: #E5004F; }
+
+/* 9. Gamma */
+.border-gamma { border-left: 3px solid #9333EA; }
+.bg-gamma { background: #F3E8FF; color: #9333EA; }
+
+/* 10. ZonerAI */
+.icon-zoner, .color-zoner { color: #4285F4 !important; }
+.border-zoner { border-left: 3px solid #4285F4; }
+.bg-zoner { background: #E8F0FE; color: #4285F4; }
+
+/* 11. Napkin */
+.border-napkin { border-left: 3px solid #FF6B6B; }
+.bg-napkin { background: #FFF0F0; color: #FF6B6B; }
+
+/* 12. Suno */
+.border-suno { border-left: 3px solid #333333; }
+.bg-suno { background: #F0F0F0; color: #333333; }
+
+
+/* ... takto přidáš další barvy pro zbytek nástrojů ... */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- RESPONZIVITA PRO NÁSTROJE --- */
+
+@media (max-width: 900px) {
+    .tools-list-grid {
+        grid-template-columns: 1fr; /* Přepne na jeden sloupec */
+        padding: 0 15px; /* Přidá malý okraj po stranách na mobilech */
+    }
+
+    .tool-row-card {
+        margin-bottom: 10px; /* Mezera mezi kartami, když jsou pod sebou */
+    }
+}
+
+/* NÁSTROJE */
