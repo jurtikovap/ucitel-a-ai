@@ -30,18 +30,20 @@
         </div>
 
         <section class="lesson-content">
-            <p>Umění psát správná zadání (prompty) je klíčem k tomu, aby vám AI poskytla skutečně užitečné výsledky. Zde se naučíte, jak na to.</p>
+            <p>Nemáte čas? Tak zde si můžete jednoduše nechat svůj promt na tvorbu výukových materiálů vygenerovat.</p>
             
             <div class="tab-menu cat-gener">
                 <button class="tab-btn active" onclick="openTab(event, 'tab1')">Tvořič promptů materiálů</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab2')">Tlačítko 2</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab2')">Možnosti rozšíření promptů</button>
                 <button class="tab-btn" onclick="openTab(event, 'tab3')">Tlačítko 3</button>
                 <button class="tab-btn" onclick="openTab(event, 'tab4')">Tlačítko 4</button>
             </div>
 
             <div id="tab1" class="tab-content active">
                 <h3>Tvořič promptů pro výukové materiály</h3>
-                <p>Zde bude tvůj první text k tématu generování promptů...</p>
+                <p>Vyplňte následující pole (nápovědu vidíte v políčkách), můžete zaškrtnout libovolné druhy otázek, obtížnost, jazyk výstupu, popř. doplňte potřeby navíc a nechte si celý prompt vygenerovat. Zkopírujte si daný prompt a vložte do jakékoliv AI.</p>
+                <p>Režim <b>Diktát</b> Vám předvyplní některá pole, aby byl výsledek skvělý. Jedná se o vygenerovaný text k opravě.</p>
+                <p>Režim <b>Použít ŠVP</b> po zaškrtnutí Vám doplní do výsledného promptu i odkaz na školní ŠVP</p>
                 <section class="prompt-builder">
                     <div class="builder-wrapper">
                         <div class="builder-left">
@@ -69,8 +71,8 @@
                                     <input type="text" id="topic" placeholder="Kyberbezpečnost" />
                                 </div>
                                 <div class="input-group">
-                                    <label>Ročník:</label>
-                                    <input type="text" id="grade" placeholder="9. ročník ZŠ" />
+                                    <label>Ročník, obor:</label>
+                                    <input type="text" id="grade" placeholder="2. ročník, fotograf" />
                                 </div>
                                 <div class="input-group">
                                     <label>Typ úkolu <span class="required">*</span></label>
@@ -78,7 +80,7 @@
                                 </div>
                                 <div class="input-group">
                                     <label>Rozsah:</label>
-                                    <input type="text" id="count" placeholder="10 otázek" />
+                                    <input type="text" id="count" placeholder="10 otázek, 250 slov" />
                                 </div>
                                 <div class="input-group">
                                     <label>Jazyk:</label>

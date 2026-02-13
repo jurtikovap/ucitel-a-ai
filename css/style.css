@@ -555,19 +555,43 @@ footer {
 }
 
 /* Černý název a pilulka v řádku */
+/* Úprava řádku s titulkem */
 .tool-title-row {
     display: flex;
     align-items: center;
+    justify-content: flex-start; /* Základní zarovnání vlevo */
     gap: 12px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    width: 100%; /* Aby kontejner využil celou šířku */
 }
 
+/* Toto zajistí, že se pilulka odsune úplně doprava */
+.tool-pill {
+    margin-left: auto; 
+    text-decoration: none; /* Odstraní podtržení odkazu */
+    display: inline-block;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* Efekt při najetí myší na pilulku (odkaz) */
+.pill-link:hover {
+    transform: scale(1.05); /* Lehké zvětšení */
+    filter: brightness(0.95); /* Jemné ztmavnutí pro zpětnou vazbu */
+    cursor: pointer;
+}
+
+/* Pokud by název byl moc dlouhý, aby se do něj pilulka netlačila */
 .tool-name-black {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin: 0;
     color: #000000 !important;
     font-size: 1.2rem;
-    font-weight: bold;
+    max-width: 60%; /* Název zabere max 60 %, zbytek je pro pilulku */
 }
+
+
 
 .tool-row-desc {
     font-size: 0.9rem;
@@ -716,3 +740,227 @@ footer {
 }
 
 /* NÁSTROJE */
+/* výuka */
+
+/* Hlavní kontejner */
+.sos-interaction-section {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 15px; /* Ochrana, aby se to nelepilo k hranám mobilu */
+    box-sizing: border-box; /* Zajistí, že padding nerozšíří kontejner */
+}
+
+/* Dlaždice s ikonami */
+.topic-selector {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.topic-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.topic-card i {
+    font-size: 1.8rem;
+    color: #888;
+    transition: color 0.3s;
+}
+
+.topic-card span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Aktivní stav dlaždice */
+.topic-card.active {
+    border: 3px solid #f06292;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(240, 98, 146, 0.2);
+}
+
+.topic-card.active i {
+    color: #f06292;
+}
+
+/* Porovnávací boxy */
+.comparison-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: stretch; /* Aby byly boxy stejně vysoké, ale nerostly přes okraj */
+}
+
+.prompt-box {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+    min-height: 300px; 
+    height: auto; 
+    overflow: hidden; /* Zabrání přetékání textu ven */
+}
+
+.prompt-box.bad { border-top: 5px solid #ccc; }
+.prompt-box.good { border-top: 5px solid #f06292; }
+
+.box-header {
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #888;
+}
+
+.box-header.highlight {
+    color: #f06292;
+}
+
+.prompt-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.prompt-content.italic {
+    font-style: italic;
+    color: #666;
+}
+
+
+/* Kontejner pro porovnání */
+.comparison-container {
+    max-width: 1100px;
+    margin: 20px auto;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+/* Společný styl boxů */
+.prompt-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Specifické okraje */
+.prompt-box.bad {
+    border-top: 5px solid #ccc;
+}
+
+.prompt-box.good {
+    border-top: 5px solid #f06292; /* Tvá barva */
+}
+
+/* Štítky nahoře */
+.prompt-label {
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.label-bad { color: #888; }
+.label-good { color: #f06292; }
+
+/* Text promptu (kurzíva jako citace) */
+.prompt-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+    background: #fdfdfd;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px dashed #eee;
+    flex-grow: 1;
+}
+
+/* Náhled výsledku (spodní část) */
+.result-preview {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    font-size: 0.88rem;
+    color: #666;
+}
+
+.result-preview strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.result-note {
+    margin-top: auto;
+    padding: 12px;
+    background-color: #fcfcfc; /* Velmi jemné pozadí */
+    border-radius: 8px;
+    border-left: 3px solid #eee; /* Šedý proužek u špatného */
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.good .result-note {
+    border-left: 3px solid #f06292; /* Růžový proužek u dobrého */
+    background-color: #fff5f8; /* Nádech růžové v pozadí */
+}
+
+
+
+/* U dobrého promptu můžeme dát ikonku před text */
+.good .result-note::before {
+    content: "💡 ";
+}
+
+/* Responzivita */
+@media (max-width: 850px) {
+    .comparison-row {
+        grid-template-columns: 1fr;
+    }
+    .topic-selector {
+        grid-template-columns: repeat(2, 1fr); /* Dlaždice 2x2 */
+        gap: 10px;
+    }
+
+    .comparison-display {
+        grid-template-columns: 1fr; /* Boxy pod sebou */
+        gap: 20px;
+    }
+
+    .prompt-box {
+        min-height: auto; /* Na mobilu nepotřebujeme fixní výšku */
+        margin-bottom: 10px;
+    }
+    
+    .prompt-content {
+        min-height: 0; /* Uvolníme prostor pro text */
+    }
+}
+
+/* výuka */
