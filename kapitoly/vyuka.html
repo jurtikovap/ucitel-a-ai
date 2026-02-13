@@ -87,8 +87,31 @@
             </div>
 
             <div id="tab2" class="tab-content bg-vyuka">
-                <h3>Obsah pro Tlačítko 2</h3>
-                <p>Tady může být další zajímavý obsah, který se zobrazí po kliknutí na druhé tlačítko.</p>
+                <h3>Skládačka promptů</h3>
+                <p>Jak jednoduše si představit a vytvořit efektivní prompt pro AI, aby dělala, to co chceme.</p>
+                <div class="builder-section">
+                    <div class="builder-controls">
+                        <div class="step-btn" onclick="addLayer(1)"><span>1. Základ</span></div>
+                        <div class="step-btn" onclick="addLayer(2)"><span>2. Role</span></div>
+                        <div class="step-btn" onclick="addLayer(3)"><span>3. Kontext</span></div>
+                        <div class="step-btn" onclick="addLayer(4)"><span>4. Formát</span></div>
+                        <div class="step-btn bonus" onclick="addLayer(5)"><span>5. BONUS ✨</span></div>
+                        <div class="reset-btn" onclick="resetBuilder()" title="Začít znovu">
+                            <i class="fas fa-trash-alt"></i> Smazat</div>    
+                    </div>
+
+                    <div class="prompt-display" id="prompt-result">
+                        <span id="layer-1" class="layer hidden">Vytvoř pracovní list na téma typologie pleti. </span>
+                        <span id="layer-2" class="layer hidden">Jsi zkušená kosmetička a lektorka odborného výcviku s 20letou praxí. </span>
+                        <span id="layer-3" class="layer hidden">Materiál je pro 1. ročník SOŠ. Musí obsahovat diagnostické znaky suché a mastné pleti a být srozumitelný pro začátečníky. </span>
+                        <span id="layer-4" class="layer hidden">Výsledek zpracuj jako přehlednou tabulku pro žáky a doplň 3 kontrolní otázky pro krátké opakování. </span>
+                        <span id="layer-5" class="layer hidden">Na závěr mi doporuč jeden pedagogický tip, jak toto téma oživit v praxi, a jednu diskusní otázku k zamyšlení.</span>
+                        
+                        <div id="placeholder-text">Klikněte na první krok a začněte stavět...</div>
+                    </div>
+                    
+                    <div id="builder-commentary" class="commentary-box"></div>
+                </div>
             </div>
 
             <div id="tab3" class="tab-content bg-vyuka">

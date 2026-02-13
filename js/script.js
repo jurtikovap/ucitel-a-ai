@@ -167,3 +167,49 @@ function switchPrompt(topic) {
     document.getElementById('bad-text').innerHTML = promptData[topic].bad;
     document.getElementById('good-text').innerHTML = promptData[topic].good;
 }
+
+const comments = [
+    "",
+    "Začínáme jasným tématem. Bez něj AI neví, o čem psát.",
+    "Přidali jsme EXPERTÍZU. AI teď ví, že nemá psát jako vědec, ale jako praktik.",
+    "Doplnili jsme CÍLOVOU SKUPINU. Teď bude náročnost textu přesně pro prváky.",
+    "URČILI JSME STRUKTURU. Místo textové zdi dostanete přehlednou tabulku.",
+    "BONUS: AI teď funguje jako váš metodický poradce a pomůže vám vtáhnout žáky do děje."
+];
+
+function addLayer(step) {
+    // Zobrazit vrstvu
+    const layer = document.getElementById(`layer-${step}`);
+    if(layer) {
+        layer.classList.remove('hidden');
+        // Skrýt placeholder
+        document.getElementById('placeholder-text').style.display = 'none';
+    }
+
+    // Aktivovat tlačítko
+    const buttons = document.querySelectorAll('.step-btn');
+    buttons[step-1].classList.add('active');
+
+    // Změnit komentář
+    document.getElementById('builder-commentary').innerText = comments[step];
+}
+function resetBuilder() {
+    // 1. Schovat všechny vrstvy textu
+    const layers = document.querySelectorAll('.layer');
+    layers.forEach(l => l.classList.add('hidden'));
+
+    // 2. Odbarvit všechna tlačítka
+    const buttons = document.querySelectorAll('.step-btn');
+    buttons.forEach(b => b.classList.remove('active'));
+
+    // 3. Zobrazit placeholder text
+    document.getElementById('placeholder-text').style.display = 'block';
+
+    // 4. Vymazat komentář
+    document.getElementById('builder-commentary').innerText = "";
+    
+    // Volitelné: Animace pro pocit "vyčištění"
+    const display = document.getElementById('prompt-result');
+    display.style.opacity = "0.5";
+    setTimeout(() => { display.style.opacity = "1"; }, 200);
+}
