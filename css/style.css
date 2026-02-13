@@ -300,10 +300,15 @@ footer {
 .tab-content {
     display: none; /* Skryje obsah */
     padding: 20px;
-    background-color: #fafafa;
     border-radius: 8px;
     animation: fadeIn 0.4s;
 }
+
+/* Specifické barvy pro jednotlivé kapitoly */
+.bg-vyuka { background-color: #fff9fb; } /* Tvá růžová pro "Dobře/Špatně" */
+.bg-gener { background-color: #fcfbf6; } 
+.bg-nastroj { background-color: #fef5ff; } 
+.bg-etika { background-color: #f9fff5; }
 
 .tab-content.active {
     display: block; /* Zobrazí aktivní obsah */
