@@ -111,7 +111,7 @@ const promptData = {
         bad: '"Udělej mi test pro řezníky na téma bourání masa."',
         badNote: '<strong>Co na to AI:</strong> Vygeneruje fádní a příliš obecný seznam otázek (např. "Co je to nůž?"). Chybí odborná hloubka, terminologie a didaktická struktura, kterou jako mistr odborného výcviku potřebujete.',
         good: '<strong>Jsi mistr odborného výcviku.</strong> Vytvoř 10 kontrolních otázek pro 2. ročník oboru Řezník na téma <strong>bourání hovězího přední čtvrti</strong>. Zaměř se na názvy částí (např. péro, podplečí, krk) a jejich konkrétní kulinářské využití. Přidej klíč správných řešení pro učitele.',
-        goodNote: '<strong>Co na to AI:</strong> Vygeneruje profesionální odborný test, který rozumí řeznické hantýrce. Otázky budou smysluplné, odstupňované podle obtížnosti a připravené k okamžitému rozdání v dílnách.'
+        goodNote: '<strong>Co na to AI:</strong> Vygeneruje profesionální odborný test, který rozumí řeznické hantýrce. Otázky budou smysluplné, odstupňované podle obtížnosti, a který žáky skutečně prověří z praxe.'
     },
     prezentace: {
         bad: '"Napiš body na prezentaci pro kosmetičky o pleti."',
@@ -144,28 +144,6 @@ function switchPrompt(topic) {
     document.getElementById('bad-note').innerHTML = promptData[topic].badNote;
     document.getElementById('good-text').innerHTML = promptData[topic].good;
     document.getElementById('good-note').innerHTML = promptData[topic].goodNote;
-}
-
-function switchPrompt(topic) {
-    document.querySelectorAll('.topic-card').forEach(card => card.classList.remove('active'));
-    event.currentTarget.classList.add('active');
-
-    // Aktualizace textů
-    document.getElementById('bad-text').innerHTML = promptData[topic].bad;
-    document.getElementById('bad-note').innerHTML = promptData[topic].badNote;
-    document.getElementById('good-text').innerHTML = promptData[topic].good;
-    document.getElementById('good-note').innerHTML = promptData[topic].goodNote;
-}
-
-function switchPrompt(topic) {
-    // Odstranit aktivní třídu ze všech karet
-    document.querySelectorAll('.topic-card').forEach(card => card.classList.remove('active'));
-    // Přidat aktivní třídu kliknuté kartě
-    event.currentTarget.classList.add('active');
-
-    // Změnit texty v boxech
-    document.getElementById('bad-text').innerHTML = promptData[topic].bad;
-    document.getElementById('good-text').innerHTML = promptData[topic].good;
 }
 
 const comments = [
@@ -212,4 +190,49 @@ function resetBuilder() {
     const display = document.getElementById('prompt-result');
     display.style.opacity = "0.5";
     setTimeout(() => { display.style.opacity = "1"; }, 200);
+}
+
+function generatePrompt() {
+    // Načtení hodnot z polí
+    const role = document.getElementById('role-input').value;
+    const tema = document.getElementById('tema-input').value;
+    const target = document.getElementById('target-input').value;
+    const format = document.getElementById('format-input').value;
+    const bonus = document.getElementById('bonus-check').checked;
+
+    // Pokud je vše prázdné, ukaž nápovědu
+    if (!role && !tema && !target && !format) {
+        document.getElementById('prompt-output').innerHTML = "Začněte psát do políček vlevo a váš prompt se zde začne skládat...";
+        return;
+    }
+
+    // Skládání textu s tučným zvýrazněním vstupů
+    let promptText = "";
+    
+    if (role) promptText += `Jsi <b>${role}</b>. `;
+    if (tema) promptText += `Tvým úkolem je vytvořit <b>${tema}</b>. `;
+    if (target) promptText += `Tento materiál je určen pro <b>${target}</b>. `;
+    if (format) promptText += `Při tvorbě se zaměř na tyto typy otázek nebo aktivit: <b>${format}</b>. `;
+    
+    if (bonus) {
+        promptText += ` Na závěr mi doporuč jeden konkrétní <b>pedagogický tip</b>, jak toto téma oživit v praxi a jednu provokativní otázku do diskuse.`;
+    }
+
+    document.getElementById('prompt-output').innerHTML = promptText;
+}
+
+function copyToClipboard() {
+    const textToCopy = document.getElementById('prompt-output').innerText;
+    const btn = document.getElementById('copy-btn');
+
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        const originalText = btn.innerHTML;
+        btn.innerHTML = "✅ Zkopírováno!";
+        btn.style.background = "#4caf50";
+        
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.background = "#f06292";
+        }, 2000);
+    });
 }
