@@ -121,31 +121,31 @@
                     <div class="generator-form">
                         <div class="input-group">
                             <label>1. Role AI (Kdo to píše?)</label>
-                            <input type="text" id="role-input" placeholder="Např. Mistr odborného výcviku..." oninput="generatePrompt()">
+                            <input type="text" id="role-input" placeholder="Např. Mistr odborného výcviku..." oninput="generateCustomPrompt()">
                             <small>Tip: Jsi zkušený metodik s 20letou praxí, který vysvětluje věci polopatě.</small>
                         </div>
 
                         <div class="input-group">
                             <label>2. Téma a Rozsah (Co tvoříme?)</label>
-                            <textarea id="tema-input" placeholder="Např. Diagnostika pleti, 10 otázek..." oninput="generatePrompt()"></textarea>
+                            <textarea id="tema-input" placeholder="Např. Diagnostika pleti, 10 otázek..." oninput="generateCustomPrompt()"></textarea>
                             <small>Tip: Téma: Hluboké čištění. Vygeneruj text pro výklad na 15 minut.</small>
                         </div>
 
                         <div class="input-group">
                             <label>3. Cílová skupina (Pro koho?)</label>
-                            <input type="text" id="target-input" placeholder="Např. 1. ročník SOŠ..." oninput="generatePrompt()">
+                            <input type="text" id="target-input" placeholder="Např. 1. ročník SOŠ..." oninput="generateCustomPrompt()">
                             <small>Tip: Žáci, kteří jsou v dílně poprvé. Používej odborné termíny, ale srozumitelně.</small>
                         </div>
 
                         <div class="input-group">
                             <label>4. Typy otázek / Aktivita</label>
-                            <input type="text" id="format-input" placeholder="Např. 5 otevřených otázek..." oninput="generatePrompt()">
+                            <input type="text" id="format-input" placeholder="Např. 5 otevřených otázek..." oninput="generateCustomPrompt()">
                             <small>Tip: Chci 3 otázky na logické zdůvodnění postupu a 2 testové (A,B,C).</small>
                         </div>
 
                         <div class="checkbox-group">
                             <label class="checkbox-container">
-                                <input type="checkbox" id="bonus-check" onchange="generatePrompt()">
+                                <input type="checkbox" id="bonus-check" onchange="generateCustomPrompt()">
                                 <span class="checkmark"></span>
                                 Přidat pedagogický BONUS (tip do praxe) ✨
                             </label>
@@ -157,7 +157,7 @@
                         <div id="prompt-output" class="preview-box">
                             Začněte psát do políček vlevo a váš prompt se zde začne skládat...
                         </div>
-                        <button class="copy-btn" onclick="copyToClipboard()" id="copy-btn">
+                        <button class="copy-custom-btn" onclick="copyCustomPrompt()" id="copy-custom-btn">
                             <i class="fas fa-copy"></i> Zkopírovat prompt
                         </button>
                     </div>

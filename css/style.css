@@ -472,7 +472,7 @@ footer {
 /* Pravá strana - Černý Náhled */
 #finalPrompt {
     width: 100%; /* Opraveno z 92% na 100% */
-    height: 574px; /* Výška doladěna k levé straně */
+    height: 584px; /* Výška doladěna k levé straně */
     background: white; /* Vrácena černá */
     color: black;    /* Bílé písmo */
     padding: 15px;
@@ -1151,22 +1151,18 @@ footer {
 }
 
 /* Tlačítko kopírovat */
-.copy-btn {
+.copy-custom-btn {
     width: 100%;
     padding: 15px;
-    background: #f06292;
+    background: #2c3e50;
     color: white;
     border: none;
     border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s, background 0.3s;
+    
 }
 
-.copy-btn:hover {
-    background: #d81b60;
-    transform: translateY(-2px);
-}
 
 /* Responzivita pro mobil */
 @media (max-width: 850px) {

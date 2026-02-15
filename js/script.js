@@ -98,13 +98,14 @@ function copyPrompt() {
     navigator.clipboard.writeText(textArea.value).then(() => {
         const originalContent = btn.innerHTML;
         btn.innerHTML = '<i class="fas fa-check"></i> Zkopírováno!';
-        btn.classList.add("success");
+        btn.style.background = "#d3b22f";
         setTimeout(() => {
             btn.innerHTML = originalContent;
-            btn.classList.remove("success");
+            btn.style.background = "#2c3e50";
         }, 2000);
     });
 }
+
 
 const promptData = {
     material: {
@@ -192,7 +193,7 @@ function resetBuilder() {
     setTimeout(() => { display.style.opacity = "1"; }, 200);
 }
 
-function generatePrompt() {
+function generateCustomPrompt() {
     // Načtení hodnot z polí
     const role = document.getElementById('role-input').value;
     const tema = document.getElementById('tema-input').value;
@@ -221,18 +222,18 @@ function generatePrompt() {
     document.getElementById('prompt-output').innerHTML = promptText;
 }
 
-function copyToClipboard() {
+function copyCustomPrompt() {
     const textToCopy = document.getElementById('prompt-output').innerText;
-    const btn = document.getElementById('copy-btn');
+    const btn = document.getElementById('copy-custom-btn');
 
     navigator.clipboard.writeText(textToCopy).then(() => {
         const originalText = btn.innerHTML;
-        btn.innerHTML = "✅ Zkopírováno!";
-        btn.style.background = "#4caf50";
+        btn.innerHTML = '<i class="fas fa-check"></i> Zkopírováno!';
+        btn.style.background = "#f06292";
         
         setTimeout(() => {
             btn.innerHTML = originalText;
-            btn.style.background = "#f06292";
+            btn.style.background = "#2c3e50";
         }, 2000);
     });
 }
