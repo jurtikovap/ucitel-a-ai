@@ -120,26 +120,26 @@
                 <div class="generator-container">
                     <div class="generator-form">
                         <div class="input-group">
-                            <label>1. Role AI (Kdo to píše?)</label>
+                            <label>1. Role: Kdo je AI (Kdo to píše?)</label>
                             <input type="text" id="role-input" placeholder="Např. Mistr odborného výcviku..." oninput="generateCustomPrompt()">
                             <small>Tip: Jsi zkušený metodik s 20letou praxí, který vysvětluje věci polopatě.</small>
                         </div>
 
                         <div class="input-group">
-                            <label>2. Téma a Rozsah (Co tvoříme?)</label>
-                            <textarea id="tema-input" placeholder="Např. Diagnostika pleti, 10 otázek..." oninput="generateCustomPrompt()"></textarea>
-                            <small>Tip: Téma: Hluboké čištění. Vygeneruj text pro výklad na 15 minut.</small>
+                            <label>2. Úkol: Téma, zpracování (Co tvoříme?)</label>
+                            <textarea id="tema-input" placeholder="Např. Diagnostika pleti, pracovní list ..." oninput="generateCustomPrompt()"></textarea>
+                            <small>Tip: Test na téma Hluboké čištění. nebo Vygeneruj text pro výklad na 15 minut na téma ...</small>
                         </div>
 
                         <div class="input-group">
-                            <label>3. Cílová skupina (Pro koho?)</label>
+                            <label>3. Kontext: Cílová skupina, specifikace (Pro koho, pojmy, předmět?)</label>
                             <input type="text" id="target-input" placeholder="Např. 1. ročník SOŠ..." oninput="generateCustomPrompt()">
-                            <small>Tip: Žáci, kteří jsou v dílně poprvé. Používej odborné termíny, ale srozumitelně.</small>
+                            <small>Tip: Žáci, kteří jsou v kuchyni poprvé. Používej odborné termíny, ale srozumitelně.</small>
                         </div>
 
                         <div class="input-group">
-                            <label>4. Typy otázek / Aktivita</label>
-                            <input type="text" id="format-input" placeholder="Např. 5 otevřených otázek..." oninput="generateCustomPrompt()">
+                            <label>4. Formát: Struktura, typy otázek / Aktivita</label>
+                            <input type="text" id="format-input" placeholder="Např. 5 otevřených otázek, diskuse ..." oninput="generateCustomPrompt()">
                             <small>Tip: Chci 3 otázky na logické zdůvodnění postupu a 2 testové (A,B,C).</small>
                         </div>
 
@@ -154,12 +154,40 @@
 
                     <div class="generator-preview">
                         <div class="preview-header">VÁŠ SUPER-PROMPT:</div>
-                        <div id="prompt-output" class="preview-box">
-                            Začněte psát do políček vlevo a váš prompt se zde začne skládat...
-                        </div>
-                        <button class="copy-custom-btn" onclick="copyCustomPrompt()" id="copy-custom-btn">
-                            <i class="fas fa-copy"></i> Zkopírovat prompt
-                        </button>
+                            <div id="prompt-output" class="preview-box">
+                                <div class="prompt-line">
+                                    <span class="static-text">Jsi </span>
+                                    <span id="out-role" class="dynamic-placeholder">[expertní role]</span>.
+                                </div>
+                                
+                                <div class="prompt-line">
+                                    <span class="static-text">Tvým úkolem je vytvořit </span>
+                                    <span id="out-tema" class="dynamic-placeholder">[téma a rozsah]</span>.
+                                </div>
+                                
+                                <div class="prompt-line">
+                                    <span class="static-text">Tento materiál je určen pro </span>
+                                    <span id="out-target" class="dynamic-placeholder">[cílovou skupinu]</span>.
+                                </div>
+                                
+                                <div class="prompt-line">
+                                    <span class="static-text">Při tvorbě se zaměř na </span>
+                                    <span id="out-format" class="dynamic-placeholder">[typy otázek a aktivity]</span>.
+                                </div>
+                                
+                                <div id="out-bonus" class="prompt-line" style="display: none;">
+                                    <span class="static-text">Na závěr mi doporuč jeden konkrétní pedagogický tip a otázku do diskuse.</span>
+                                </div>
+                            </div>
+                            <div class="button-row">
+                                <button class="copy-custom-btn" onclick="copyCustomPrompt()" id="copy-custom-btn">
+                                    <i class="fas fa-copy"></i> Zkopírovat prompt
+                                </button>
+                                
+                                <button class="reset-btn" onclick="clearCustomPrompt()">
+                                    <i class="fas fa-trash-alt"></i> Smazat vše
+                                </button>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -167,6 +195,62 @@
             <div id="tab4" class="tab-content bg-vyuka">
                 <h3>Obsah pro Tlačítko 4</h3>
                 <p>Čtvrtá sekce obsahu...</p>
+                <div class="table-container">
+                    <table class="modern-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Metoda</th>
+                                <th>Jak to funguje</th>
+                                <th>Proč je to dobré</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="num">1</td>
+                                <td><strong>Záměr & Doptávání</strong></td>
+                                <td>Řekneš záměr a AI tě „vytěží“ otázkami, než začne psát kód.</td>
+                                <td>Zjistíš, na co všechno jsi zapomněla (třeba navigaci).</td>
+                            </tr>
+                            <tr>
+                                <td class="num">2</td>
+                                <td><strong>Reverzní vizuál</strong></td>
+                                <td>Vložíš obrázek a necháš AI popsat kód a styl.</td>
+                                <td>Pochopíš, jak se odborně jmenuje styl, co se ti líbí.</td>
+                            </tr>
+                            <tr>
+                                <td class="num">3</td>
+                                <td><strong>Interaktivní architekt</strong></td>
+                                <td>AI se ptá na detaily jeden po druhém, dokud nesestaví super-prompt.</td>
+                                <td><span class="badge">Nejsilnější metoda</span> Výsledný prompt je přesně na míru.</td>
+                            </tr>
+                            <tr>
+                                <td class="num">4</td>
+                                <td><strong>Tvorba Gema</strong></td>
+                                <td>Vytvoříš si asistenta, který má doptávání v popisu práce.</td>
+                                <td>Šetříš čas, nemusíš pravidla psát pokaždé znovu.</td>
+                            </tr>
+                            <tr>
+                                <td class="num">5</td>
+                                <td><strong>Mentor (Kritika)</strong></td>
+                                <td>AI zkritizuje tvůj hotový kód a navrhne zlepšení.</td>
+                                <td>Učíš se ze svých chyb v reálném čase.</td>
+                            </tr>
+                            <tr>
+                                <td class="num">6</td>
+                                <td><strong>Role-Play</strong></td>
+                                <td>AI si hraje na senior vývojáře nebo tvého klienta.</td>
+                                <td>Uvidíš projekt z jiného úhlu (třeba technické chyby).</td>
+                            </tr>
+                            <tr>
+                                <td class="num">7</td>
+                                <td><strong>Otázka na konec</strong></td>
+                                <td>AI musí každou zprávu končit otázkou na další krok nebo detail.</td>
+                                <td>Udržuje to konverzaci v pohybu a zpřesňuje výsledek.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div id="tab5" class="tab-content bg-vyuka">

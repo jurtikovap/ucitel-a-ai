@@ -194,46 +194,82 @@ function resetBuilder() {
 }
 
 function generateCustomPrompt() {
-    // Načtení hodnot z polí
-    const role = document.getElementById('role-input').value;
-    const tema = document.getElementById('tema-input').value;
-    const target = document.getElementById('target-input').value;
-    const format = document.getElementById('format-input').value;
-    const bonus = document.getElementById('bonus-check').checked;
+    // Načtení hodnot - přidána kontrola existence prvků, aby to neházelo chybu
+    const roleVal = document.getElementById('role-input').value;
+    const temaVal = document.getElementById('tema-input').value;
+    const targetVal = document.getElementById('target-input').value;
+    const formatVal = document.getElementById('format-input').value;
+    const bonusChecked = document.getElementById('bonus-check').checked;
 
-    // Pokud je vše prázdné, ukaž nápovědu
-    if (!role && !tema && !target && !format) {
-        document.getElementById('prompt-output').innerHTML = "Začněte psát do políček vlevo a váš prompt se zde začne skládat...";
-        return;
+    // Aktualizace textů v náhledu
+    updatePreview('out-role', roleVal, '[expertní role]');
+    updatePreview('out-tema', temaVal, '[téma a rozsah]');
+    updatePreview('out-target', targetVal, '[cílovou skupinu]');
+    updatePreview('out-format', formatVal, '[typy otázek a aktivity]');
+
+    // Oprava zobrazení bonusu - používáme block místo inline, aby zůstal na novém řádku
+    const bonusEl = document.getElementById('out-bonus');
+    if (bonusEl) {
+        bonusEl.style.display = bonusChecked ? 'block' : 'none';
     }
+}
 
-    // Skládání textu s tučným zvýrazněním vstupů
-    let promptText = "";
-    
-    if (role) promptText += `Jsi <b>${role}</b>. `;
-    if (tema) promptText += `Tvým úkolem je vytvořit <b>${tema}</b>. `;
-    if (target) promptText += `Tento materiál je určen pro <b>${target}</b>. `;
-    if (format) promptText += `Při tvorbě se zaměř na tyto typy otázek nebo aktivit: <b>${format}</b>. `;
-    
-    if (bonus) {
-        promptText += ` Na závěr mi doporuč jeden konkrétní <b>pedagogický tip</b>, jak toto téma oživit v praxi a jednu provokativní otázku do diskuse.`;
+function updatePreview(id, value, placeholder) {
+    const el = document.getElementById(id);
+    if (!el) return; // Pokud ID neexistuje, funkce skončí
+
+    if (value && value.trim() !== "") {
+        el.innerText = value;
+        el.style.color = "#f06292"; // Tvoje růžová
+        el.style.fontWeight = "normal";
+    } else {
+        el.innerText = placeholder;
+        el.style.color = "#aaa"; // Šedá pro placeholder
+        el.style.fontWeight = "normal";
     }
-
-    document.getElementById('prompt-output').innerHTML = promptText;
 }
 
 function copyCustomPrompt() {
-    const textToCopy = document.getElementById('prompt-output').innerText;
     const btn = document.getElementById('copy-custom-btn');
+    const lines = document.querySelectorAll('.prompt-line');
+    let finalPrompt = "";
 
-    navigator.clipboard.writeText(textToCopy).then(() => {
+    lines.forEach(line => {
+        // Kontrola, zda je řádek viditelný a neobsahuje nevyplněný placeholder
+        if (window.getComputedStyle(line).display !== 'none') {
+            let text = line.innerText;
+            if (!text.includes("[")) {
+                finalPrompt += text + "\n";
+            }
+        }
+    });
+
+    if (finalPrompt.trim() === "") {
+        alert("Prompt je prázdný, nejdříve něco vyplňte.");
+        return;
+    }
+
+    navigator.clipboard.writeText(finalPrompt.trim()).then(() => {
         const originalText = btn.innerHTML;
         btn.innerHTML = '<i class="fas fa-check"></i> Zkopírováno!';
-        btn.style.background = "#f06292";
+        btn.classList.add('success-bg'); // Můžeš přidat v CSS barvu
         
         setTimeout(() => {
             btn.innerHTML = originalText;
-            btn.style.background = "#2c3e50";
+            btn.classList.remove('success-bg');
         }, 2000);
     });
+}
+
+function clearCustomPrompt() {
+    if (confirm("Opravdu chcete smazat celý tento prompt?")) {
+        document.getElementById('role-input').value = "";
+        document.getElementById('tema-input').value = "";
+        document.getElementById('target-input').value = "";
+        document.getElementById('format-input').value = "";
+        document.getElementById('bonus-check').checked = false;
+
+        generateCustomPrompt();
+        document.getElementById('role-input').focus();
+    }
 }
