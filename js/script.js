@@ -149,10 +149,10 @@ function switchPrompt(topic) {
 
 const comments = [
     "",
-    "Začínáme jasným tématem. Bez něj AI neví, o čem psát.",
-    "Přidali jsme EXPERTÍZU. AI teď ví, že nemá psát jako vědec, ale jako praktik.",
-    "Doplnili jsme CÍLOVOU SKUPINU. Teď bude náročnost textu přesně pro prváky.",
-    "URČILI JSME STRUKTURU. Místo textové zdi dostanete přehlednou tabulku.",
+    "Začínáme přidělení ROLE. AI teď ví, že nemá psát jako vědec, ale jako praktik na kosmetiku.",
+    "Přidali jsme jasné TÉMA a ZPRACOVÁNÍ. Bez něj AI neví, o čem psát a jak to zpracovat.",
+    "Doplnili jsme CÍLOVOU SKUPINU a SPECIFIKACI. Teď bude náročnost textu přesně pro prváky.",
+    "Určili jsme STRUKTURU. Místo textové zdi dostanete přehledný přesně definovaný pracovní list.",
     "BONUS: AI teď funguje jako váš metodický poradce a pomůže vám vtáhnout žáky do děje."
 ];
 
