@@ -42,10 +42,10 @@
 
             <div id="tab1" class="tab-content bg-vyuka active">
                 <h3>Dobrý vs. špatný prompt</h3>
-                <p>Ukážeme si pár příkladů, jakým způsobem začínáme psát prompty, a k jakým se postupně sami dostanete</p>
+                <p>Ukážeme si pár příkladů, jakým způsobem psát prompty, a k jakým se postupně sami dostanete</p>
                 <div class="sos-interaction-section">
                     <div class="topic-selector">
-                        <div class="topic-card active" onclick="switchPrompt('material')">
+                        <div class="topic-card" onclick="switchPrompt('material')">
                             <i class="fas fa-file-invoice"></i>
                             <span>Výukový materiál</span>
                         </div>
@@ -67,7 +67,7 @@
                         <div class="prompt-box bad">
                             <div class="box-header">ŠPATNÝ (VÁGNÍ)</div>
                             <div class="prompt-content italic" id="bad-text">
-                                "Udělej mi test pro řezníky na téma bourání masa."
+                                "Zde bude ukázka špatného promptu."
                             </div>
                             <div class="result-note" id="bad-note">
                                 AI vypíše obecný seznam, kterému chybí odborná hloubka a specifika vašeho oboru.
@@ -77,7 +77,7 @@
                         <div class="prompt-box good">
                             <div class="box-header highlight">DOBRÝ (STRUKTUROVANÝ)</div>
                             <div class="prompt-content" id="good-text">
-                                "Jsi mistr odborného výcviku..." </div>
+                                "Zde bude ukázka dobrého promptu, který je konkrétní, strukturovaný a přizpůsobený potřebám výuky." </div>
                             <div class="result-note" id="good-note">
                                 Získáte hotové podklady pro výuku, které přesně odpovídají osnovám SOŠ.
                             </div>
@@ -193,8 +193,8 @@
             </div>
 
             <div id="tab4" class="tab-content bg-vyuka">
-                <h3>Obsah pro Tlačítko 4</h3>
-                <p>Čtvrtá sekce obsahu...</p>
+                <h3>Obrázené promptování</h3>
+                <p>Nápady, jak obrátit promptování na AI a získat lepší výsledky.</p>
                 <div class="table-container">
                     <table class="modern-table">
                         <thead>
@@ -203,50 +203,65 @@
                                 <th>Metoda</th>
                                 <th>Jak to funguje</th>
                                 <th>Proč je to dobré</th>
+                                <th>Příklad</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td class="num">1</td>
-                                <td><strong>Záměr & Doptávání</strong></td>
-                                <td>Řekneš záměr a AI tě „vytěží“ otázkami, než začne psát kód.</td>
-                                <td>Zjistíš, na co všechno jsi zapomněla (třeba navigaci).</td>
+                                <td><strong>Záměr a AI</strong></td>
+                                <td>Řekneš záměr a AI prompt vymyslí.</td>
+                                <td>Navede tě, jak by měl prompt vypadat.</td>
+                                <td>Chci  toto ... vymysli prompt.</td>
                             </tr>
                             <tr>
                                 <td class="num">2</td>
                                 <td><strong>Reverzní vizuál</strong></td>
-                                <td>Vložíš obrázek a necháš AI popsat kód a styl.</td>
+                                <td>Vložíš obrázek a necháš AI popsat co vidí.</td>
                                 <td>Pochopíš, jak se odborně jmenuje styl, co se ti líbí.</td>
+                                <td>Vložím obrázek ... popiš přesně, co vidíš a jak bys napsal prompt, aby se vytvořil podobný styl.</td>
                             </tr>
                             <tr>
                                 <td class="num">3</td>
                                 <td><strong>Interaktivní architekt</strong></td>
                                 <td>AI se ptá na detaily jeden po druhém, dokud nesestaví super-prompt.</td>
-                                <td><span class="badge">Nejsilnější metoda</span> Výsledný prompt je přesně na míru.</td>
+                                <td>Výsledný prompt je přesně na míru.</td>
+                                <td>Chci toto ... ptej se tak dlouho, až budeš mít všechny potřebné informace k vytvoření promptu.</td>
                             </tr>
                             <tr>
                                 <td class="num">4</td>
-                                <td><strong>Tvorba Gema</strong></td>
-                                <td>Vytvoříš si asistenta, který má doptávání v popisu práce.</td>
-                                <td>Šetříš čas, nemusíš pravidla psát pokaždé znovu.</td>
+                                <td><strong>Mentor (Kritika)</strong></td>
+                                <td>AI zkritizuje tvůj hotový výtvor a navrhne zlepšení.</td>
+                                <td>Učíš se ze svých chyb v reálném čase.</td>
+                                <td>Nahrajete výtvor ... najdi chyby, navrhni zlepšení a vyysvětli mi to.</td>
                             </tr>
                             <tr>
                                 <td class="num">5</td>
-                                <td><strong>Mentor (Kritika)</strong></td>
-                                <td>AI zkritizuje tvůj hotový kód a navrhne zlepšení.</td>
-                                <td>Učíš se ze svých chyb v reálném čase.</td>
-                            </tr>
-                            <tr>
-                                <td class="num">6</td>
                                 <td><strong>Role-Play</strong></td>
                                 <td>AI si hraje na senior vývojáře nebo tvého klienta.</td>
                                 <td>Uvidíš projekt z jiného úhlu (třeba technické chyby).</td>
+                                <td>Nahrejte výtvor ... kritizuj můj výtvor z pohledu uživatele, nastav mi zrcadlo, udělej mi pohovor a navrhuj zlepšení.</td>
                             </tr>
+                            <tr>
+                                <td class="num">6</td>
+                                <td><strong>Tvorba Gema (Asistenta)</strong></td>
+                                <td>Vytvoření asistenta na specifickou činnost.</td>
+                                <td>Šetříš čas, nemusíš pravidla psát pokaždé znovu, můžeš ho použít opakovaně.</td>
+                                <td>Chci vytvořit gema na toto ... pomož mi s jeho tvorbou.</td>
+                            </tr>                            
                             <tr>
                                 <td class="num">7</td>
                                 <td><strong>Otázka na konec</strong></td>
                                 <td>AI musí každou zprávu končit otázkou na další krok nebo detail.</td>
                                 <td>Udržuje to konverzaci v pohybu a zpřesňuje výsledek.</td>
+                                <td>Chceš-li pokračovat, polož mi otázku, která tě vedla k dalšímu kroku.</td>
+                            </tr>
+                            <tr>
+                                <td class="num">8</td>
+                                <td><strong>Otázka na konec 2</strong></td>
+                                <td>AI musí každou zprávu končit otázkou na další krok nebo detail.</td>
+                                <td>Udržuje to konverzaci v pohybu a zpřesňuje výsledek.</td>
+                                <td>Nastavení otázky v celkovém nastavení chatu či gemu.</td>
                             </tr>
                         </tbody>
                     </table>
