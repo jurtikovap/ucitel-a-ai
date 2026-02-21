@@ -1243,7 +1243,7 @@ footer {
     border-collapse: collapse;
     background: white;
     min-width: 600px; /* Aby se text na mobilu moc nemačkal */
-    font-size: 0.95rem;
+    font-size: 0.75rem;
 }
 
 .modern-table thead {
