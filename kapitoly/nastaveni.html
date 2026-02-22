@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><path d=%22M30 30h40v40H30zM45 15v15M55 15v15M85 45h-15M85 55h-15M55 85V70M45 85V70M15 55h15M15 45h15%22 stroke=%22black%22 stroke-width=%226%22 fill=%22none%22 stroke-linecap=%22round%22/></svg>">
+    <title>Nastavení a usnadnění - AI pro učitele</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="../index.html" style="color:white; text-decoration:none;">AI pro učitele</a>
+            </div>
+            <div class="nav-right-section">
+                <i class="fa-solid fa-diagram-project"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="lesson-container">
+        <div class="lesson-header cat-nastav">
+            <h1>
+                <i class="fas fa-cog" style="margin-right: 12px; color: #3498db; opacity: 0.7;"></i>
+                Nastavení a usnadnění práce s AI
+            </h1>
+        </div>
+
+        <section class="lesson-content">
+            <p>Umění psát správná zadání (prompty) je klíčem k tomu, aby vám AI poskytla skutečně užitečné výsledky. Zde se naučíte, jak na to.</p>
+            
+            <div class="tab-menu cat-nastav">
+                <button class="tab-btn active" onclick="openTab(event, 'tab1')">Nastavení chatu</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab2')">Usnadnění</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab3')">pokus</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab4')">pokus</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab5')">Co vytvořit?</button>           
+            </div>
+
+            <div id="tab1" class="tab-content bg-nastav active">
+                <h3>Nastavení chatu</h3>
+                <p>Ukážeme si pár příkladů, jakým způsobem nastavit chat AI pro efektivní práci s výukou</p>
+                <div class="sos-interaction-section">
+                    <div class="topic-selector">
+                        <div class="topic-card" onclick="switchPrompt('material')">
+                            <i class="fas fa-file-invoice"></i>
+                            <span>Výukový materiál</span>
+                        </div>
+                        <div class="topic-card" onclick="switchPrompt('prezentace')">
+                            <i class="fas fa-layer-group"></i>
+                            <span>Prezentace</span>
+                        </div>
+                        <div class="topic-card" onclick="switchPrompt('obrazek')">
+                            <i class="fas fa-camera-retro"></i>
+                            <span>Obrázek</span>
+                        </div>
+                        <div class="topic-card" onclick="switchPrompt('korekce')">
+                            <i class="fas fa-magic"></i>
+                            <span>Korekce textu</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-display">
+                        <div class="prompt-box bad">
+                            <div class="box-header">ŠPATNÝ (VÁGNÍ)</div>
+                            <div class="prompt-content italic" id="bad-text">
+                                "Zde bude ukázka špatného promptu."
+                            </div>
+                            <div class="result-note" id="bad-note">
+                                AI vypíše obecný seznam, kterému chybí odborná hloubka a specifika vašeho oboru.
+                            </div>
+                        </div>
+
+                        <div class="prompt-box good">
+                            <div class="box-header highlight">DOBRÝ (STRUKTUROVANÝ)</div>
+                            <div class="prompt-content" id="good-text">
+                                "Zde bude ukázka dobrého promptu, který je konkrétní, strukturovaný a přizpůsobený potřebám výuky." </div>
+                            <div class="result-note" id="good-note">
+                                Získáte hotové podklady pro výuku, které přesně odpovídají osnovám SOŠ.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab2" class="tab-content bg-nastav">
+                <h3>Usnadnění</h3>
+                <p>Nápady, jak obrátit promptování na AI, ať to udělá za vás, a získat tak lepší výsledky.</p>
+                <div class="table-container">
+                <div class="table-container">
+                    <table class="modern-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Metoda</th>
+                                <th>Příklad</th>
+                                <th>Proč je to dobré</th>
+                                <th>Prompt</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="num">1</td>
+                                <td><strong>Záměr a AI</strong></td>
+                                <td>Chci ... vymysli prompt a napiš vše, co ti k dokonalému zadání ještě chybí.</td>
+                                <td>AI ukáže, jak by měl prompt vypadat a co je potřeba dodat.</td>
+                                <td>.</td>
+                            </tr>
+                            <tr>
+                                <td class="num">2</td>
+                                <td><strong>Reverzní vizuál</strong></td>
+                                <td>Vložím obrázek ... popiš přesně, co vidíš a jak bys napsal prompt, aby se vytvořil podobný styl.</td>
+                                <td>AI pojmenuje přesně a odborně styl, a vytvoří si na výsledek prompt.</td>
+                                <td>.</td>
+                            </tr>
+                            <tr>
+                                <td class="num">3</td>
+                                <td><strong>Interaktivní architekt</strong></td>
+                                <td>Chci ... ptej se tak dlouho, až budeš mít všechny potřebné informace k vytvoření promptu.</td>
+                                <td>Výsledný prompt je přesně na míru, i s detaily.</td>
+                                <td>.</td>
+                            </tr>
+                            <tr>
+                                <td class="num">4</td>
+                                <td><strong>Mentor (Kritika)</strong></td>
+                                <td>Nahraji prompt (výtvor, článek) ... najdi chyby, navrhni zlepšení a vysvětli mi to.</td>
+                                <td>učení se ze svých chyb a pochopení nových souvislostí.</td>
+                                <td>.</td>
+                            </tr>
+                            <tr>
+                                <td class="num">5</td>
+                                <td><strong>Role-Play</strong></td>
+                                <td>Nahreji prompt (výtvor) ... kritizuj můj výtvor z pohledu uživatele, nastav mi zrcadlo, udělej mi pohovor a navrhuj zlepšení.</td>
+                                <td>Pohled na projekt z jiného úhlu (třeba technické chyby).</td>
+                                <td>.</td>
+                            </tr>
+                            <tr>
+                                <td class="num">6</td>
+                                <td><strong>Tvorba Gema (Asistenta)</strong></td>
+                                <td>Chci vytvořit gema na toto ... pomož mi s jeho tvorbou. Ptej se na detaily, které jsou potřeba k jeho vytvoření.</td>
+                                <td>Rychlé vytvoření, nemusíš pravidla psát pokaždé znovu, můžeš ho použít opakovaně.</td>
+                                <td>.</td>
+                            </tr>                            
+                            <tr>
+                                <td class="num">7</td>
+                                <td><strong>Otázka na konec</strong></td>
+                                <td>Za každou tvojí odpovědí mi polož otázku k danému tématu.</td>
+                                <td>Udržuje to konverzaci v pohybu a zpřesňuje výsledek.</td>
+                                <td>.</td>
+                            </tr>
+                            <tr>
+                                <td class="num">8</td>
+                                <td><strong>Otázka na konec 2</strong></td>
+                                <td>Nastavení otázky v celkovém nastavení chatu či gemu.</td>
+                                <td>Platí napříč všemi chaty a gemy.</td>
+                                <td>.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+                <div class="table-note">
+                    <p><strong>Tip pro vás:</strong> Pozor i AI může být někdy velmi akční
+                        a vytvářet nečekané výsledky. V dobrém i zlém.</p>
+                    <p><strong>Tipy na další obrácení na AI:</strong> </p>
+                        <ul>
+                            <li><strong>Analýza konkurence:</strong> Nech AI prozkoumat a zkritizovat konkurenční materiály nebo přístupy.</li>
+                            <li><strong>Simulace krizové situace:</strong> Nech AI vytvořit scénář, jak by reagovala na krizovou situaci ve výuce.</li>
+                            <li><strong>Generování nápadů:</strong> Nech AI vygenerovat co nejvíce nápadů na konkrétní téma, a pak je společně proberte.</li>
+                            <li><strong>Role zákazníka:</strong> Nech AI hrát roli náročného zákazníka, který klade otázky a požadavky na tvůj výtvor.</li>
+                            <li><strong>Simulace pohovoru:</strong> Nech AI simulovat pohovor, kde bude klást otázky na tvůj projekt a ty budeš odpovídat.</li>
+                            <li><strong>Generování doplňujících otázek pro AI:</strong> Nech AI generovat otázky, které můžeš položit AI pro získání detailnějších informací.</li>
+                        </ul> 
+                </div>
+            </div>
+
+            <div id="tab3" class="tab-content bg-nastav">
+                <h3>A jdeme do finále ... jdeme tvořit ...</h3>
+                <p>Třetí sekce obsahu...</p>
+                <div class="generator-container">
+
+                </div>
+            </div>
+
+            <div id="tab4" class="tab-content bg-nastav">
+                <h3>Skládačka promptů</h3>
+                <p>Jak jednoduše si představit a vytvořit efektivní prompt pro AI, aby dělala, to co chceme.</p>
+                <div class="builder-section">
+                    <div class="builder-controls">
+                        <div class="step-btn" onclick="addLayer(1)"><span>1. Role</span></div>
+                        <div class="step-btn" onclick="addLayer(2)"><span>2. Úkol</span></div>
+                        <div class="step-btn" onclick="addLayer(3)"><span>3. Kontext</span></div>
+                        <div class="step-btn" onclick="addLayer(4)"><span>4. Formát</span></div>
+                        <div class="step-btn bonus" onclick="addLayer(5)"><span>5. BONUS ✨</span></div>
+                        <div class="reset-btn" onclick="resetBuilder()" title="Začít znovu">
+                            <i class="fas fa-trash-alt"></i> Smazat</div>    
+                    </div>
+
+                    <div class="prompt-display" id="prompt-result">
+                        <span id="layer-1" class="layer hidden">Jsi zkušená kosmetička a lektorka odborného výcviku s 20letou praxí. </span>
+                        <span id="layer-2" class="layer hidden">Vytvoř pracovní list na téma typologie pleti. </span>
+                        <span id="layer-3" class="layer hidden">Materiál je pro 1. ročník SOŠ. Musí obsahovat diagnostické znaky suché a mastné pleti a být srozumitelný pro začátečníky. </span>
+                        <span id="layer-4" class="layer hidden">Bude obsahovat 3 otevřené otázky a 3 uzavřené otázky, výběr ze čtyř odpovědí. Na závěr přidej kontrolní otázku pro vyhledávání na internetu. </span>
+                        <span id="layer-5" class="layer hidden">Na závěr mi doporuč jeden pedagogický tip, jak toto téma oživit v praxi, a jednu diskusní otázku k zamyšlení.</span>
+                        
+                        <div id="placeholder-text">Klikněte na první krok a začněte stavět...</div>
+                    </div>
+                    
+                    <div id="builder-commentary" class="commentary-box"></div>
+                </div>
+            </div>
+
+            <div id="tab5" class="tab-content bg-nastav">
+                <h3>Obsah pro Tlačítko 5</h3>
+                <p>Čtvrtá sekce obsahu...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <span>&copy; 2026 Generováno AI modelem Gemini 3 Flash</span>
+            <span class="separator">|</span>
+            <span>Správce webu: Mgr. Petra Jurtíková</span>
+        </div>
+    </footer>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

@@ -36,7 +36,7 @@
                 <button class="tab-btn active" onclick="openTab(event, 'tab1')">Dobrý vs. špatný prompt</button>
                 <button class="tab-btn" onclick="openTab(event, 'tab2')">Skládačka promptu</button>
                 <button class="tab-btn" onclick="openTab(event, 'tab3')">A jdeme tvořit ...</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab4')">Efektivní promptování</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab4')">AI promptuje</button>
                 <button class="tab-btn" onclick="openTab(event, 'tab5')">Co vytvořit?</button>           
             </div>
 
@@ -181,7 +181,7 @@
                             </div>
                             <div class="button-row">
                                 <button class="copy-custom-btn" onclick="copyCustomPrompt()" id="copy-custom-btn">
-                                    <i class="fas fa-copy"></i> Zkopírovat prompt
+                                    <i class="fas fa-copy"></i> Kopírovat
                                 </button>
                                 
                                 <button class="reset-btn" onclick="clearCustomPrompt()">
@@ -195,77 +195,54 @@
             <div id="tab4" class="tab-content bg-vyuka">
                 <h3>Efektivní (obrácené) promptování</h3>
                 <p>Nápady, jak obrátit promptování na AI, ať to udělá za vás, a získat tak lepší výsledky.</p>
-                <div class="table-container">
-                    <table class="modern-table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Metoda</th>
-                                <th>Jak to funguje</th>
-                                <th>Proč je to dobré</th>
-                                <th>Příklad</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="num">1</td>
-                                <td><strong>Záměr a AI</strong></td>
-                                <td>Řekneš záměr a AI prompt vymyslí.</td>
-                                <td>Ukáže ti, jak by měl prompt vypadat.</td>
-                                <td>Chci  toto ... vymysli prompt a napiš vše, co ti k zadání ještě chybí.</td>
-                            </tr>
-                            <tr>
-                                <td class="num">2</td>
-                                <td><strong>Reverzní vizuál</strong></td>
-                                <td>Vložíš obrázek a necháš AI popsat co vidí.</td>
-                                <td>Pochopíš, jak se odborně jmenuje styl, co se ti líbí.</td>
-                                <td>Vložím obrázek ... popiš přesně, co vidíš a jak bys napsal prompt, aby se vytvořil podobný styl.</td>
-                            </tr>
-                            <tr>
-                                <td class="num">3</td>
-                                <td><strong>Interaktivní architekt</strong></td>
-                                <td>AI se ptá na detaily jeden po druhém, dokud nesestaví super-prompt.</td>
-                                <td>Výsledný prompt je přesně na míru.</td>
-                                <td>Chci toto ... ptej se tak dlouho, až budeš mít všechny potřebné informace k vytvoření promptu.</td>
-                            </tr>
-                            <tr>
-                                <td class="num">4</td>
-                                <td><strong>Mentor (Kritika)</strong></td>
-                                <td>AI zkritizuje tvůj hotový výtvor a navrhne zlepšení.</td>
-                                <td>Učíš se ze svých chyb v reálném čase.</td>
-                                <td>Nahrajete výtvor ... najdi chyby, navrhni zlepšení a vysvětli mi to.</td>
-                            </tr>
-                            <tr>
-                                <td class="num">5</td>
-                                <td><strong>Role-Play</strong></td>
-                                <td>AI si hraje na senior vývojáře nebo tvého klienta.</td>
-                                <td>Uvidíš projekt z jiného úhlu (třeba technické chyby).</td>
-                                <td>Nahrejte výtvor ... kritizuj můj výtvor z pohledu uživatele, nastav mi zrcadlo, udělej mi pohovor a navrhuj zlepšení.</td>
-                            </tr>
-                            <tr>
-                                <td class="num">6</td>
-                                <td><strong>Tvorba Gema (Asistenta)</strong></td>
-                                <td>Vytvoření asistenta na specifickou činnost.</td>
-                                <td>Šetříš čas, nemusíš pravidla psát pokaždé znovu, můžeš ho použít opakovaně.</td>
-                                <td>Chci vytvořit gema na toto ... pomož mi s jeho tvorbou.</td>
-                            </tr>                            
-                            <tr>
-                                <td class="num">7</td>
-                                <td><strong>Otázka na konec</strong></td>
-                                <td>AI musí každou zprávu končit otázkou na další krok nebo detail.</td>
-                                <td>Udržuje to konverzaci v pohybu a zpřesňuje výsledek.</td>
-                                <td>Chceš-li pokračovat, polož mi otázku, která tě vedla k dalšímu kroku.</td>
-                            </tr>
-                            <tr>
-                                <td class="num">8</td>
-                                <td><strong>Otázka na konec 2</strong></td>
-                                <td>AI musí každou zprávu končit otázkou na další krok nebo detail.</td>
-                                <td>Udržuje to konverzaci v pohybu a zpřesňuje výsledek.</td>
-                                <td>Nastavení otázky v celkovém nastavení chatu či gemu.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="methods-container">
+                    <div class="methods-menu">
+                        <button class="method-btn active" onclick="showMethod('zamer')">
+                            <i class="fas fa-bullseye"></i> Záměr & Doptávání
+                        </button>
+                        <button class="method-btn" onclick="showMethod('vizual')">
+                            <i class="fas fa-image"></i> Reverzní vizuál
+                        </button>
+                        <button class="method-btn" onclick="showMethod('architekt')">
+                            <i class="fas fa-drafting-compass"></i> Interaktivní architekt
+                        </button>
+                        <button class="method-btn" onclick="showMethod('mentor')">
+                            <i class="fas fa-user-graduate"></i> Mentor (Kritika)
+                        </button>
+                        <button class="method-btn" onclick="showMethod('roleplay')">
+                            <i class="fas fa-mask"></i> Role-Play
+                        </button>
+                        <button class="method-btn" onclick="showMethod('otazka')">
+                            <i class="fas fa-question-circle"></i> Otázka na konec
+                        </button>
+                        <button class="method-btn" onclick="showMethod('gema')">
+                            <i class="fas fa-gem"></i> Tvorba Gema
+                        </button>                    
+                    </div>
+
+                    <div class="method-display">
+                        <div class="display-section">
+                            <label>Jak to funguje</label>
+                            <div id="display-how" class="info-box-static">Vyberte metodu vlevo...</div>
+                        </div>
+
+                        <div class="display-section">
+                            <label>Proč je to dobré</label>
+                            <div id="display-why" class="info-box-static">...</div>
+                        </div>
+
+                        <div class="display-section">
+                            <label>Příklad promptu</label>
+                            <textarea id="display-prompt" readonly></textarea>
+                        </div>
+
+                        <button class="copy-btn-main" onclick="copyMethodPrompt()">
+                            <i class="fas fa-copy"></i> Kopírovat
+                        </button>
+                    </div>
                 </div>
+
+
                 <div class="table-note">
                     <p><strong>Tip pro vás:</strong> Pozor i AI může být někdy velmi akční
                         a vytvářet nečekané výsledky. V dobrém i zlém.</p>
@@ -284,6 +261,7 @@
             <div id="tab5" class="tab-content bg-vyuka">
                 <h3>Obsah pro Tlačítko 5</h3>
                 <p>Čtvrtá sekce obsahu...</p>
+
             </div>
         </section>
     </main>

@@ -252,11 +252,13 @@ function copyCustomPrompt() {
     navigator.clipboard.writeText(finalPrompt.trim()).then(() => {
         const originalText = btn.innerHTML;
         btn.innerHTML = '<i class="fas fa-check"></i> Zkopírováno!';
-        btn.classList.add('success-bg'); // Můžeš přidat v CSS barvu
+        
+        btn.style.background = "#f06292"; // Můžeš přidat v CSS barvu
         
         setTimeout(() => {
             btn.innerHTML = originalText;
-            btn.classList.remove('success-bg');
+            btn.style.background = "#2c3e50";
+            
         }, 2000);
     });
 }
@@ -273,3 +275,80 @@ function clearCustomPrompt() {
         document.getElementById('role-input').focus();
     }
 }
+
+const methodData = {
+    zamer: {
+        how: "Řeknete AI svůj záměr a zakážete jí začít psát, dokud se vás nedoptá na vše podstatné (role, cíle, formát).",
+        why: "Zjistíte, na co všechno jste zapomněli, a AI získá přesný kontext bez hádání.",
+        prompt: "Mám v úmyslu vytvořit [DOPLŇTE TÉMA]. Zatím nic netvoř. Polož mi nejdříve 5-7 otázek, které potřebuješ znát, abys mohl vytvořit perfektní výsledek."
+    },
+    vizual: {
+        how: "Vložíte obrázek (náčrt, screenshot webu, fotku tabule) a necháte AI analyzovat strukturu nebo styl.",
+        why: "Získáte odborný popis věci, kterou vidíte, ale neumíte ji přesně pojmenovat (barvy, rozvržení).",
+        prompt: "Analyzuj tento obrázek. Popiš jeho strukturu, použitý styl a navrhni, jak bych mohl podobný výsledek vytvořit pomocí kódu nebo textu."
+    },
+    architekt: {
+        how: "AI se stane vaším průvodcem, který s vámi postupně buduje zadání (prompt) krok za krokem.",
+        why: "Nejsilnější metoda. Výsledný prompt je přesně na míru a obsahuje všechny pedagogické detaily.",
+        prompt: "Buď mým expertem na promptování. Chci vytvořit [TÉMA]. Veď mě procesem tvorby nejlepšího možného zadání. Ptej se mě na jeden detail po druhém."
+    },
+    gema: {
+        how: "Nakonfigurujete si vlastního asistenta (Gem), který má pravidla doptávání vryta v 'popisu práce'.",
+        why: "Šetříte čas. Nemusíte ChatGPT pokaždé vysvětlovat, že se má doptávat – on to má v instrukcích.",
+        prompt: "Tvé instrukce: Jsi metodický poradce. Každý můj dotaz nejprve analyzuj a doptávej se na chybějící pedagogické parametry, než odpovíš."
+    },
+    mentor: {
+        how: "Předložíte AI svůj hotový výtvor (zadání testu, článek, kód) a požádáte o tvrdou konstruktivní kritiku.",
+        why: "Získáte pohled zvenčí a učíte se ze svých chyb v reálném čase. AI vidí nelogičnosti, které vy už ne.",
+        prompt: "Tady je můj [VÝSLEDEK]. ZauProcessuj roli přísného mentora a zkritizuj můj návrh. Najdi 3 slabá místa a navrhni jejich konkrétní vylepšení."
+    },
+    roleplay: {
+        how: "AI převtělíte do role specifické osoby – např. žáka se specifickou poruchou učení nebo naštvaného klienta.",
+        why: "Uvidíte svůj projekt z úplně jiného úhlu a můžete si nanečisto vyzkoušet reakce a řešení situací.",
+        prompt: "Předstírej, že jsi žák 1. ročníku SOŠ, který má problém s pozorností a odbornou terminologií. Přečti si tento můj výklad a řekni mi, co ti nedává smysl."
+    },
+    otazka: {
+        how: "Přidáte k jakémukoliv promptu příkaz, aby AI každou svou zprávu končila doplňujícím dotazem.",
+        why: "Udržuje to konverzaci v pohybu a nutí to AI i vás neustále zpřesňovat výsledek.",
+        prompt: "Doplňující instrukce: Odteď musí každá tvá odpověď končit otázkou na další detail nebo krok, abychom výsledek dovedli k dokonalosti."
+    }
+};
+
+function showMethod(id) {
+    // 1. Vizuální přepnutí tlačítek
+    document.querySelectorAll('.method-btn').forEach(btn => btn.classList.remove('active'));
+    
+    // Najdeme tlačítko, na které se kliklo
+    const clickedBtn = document.querySelector(`button[onclick="showMethod('${id}')"]`);
+    if (clickedBtn) clickedBtn.classList.add('active');
+
+    // 2. Naplnění textů do polí
+    const data = methodData[id];
+    if (data) {
+        document.getElementById('display-how').innerText = data.how;
+        document.getElementById('display-why').innerText = data.why;
+        document.getElementById('display-prompt').value = data.prompt;
+    }
+}
+
+function copyMethodPrompt() {
+    const promptText = document.getElementById('display-prompt').value;
+    const btn = document.querySelector('.copy-btn-main');
+    
+    navigator.clipboard.writeText(promptText).then(() => {
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> Zkopírováno!';
+        btn.style.background = "#f06292";
+        
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.background = "#2c3e50";
+        }, 2000);
+    });
+}
+
+// Inicializace po načtení stránky
+window.addEventListener('DOMContentLoaded', () => {
+    showMethod('zamer');
+});
+
