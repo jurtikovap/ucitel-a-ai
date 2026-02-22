@@ -35,51 +35,76 @@
             <div class="tab-menu cat-nastav">
                 <button class="tab-btn active" onclick="openTab(event, 'tab1')">Nastavení chatu</button>
                 <button class="tab-btn" onclick="openTab(event, 'tab2')">Usnadnění</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab3')">pokus</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab4')">pokus</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab5')">Co vytvořit?</button>           
+                <button class="tab-btn" onclick="openTab(event, 'tab3')">3</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab4')">4</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab5')">5</button>           
             </div>
 
             <div id="tab1" class="tab-content bg-nastav active">
                 <h3>Nastavení chatu</h3>
                 <p>Ukážeme si pár příkladů, jakým způsobem nastavit chat AI pro efektivní práci s výukou</p>
-                <div class="sos-interaction-section">
+                <div class="sos-interaction-section sekce-nastaveni" id="nastaveni-sekce">
                     <div class="topic-selector">
-                        <div class="topic-card" onclick="switchPrompt('material')">
+                        <div class="topic-card active" onclick="switchSettings('tipy')">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Tipy a příkazy</span>
+                        </div>
+                        <div class="topic-card" onclick="switchSettings('copilot')">
                             <i class="fas fa-file-invoice"></i>
-                            <span>Výukový materiál</span>
+                            <span>MS Copilot</span>
                         </div>
-                        <div class="topic-card" onclick="switchPrompt('prezentace')">
+                        <div class="topic-card" onclick="switchSettings('gemini')">
                             <i class="fas fa-layer-group"></i>
-                            <span>Prezentace</span>
+                            <span>Google Gemini</span>
                         </div>
-                        <div class="topic-card" onclick="switchPrompt('obrazek')">
+                        <div class="topic-card" onclick="switchSettings('chatgpt')">
                             <i class="fas fa-camera-retro"></i>
-                            <span>Obrázek</span>
-                        </div>
-                        <div class="topic-card" onclick="switchPrompt('korekce')">
-                            <i class="fas fa-magic"></i>
-                            <span>Korekce textu</span>
+                            <span>ChatGPT</span>
                         </div>
                     </div>
 
-                    <div class="comparison-display">
-                        <div class="prompt-box bad">
-                            <div class="box-header">ŠPATNÝ (VÁGNÍ)</div>
-                            <div class="prompt-content italic" id="bad-text">
-                                "Zde bude ukázka špatného promptu."
+                    <div class="settings-interaction-wrapper">
+                        <div class="settings-main-area">
+                            <div id="view-generator" class="settings-view-panel">
+                                <div class="settings-layout-grid">
+                                    <div class="settings-card checklist-side">
+                                        <div class="settings-card-header">VYBERTE SI PRAVIDLA</div>
+                                        <div class="checklist-container">
+                                            <label class="check-item"><input type="checkbox" onchange="updateSettingsText()" data-text="V komunikaci mě oslovuj křestním jménem a udržuj přátelský, ale profesionální tón."> <span>Osobní oslovení</span></label>
+                                            <label class="check-item"><input type="checkbox" onchange="updateSettingsText()" data-text="Odpovídej v krátkých a úderných větách. Vyhýbej se zbytečné omáčce."> <span>Úderné věty</span></label>
+                                            <label class="check-item"><input type="checkbox" onchange="updateSettingsText()" data-text="Jdi přímo k věci. Vynechej zdvořilostní fráze jako 'Rád ti pomohu' nebo 'Zde je výsledek'."> <span>Bez úvodních řečí</span></label>
+                                            <label class="check-item"><input type="checkbox" onchange="updateSettingsText()" data-text="Pokud neznáš odpověď nebo si nejsi jistý, raději přiznej 'Nevím', než abys fabuloval."> <span>Upřímné 'Nevím'</span></label>
+                                            <label class="check-item"><input type="checkbox" onchange="updateSettingsText()" data-text="Každou svou odpověď zakonči minimálně jednou doplňující otázkou k tématu."> <span>Interaktivní konec</span></label>
+                                            <label class="check-item"><input type="checkbox" onchange="updateSettingsText()" data-text="Na úplný závěr každé zprávy přidej jeden krátký, praktický pedagogický tip k tématu."> <span>Pedagogický tip</span></label>
+                                            <label class="check-item"><input type="checkbox" onchange="updateSettingsText()" data-text="Informace strukturuj do přehledných bodů nebo tabulek pro lepší čitelnost."> <span>Strukturovaně</span></label>
+                                            <label class="check-item"><input type="checkbox" onchange="updateSettingsText()" data-text="Při vysvětlování používej metafory a přirovnání z běžného života."> <span>Používej metafory</span></label>
+                                            <label class="check-item"><input type="checkbox" onchange="updateSettingsText()" data-text="Mluv ke mně jako ke zkušenému kolegovi, nepoužívej zbytečně vysvětlující tón."> <span>Kolegiální tón</span></label>
+                                            <label class="check-item"><input type="checkbox" onchange="updateSettingsText()" data-text="Všechny termíny uváděj v češtině, v závorce případně uveď anglický originál."> <span>Česká terminologie</span></label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="settings-card result-side">
+                                        <div class="settings-card-header highlight">VAŠE NASTAVENÍ</div>
+                                        <textarea id="settings-output" readonly placeholder="Zatrhněte tipy..."></textarea>
+                                        <div class="settings-actions">
+                                            <button class="action-btn copy" onclick="copySettings()">Kopírovat</button>
+                                            <button class="action-btn delete" onclick="clearSettings()">Smazat</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="result-note" id="bad-note">
-                                AI vypíše obecný seznam, kterému chybí odborná hloubka a specifika vašeho oboru.
-                            </div>
-                        </div>
 
-                        <div class="prompt-box good">
-                            <div class="box-header highlight">DOBRÝ (STRUKTUROVANÝ)</div>
-                            <div class="prompt-content" id="good-text">
-                                "Zde bude ukázka dobrého promptu, který je konkrétní, strukturovaný a přizpůsobený potřebám výuky." </div>
-                            <div class="result-note" id="good-note">
-                                Získáte hotové podklady pro výuku, které přesně odpovídají osnovám SOŠ.
+                            <div id="view-guide" class="settings-view-panel" style="display: none;">
+                                <div class="settings-layout-grid">
+                                    <div class="settings-card">
+                                        <div class="settings-card-header">KDE TO NASTAVIT?</div>
+                                        <div id="guide-content" class="guide-text-content"></div>
+                                    </div>
+                                    <div class="settings-card">
+                                        <div class="settings-card-header">NÁHLED</div>
+                                        <img id="guide-image" src="" alt="Návod" class="guide-img">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

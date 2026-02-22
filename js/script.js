@@ -352,3 +352,83 @@ window.addEventListener('DOMContentLoaded', () => {
     showMethod('zamer');
 });
 
+const settingsData = {
+    tipy: { isGenerator: true },
+    copilot: {
+        isGenerator: false,
+        text: "<ol><li>Otevřete <span class='blue-text'>Microsoft Copilot</span>.</li><li>Klikněte na svůj profil.</li><li>Vyberte <b>'Vlastní instrukce'</b>.</li></ol>",
+        img: "img/copilot-navod.jpg" // Sem si pak dej svou cestu k obrázku
+    },
+    gemini: {
+        isGenerator: false,
+        text: "<ol><li>Přejděte na <span class='blue-text'>Google Gemini</span>.</li><li>Vlevo dole klikněte na <b>Nastavení</b>.</li><li>Zvolte <b>'Vlastní pokyny'</b>.</li></ol>",
+        img: "img/gemini-navod.jpg"
+    },
+    chatgpt: {
+        isGenerator: false,
+        text: "<ol><li>Otevřete <span class='blue-text'>ChatGPT</span>.</li><li>Klikněte na svůj profil vlevo dole.</li><li>Vyberte <b>'Customize ChatGPT'</b>.</li><li>Vložte text do spodního pole.</li></ol>",
+        img: "img/chatgpt-navod.jpg"
+    }
+};
+
+function switchSettings(topic) {
+    // 1. Vizuální přepnutí tlačítek (topic-card)
+    document.querySelectorAll('.topic-card').forEach(card => card.classList.remove('active'));
+    // Najdeme kliknutý element - buď přímo, nebo přes rodiče
+    const clickedCard = event.currentTarget;
+    clickedCard.classList.add('active');
+
+    const data = settingsData[topic];
+
+    // 2. Přepínání pohledů (view-generator vs view-guide)
+    const genView = document.getElementById('view-generator');
+    const guideView = document.getElementById('view-guide');
+
+    if (data.isGenerator) {
+        genView.style.display = 'block';
+        guideView.style.display = 'none';
+    } else {
+        genView.style.display = 'none';
+        guideView.style.display = 'block';
+        document.getElementById('guide-content').innerHTML = data.text;
+        document.getElementById('guide-image').src = data.img;
+    }
+}
+
+function updateSettingsText() {
+    // Najdeme všechny zaškrtnuté checkboxy uvnitř kontejneru
+    const checkboxes = document.querySelectorAll('.checklist-container input:checked');
+    const output = document.getElementById('settings-output');
+    
+    if (checkboxes.length === 0) {
+        output.value = "";
+        return;
+    }
+
+    let combinedText = "Při každé naší konverzaci dodržuj tato pravidla:\n\n";
+    checkboxes.forEach((cb) => {
+        combinedText += "• " + cb.getAttribute('data-text') + "\n";
+    });
+
+    output.value = combinedText;
+}
+
+function copySettings() {
+    const text = document.getElementById('settings-output').value;
+    if (!text) {
+        alert("Nejdříve něco vyberte!");
+        return;
+    }
+    navigator.clipboard.writeText(text);
+    
+    // Malý vizuální efekt na tlačítku
+    const btn = event.currentTarget;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = "Zkopírováno!";
+    setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+}
+
+function clearSettings() {
+    document.querySelectorAll('.checklist-container input').forEach(cb => cb.checked = false);
+    updateSettingsText();
+}

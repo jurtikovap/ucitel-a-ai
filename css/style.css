@@ -758,6 +758,9 @@ footer {
 .sos-interaction-section {
     max-width: 1100px;
     margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     padding: 0 15px; /* Ochrana, aby se to nelepilo k hranám mobilu */
     box-sizing: border-box; /* Zajistí, že padding nerozšíří kontejner */
 }
@@ -1399,3 +1402,138 @@ footer {
 }
 /* výuka4b */
 /* výuka */
+
+/* nastaveni */
+/* nastaveni1 */
+/* Kontejner pro mřížku v nastavení */
+.settings-interaction-wrapper {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.settings-main-area {
+    width: 100%;
+}
+
+.settings-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    width: 100%;
+}
+
+/* Nová karta nastavení - už žádné kolize s prompt-box */
+.settings-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.settings-card-header {
+    background: #f8f9fa;
+    padding: 12px 20px;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+    color: #2c3e50;
+}
+
+.settings-card-header.highlight {
+    background: #fff0f5; /* Jemný růžový nádech pro výsledek */
+    color: #f06292;
+}
+
+#settings-output {
+    width: 100%;
+    min-height: 450px;
+    padding: 20px;
+    border: none;
+    outline: none;
+    resize: none;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.settings-actions {
+    display: flex;
+    padding: 15px;
+    background: #f8f9fa;
+    gap: 10px;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    padding: 12px 15px;
+    border-radius: 0px;
+    border: 1px solid #e0e0e0; /* Silnější světlý okraj */
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.check-item:hover {
+    
+    transform: translateX(5px); /* Jemný posun doprava při najetí */
+}
+
+/* Styl pro zaškrtnutý stav */
+.check-item input:checked + span {
+    color: #3498db;
+    font-weight: bold;
+}
+
+/* Toto ovlivní JEN karty v sekci nastavení */
+.sekce-nastaveni .topic-card.active {
+    background: #ffffff !important; /* Tmavě modrá */
+    border-color: #3498db !important;
+    color: white !important;
+}
+
+.sekce-nastaveni .topic-card i {
+    font-size: 1.8rem;
+    color: #888;
+}
+   
+.sekce-nastaveni .topic-card.active i {
+    color: #3498db;
+}
+
+/* Modré ladění pro zbytek prvků v této sekci */
+.sekce-nastaveni .settings-card-header.highlight {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.sekce-nastaveni .check-item input:checked {
+    accent-color: #1976d2;
+}
+
+.sekce-nastaveni .check-item:hover {
+    border-color: #bbdefb;
+    background: #f1f8fe;
+}
+
+/* Texty v návodu - modrá zvýraznění */
+.blue-text {
+    color: #1976d2;
+    font-weight: bold;
+}
+
+/* Obrázek v návodu */
+.guide-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 10px;
+}
+/* nastaveni1 */
+/* nastaveni2 */
+/* nastaveni2 */
+/* nastaveni */
+
+/*  * { border: 1px solid red !important; } pro kontrolu boxů, skvělé */
