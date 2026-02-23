@@ -62,7 +62,6 @@
                             <span>ChatGPT</span>
                         </div>
                     </div>
-
                     <div class="settings-interaction-wrapper">
                         <div class="settings-main-area">
                             <div id="view-generator" class="settings-view-panel">
@@ -81,15 +80,12 @@
                                             <label class="check-item"><input type="checkbox" onchange="updateSettingsText()" data-text="Mluv ke mně jako ke zkušenému kolegovi, nepoužívej zbytečně vysvětlující tón."> <span>Kolegiální tón</span></label>
                                             <label class="check-item"><input type="checkbox" onchange="updateSettingsText()" data-text="Všechny termíny uváděj v češtině, v závorce případně uveď anglický originál."> <span>Česká terminologie</span></label>
                                         </div>
-                                    </div>
-                                    
+                                    </div>                                 
                                     <div class="settings-card result-side">
-                                        <div class="settings-card-header highlight">VAŠE NASTAVENÍ</div>
-                                        <textarea id="settings-output" readonly placeholder="Zatrhněte tipy..."></textarea>
-                                        <div class="settings-actions">
-                                            <button class="action-btn copy" onclick="copySettings()">Kopírovat</button>
-                                            <button class="action-btn delete" onclick="clearSettings()">Smazat</button>
+                                        <div class="settings-card-header highlight" >
+                                            VAŠE NASTAVENÍ
                                         </div>
+                                        <textarea id="settings-output" readonly placeholder="Zatrhněte tipy vlevo..."></textarea>                                       
                                     </div>
                                 </div>
                             </div>
@@ -107,6 +103,14 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="settings-actions">
+                        <button class="action-btn copy" onclick="copySettings()">
+                            <i class="fas fa-copy"></i> Kopírovat
+                        </button>
+                        <button class="action-btn delete" onclick="clearSettings()">
+                            <i class="fas fa-trash-alt"></i> Smazat
+                        </button>
                     </div>
                 </div>
             </div>

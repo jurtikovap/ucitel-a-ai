@@ -310,13 +310,13 @@ footer {
 
 /* Specifické barvy pro jednotlivé kapitoly */
 .bg-vyuka { background-color: #fff9fb; } 
-.bg-gener { background-color: #fcfbf6; } 
+.bg-gener { background-color: #fcfcf6; } 
 .bg-nastroj { background-color: #fef5ff; } 
 .bg-etika { background-color: #f9fff5; }
-.bg-ukazka { background-color: #f5f9ff; }
+.bg-ukazka { background-color: #f0ffff; }
 .bg-nastav { background-color: #f6faff; }
-.bg-odpocin { background-color: #fff5f9; }
-.bg-ai { background-color: #fffcf4; }
+.bg-odpocin { background-color: #fff8fe; }
+.bg-ai { background-color: #fffbf6; }
 
 .tab-content.active {
     display: block; /* Zobrazí aktivní obsah */
@@ -1441,14 +1441,11 @@ footer {
     color: #2c3e50;
 }
 
-.settings-card-header.highlight {
-    background: #fff0f5; /* Jemný růžový nádech pro výsledek */
-    color: #f06292;
-}
 
-#settings-output {
+
+.sekce-nastaveni #settings-output {
     width: 100%;
-    min-height: 450px;
+    height: 500px;
     padding: 20px;
     border: none;
     outline: none;
@@ -1516,6 +1513,66 @@ footer {
 .sekce-nastaveni .check-item:hover {
     border-color: #bbdefb;
     background: #f1f8fe;
+}
+
+/* Celý pravý box (karta) - odstraníme barvu pozadí a rámeček, aby vynikly vnitřní prvky */
+.sekce-nastaveni .result-side {
+    background: white ;
+    border: 1px solid #e0e0e0 ;
+    box-shadow: none ;
+}
+
+/* Kontejner pod textovou plochou */
+.sekce-nastaveni .settings-actions {
+    display: flex;
+    gap: 20px;                /* Mezera mezi tlačítky */
+    padding: 0 !important;    /* Žádné vnitřní odsazení */
+    background: transparent !important;
+    border: none;
+    width: 100%;
+}
+
+/* Společný základ pro tlačítka */
+.sekce-nastaveni .action-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+}
+
+/* Tmavé tlačítko Kopírovat */
+.sekce-nastaveni .action-btn.copy {
+    background: #2c3e50; /* Tmavě modro-šedá */
+    color: white;
+}
+
+.sekce-nastaveni .action-btn.copy:hover {
+    background: #1a252f;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Šedé tlačítko Smazat */
+.sekce-nastaveni .action-btn.delete {
+    background: #dee2e6; /* Světlejší šedá */
+    color: #495057;
+}
+
+.sekce-nastaveni .action-btn.delete:hover {
+    background: #ced4da;
+    color: #212529;
+}
+
+/* Ikony v tlačítkách */
+.sekce-nastaveni .action-btn i {
+    font-size: 1.1rem;
 }
 
 /* Texty v návodu - modrá zvýraznění */
