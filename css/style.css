@@ -1526,7 +1526,7 @@ footer {
 .sekce-nastaveni .settings-actions {
     display: flex;
     gap: 20px;                /* Mezera mezi tlačítky */
-    padding: 0 !important;    /* Žádné vnitřní odsazení */
+    padding: 10px ;    /* Žádné vnitřní odsazení */
     background: transparent !important;
     border: none;
     width: 100%;

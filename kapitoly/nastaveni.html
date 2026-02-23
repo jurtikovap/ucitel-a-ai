@@ -88,6 +88,14 @@
                                         <textarea id="settings-output" readonly placeholder="Zatrhněte tipy vlevo..."></textarea>                                       
                                     </div>
                                 </div>
+                                <div class="settings-actions">
+                                    <button class="action-btn copy" onclick="copySettings()">
+                                        <i class="fas fa-copy"></i> Kopírovat
+                                    </button>
+                                    <button class="action-btn delete" onclick="clearSettings()">
+                                        <i class="fas fa-trash-alt"></i> Smazat
+                                    </button>
+                                </div>
                             </div>
 
                             <div id="view-guide" class="settings-view-panel" style="display: none;">
@@ -104,14 +112,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="settings-actions">
-                        <button class="action-btn copy" onclick="copySettings()">
-                            <i class="fas fa-copy"></i> Kopírovat
-                        </button>
-                        <button class="action-btn delete" onclick="clearSettings()">
-                            <i class="fas fa-trash-alt"></i> Smazat
-                        </button>
-                    </div>
+
                 </div>
             </div>
 
