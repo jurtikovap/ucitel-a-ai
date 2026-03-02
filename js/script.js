@@ -432,3 +432,65 @@ function clearSettings() {
     document.querySelectorAll('.checklist-container input').forEach(cb => cb.checked = false);
     updateSettingsText();
 }
+
+const studentTasks = {
+    detektiv: {
+        title: "AI Detektiv: Hledání halucinací",
+        desc: "Studenti dostanou od AI text s úmyslnými chybami. Jejich úkolem je najít fakta, která AI 'pobláznilo', a opravit je pomocí ověřených zdrojů.",
+        goal: "Rozvoj kritického myšlení a práce se zdroji.",
+        prompt: "Vytvoř text o délce 200 slov o [TÉMA], ve kterém uděláš přesně 3 věcné chyby. Neříkej mi, které to jsou. Mým úkolem je tě odhalit a opravit!"
+    },
+    dialog: {
+        title: "Sókratův duel s AI",
+        desc: "Student musí AI přesvědčit o svém názoru v etické otázce. AI je nastaveno jako neúprosný, ale slušný oponent.",
+        goal: "Argumentační dovednosti a logické uvažování.",
+        prompt: "Budeme debatovat o tématu [TÉMA]. Já zastávám názor, že [NÁZOR]. Ty buď mým oponentem, hledej slabiny v mých argumentech a klaď mi těžké otázky. Na konci mi dej zpětnou vazbu, jak jsem si vedl."
+    },
+    pribeh: {
+        title: "Nekonečný příběh (Ping-Pong)",
+        desc: "Student a AI píší příběh společně. Střídají se po odstavcích a každý musí navázat na nit toho druhého.",
+        goal: "Kreativní psaní a stylistická návaznost.",
+        prompt: "Pojďme napsat příběh na téma [TÉMA]. Já napíšu první odstavec, ty napíšeš druhý a tak dále. Musíme udržet stejnou atmosféru a postavy. Začínám: [PRVNÍ VĚTA PŘÍBĚHU...]"
+    },
+    doucovani: {
+        title: "Osobní tutor: Vysvětli mi to jinak",
+        desc: "Žák učí AI, co pochopil, nebo žádá o vysvětlení látky skrze své koníčky (hry, sport, filmy).",
+        goal: "Personalizace výuky a metakognice.",
+        prompt: "Nerozumím tématu [TÉMA]. Vysvětli mi ho prosím jako expert, ale používej přirovnání ze světa [MOJE ZÁLIBA - např. Minecraftu]. Pak se mě zeptej na jednu otázku, abys ověřil, zda jsem to pochopil."
+    }
+};
+
+function switchStudentTask(taskId) {
+    // Přepnutí aktivní třídy u karet
+    document.querySelectorAll('.sekce-studenti .topic-card').forEach(card => card.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+
+    // Update obsahu
+    const task = studentTasks[taskId];
+    document.getElementById('task-title').innerText = task.title;
+    document.getElementById('task-desc').innerText = task.desc;
+    document.getElementById('task-goal').innerText = task.goal;
+    document.getElementById('student-prompt-text').value = task.prompt;
+}
+
+
+function copyStudentPrompt() {
+    const textElement = document.getElementById('student-prompt-text');
+    const textToCopy = textElement.value; // Jen si vezmeme text, nevybíráme pole
+    const btn = event.currentTarget;
+    // Kopírování do schránky
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        // Vizuální zpětná vazba na tlačítku
+        
+        const originalContent = btn.innerHTML;
+        
+    btn.innerHTML = '<i class="fas fa-check"></i> Zkopírováno!';
+    btn.style.background = "#f06292";
+    setTimeout(() => { 
+        btn.innerHTML = originalContent; 
+        btn.style.background = "#2c3e50";}, 2000);
+    }).catch(err => {
+        console.error('Chyba při kopírování: ', err);
+    });
+}
+

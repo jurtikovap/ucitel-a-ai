@@ -30,14 +30,14 @@
         </div>
 
         <section class="lesson-content">
-            <p>Umění psát správná zadání (prompty) je klíčem k tomu, aby vám AI poskytla skutečně užitečné výsledky. Zde se naučíte, jak na to.</p>
+            <p>Umění psát správná zadání (prompty) je klíčem k tomu, aby vám AI poskytla užitečné výsledky. Zde se můžete naučit základní principy, jak na to.</p>
             
             <div class="tab-menu cat-vyuka">
                 <button class="tab-btn active" onclick="openTab(event, 'tab1')">Dobrý vs. špatný prompt</button>
                 <button class="tab-btn" onclick="openTab(event, 'tab2')">Skládačka promptu</button>
                 <button class="tab-btn" onclick="openTab(event, 'tab3')">A jdeme tvořit ...</button>
                 <button class="tab-btn" onclick="openTab(event, 'tab4')">AI promptuje</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab5')">Co vytvořit?</button>           
+                <button class="tab-btn" onclick="openTab(event, 'tab5')">AI do lavic</button>           
             </div>
 
             <div id="tab1" class="tab-content bg-vyuka active">
@@ -259,9 +259,54 @@
             </div>
 
             <div id="tab5" class="tab-content bg-vyuka">
-                <h3>Obsah pro Tlačítko 5</h3>
-                <p>Čtvrtá sekce obsahu...</p>
+                <h3>AI do lavic</h3>
+                <p>Pár nápadů, jak využít AI ve výuce pro zapojení a práci studentů</p>
+                <div class="sos-interaction-section sekce-studenti" id="studenti-aktivity">
+                    <div class="topic-selector">
+                        <div class="topic-card active" onclick="switchStudentTask('detektiv')">
+                            <i class="fas fa-search-plus"></i>
+                            <span>AI Detektiv</span>
+                        </div>
+                        <div class="topic-card" onclick="switchStudentTask('dialog')">
+                            <i class="fas fa-comments"></i>
+                            <span>Sókratův duel</span>
+                        </div>
+                        <div class="topic-card" onclick="switchStudentTask('pribeh')">
+                            <i class="fas fa-pen-nib"></i>
+                            <span>Společné psaní</span>
+                        </div>
+                        <div class="topic-card" onclick="switchStudentTask('doucovani')">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>Osobní tutor</span>
+                        </div>
+                    </div>
 
+                    <div class="task-display-area">
+                        <div class="settings-card">
+                            <div class="settings-card-header highlight-pink">
+                                <i class="fas fa-info-circle"></i> <span id="task-title">AI Detektiv: Hledání halucinací</span>
+                            </div>
+                            
+                            <div class="task-content-wrapper">
+                                <div class="task-description">
+                                    <p id="task-desc">Studenti dostanou text s úmyslnými chybami. Jejich úkolem je najít fakta, která AI "pobláznilo", a opravit je podle učebnice.</p>
+                                    <strong>Cíl aktivity:</strong> <span id="task-goal">Rozvoj kritického myšlení a ověřování informací.</span>
+                                </div>
+                                
+                                <div class="prompt-preview-box">
+                                    <label>PROMPT PRO STUDENTY:</label>
+                                    <textarea id="student-prompt-text" readonly>Vytvoř text o délce 200 slov o [TÉMA], ve kterém uděláš přesně 3 věcné chyby. Neříkej mi, které to jsou. Možná jsi si je vymyslel schválně, nebo jsi halucinoval. Mým úkolem je tě odhalit!</textarea>
+                                </div>
+                            </div>
+
+                            <div class="settings-actions">
+                                <button class="action-btn copy-pink" onclick="copyStudentPrompt()">
+                                    <i class="fas fa-copy"></i> Kopírovat prompt pro žáky
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>

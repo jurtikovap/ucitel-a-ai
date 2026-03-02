@@ -1240,68 +1240,7 @@ footer {
 }
 /* výuka3 */
 /* výuka4 */
-/* Kontejner, který umožní horizontální scroll na mobilu */
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Jemný stín jako u karet */
-}
 
-.modern-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    min-width: 600px; /* Aby se text na mobilu moc nemačkal */
-    font-size: 0.85rem;
-}
-
-.modern-table thead {
-    background-color: #2c3e50; /* Tmavá barva jako tvůj navbar */
-    color: white;
-    text-align: left;
-}
-
-.modern-table th, 
-.modern-table td {
-    padding: 15px 20px;
-    border-bottom: 1px solid #eee;
-}
-
-/* Styl pro čísla v prvním sloupci */
-.modern-table td.num {
-    font-weight: bold;
-    color: #f06292; /* Tvoje růžová z "výuky" */
-    width: 30px;
-}
-
-/* Efekt při najetí myší na řádek */
-.modern-table tbody tr:hover {
-    background-color: #fff9fb; /* Velmi jemný růžový nádech */
-}
-
-/* Zvýraznění "Nejsilnější metoda" */
-.badge {
-    background: #f06292;
-    color: white;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    display: inline-block;
-}
-
-/* Responzivní vychytávka pro mobily */
-@media screen and (max-width: 600px) {
-    .modern-table {
-        font-size: 0.85rem;
-    }
-    .modern-table th, 
-    .modern-table td {
-        padding: 10px 12px;
-    }
-}
 /* výuka4 */
 /* výuka4b */
 .methods-container {
@@ -1401,6 +1340,77 @@ footer {
     cursor: pointer;
 }
 /* výuka4b */
+/* Specifické ladění pro růžovou sekci studentů */
+.sekce-studenti .topic-card.active {
+    background: white !important; /* Růžová */
+    border-color: #f06292 !important;
+    color: #f06292 !important;
+}
+
+.sekce-studenti .highlight-pink {
+    background: #fff0f5 !important;
+    color: #f06292 !important;
+    border-bottom: 1px solid #fce4ec;
+}
+
+.sekce-studenti .task-content-wrapper {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sekce-studenti .task-description {
+    background: #fdfdfd;
+    padding: 15px;
+    border-left: 4px solid #f06292;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.sekce-studenti .prompt-preview-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sekce-studenti .prompt-preview-box label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #f06292;
+    text-transform: uppercase;
+}
+
+.sekce-studenti #student-prompt-text {
+    width: 100%;
+    min-height: 120px;
+    padding: 15px;
+    background: #fafafa;
+    border: 1px solid #dee2e6; /* Přerušovaná čára značí "zkopíruj mě" */
+    border-radius: 10px;
+    resize: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* Sjednocené tlačítko v růžové variantě */
+.sekce-studenti .copy-pink {
+    background: #2c3e50; /* Tmavé dle tvého přání */
+    color: white;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    
+}
+
+.sekce-studenti .copy-pink:active {
+    background: #f06292;  
+}
 /* výuka */
 
 /* nastaveni */
