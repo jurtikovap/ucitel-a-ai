@@ -516,3 +516,19 @@ function openUkazkaTab(evt, tabId) {
     document.getElementById(tabId).style.display = "block";
     evt.currentTarget.classList.add('active');
 }
+
+function copyUkazkaPrompt(id) {
+    const textElement = document.getElementById(id);
+    const btn = event.currentTarget;
+    const originalContent = btn.innerHTML;
+
+    navigator.clipboard.writeText(textElement.value).then(() => {
+        btn.innerHTML = '<i class="fas fa-check"></i> Zkopírováno!';
+        btn.style.background = "#4dd0e1"; // Tyrkysová barva
+
+        setTimeout(() => {
+            btn.innerHTML = originalContent;
+            btn.style.background = "#2c3e50"; // Návrat k tmavé
+        }, 2000);
+    });
+}
