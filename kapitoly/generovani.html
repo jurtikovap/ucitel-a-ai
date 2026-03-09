@@ -32,7 +32,7 @@
         <section class="lesson-content">
             <p>Nemáte čas? Tak zde si můžete jednoduše nechat svůj promt na tvorbu výukových materiálů vygenerovat.</p>
             
-            <div class="tab-menu cat-gener">
+            <div class="tab-menu cat-gener " style="border-bottom: 2px solid #d3b22f;">
                 <button class="tab-btn active" onclick="openTab(event, 'tab1')">Tvořič promptů materiálů</button>
                 <button class="tab-btn" onclick="openTab(event, 'tab2')">Možnosti rozšíření promptů</button>
                 <button class="tab-btn" onclick="openTab(event, 'tab3')">Tlačítko 3</button>
@@ -74,7 +74,7 @@
                                 <div class="input-group">
                                     <label>Ročník a obor:</label>
                                     <div style="display: flex; gap: 10px;">
-                                        <select id="grade-num" style="width: 70px; border-radius: 8px; border: 1px solid #ddd; padding: 8px;">
+                                        <select id="grade-num" style="width: 70px; border-radius: 4px; border: 1px solid #ddd; padding: 10px;">
                                             <option value="" disabled selected>Ročník</option> <option value="1.">1.</option>
                                             <option value="2." selected>2.</option>
                                             <option value="3.">3.</option>
@@ -83,7 +83,7 @@
 
                                         <div style="flex-grow: 1; position: relative;">
                                             <input type="text" id="grade-field" list="fields-list" placeholder="Vyberte nebo dopište obor" 
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #ddd; padding: 8px;" />
+                                                style="width: 100%; border-radius: 4px; border: 1px solid #ddd; padding: 10px;" />
                                             <datalist id="fields-list">
                                                 <option value="fotograf">
                                                 <option value="kosmetička">

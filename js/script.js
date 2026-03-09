@@ -499,3 +499,20 @@ function copyStudentPrompt() {
     });
 }
 
+function openUkazkaTab(evt, tabId) {
+    // 1. Skryje všechny obsahy, které mají třídu .bg-ukazka
+    const contents = document.querySelectorAll('.bg-ukazka');
+    contents.forEach(content => {
+        content.style.display = "none";
+    });
+
+    // 2. Odstraní 'active' ze všech tlačítek v menu tyrkysové sekce
+    const buttons = document.querySelectorAll('.cat-ukazka .tab-btn');
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // 3. Zobrazí ten správný tab a aktivuje tlačítko
+    document.getElementById(tabId).style.display = "block";
+    evt.currentTarget.classList.add('active');
+}

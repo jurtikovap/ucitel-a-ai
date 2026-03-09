@@ -1604,3 +1604,49 @@ footer {
 /* nastaveni */
 
 /*  * { border: 1px solid red !important; } pro kontrolu boxů, skvělé */
+
+/* Pozadí a texty záložek */
+/* ukázky */
+/* Box pro prompt a tlačítko */
+.prompt-box-ukazka {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #4dd0e1;
+    margin-top: 15px;
+}
+
+.prompt-box-ukazka textarea {
+    width: 100%;
+    height: 80px;
+    border: none;
+    resize: none;
+    font-family: monospace;
+    color: #006064;
+    background: transparent;
+    margin-bottom: 10px;
+}
+
+.copy-btn-ukazka {
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+.copy-btn-ukazka:hover {
+    background: #4dd0e1;
+}
+
+.result-preview {
+    margin-top: 15px;
+    font-style: italic;
+    color: #555;
+    font-size: 0.9rem;
+}
+/* ukázky */
+
