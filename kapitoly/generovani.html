@@ -40,8 +40,9 @@
             </div>
 
             <div id="tab1" class="tab-content bg-gener active">
-                <h3>Tvořič promptů pro výukové materiály</h3>
-                <p>Vyplňte následující pole (nápovědu vidíte v políčkách), můžete zaškrtnout libovolné druhy otázek, obtížnost, jazyk výstupu, popř. doplňte potřeby navíc a nechte si celý prompt vygenerovat. Zkopírujte si daný prompt a vložte do jakékoliv AI.</p>
+                <h3>Tvořič promptů pro výukové materiály pro SŠ</h3>
+                <p>Vyplňte následující pole (nápovědu vidíte v políčkách), můžete zaškrtnout libovolné druhy otázek, obtížnost, jazyk výstupu, 
+                   popř. doplňte potřeby navíc a nechte si celý prompt vygenerovat. Zkopírujte si daný prompt a vložte do jakékoliv AI.</p>
                 <p>Režim <b>Diktát</b> Vám předvyplní některá pole, aby byl výsledek skvělý. Jedná se o vygenerovaný text k opravě.</p>
                 <p>Režim <b>Použít ŠVP</b> po zaškrtnutí Vám doplní do výsledného promptu i odkaz na školní ŠVP</p>
                 <section class="prompt-builder">
@@ -71,8 +72,37 @@
                                     <input type="text" id="topic" placeholder="Kyberbezpečnost" />
                                 </div>
                                 <div class="input-group">
-                                    <label>Ročník, obor:</label>
-                                    <input type="text" id="grade" placeholder="2. ročník, fotograf" />
+                                    <label>Ročník a obor:</label>
+                                    <div style="display: flex; gap: 10px;">
+                                        <select id="grade-num" style="width: 70px; border-radius: 8px; border: 1px solid #ddd; padding: 8px;">
+                                            <option value="" disabled selected>Ročník</option> <option value="1.">1.</option>
+                                            <option value="2." selected>2.</option>
+                                            <option value="3.">3.</option>
+                                            <option value="4.">4.</option>
+                                        </select>
+
+                                        <div style="flex-grow: 1; position: relative;">
+                                            <input type="text" id="grade-field" list="fields-list" placeholder="Vyberte nebo dopište obor" 
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #ddd; padding: 8px;" />
+                                            <datalist id="fields-list">
+                                                <option value="fotograf">
+                                                <option value="kosmetička">
+                                                <option value="kadeřník">
+                                                <option value="prodavač">
+                                                <option value="aranžér">
+                                                <option value="podnikání">
+                                                <option value="ekonomika a podnikání">
+                                                <option value="obchod">
+                                                <option value="cestovní ruch">
+                                                <option value="hotelnictví">
+                                                <option value="cukrář">
+                                                <option value="pekař">
+                                                <option value="řezník">
+                                                <option value="kuchař">
+                                                <option value="číšník">
+                                                </datalist>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="input-group">
                                     <label>Typ úkolu <span class="required">*</span></label>

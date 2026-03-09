@@ -47,7 +47,11 @@ function generatePrompt() {
     const subject = document.getElementById("subject").value;
     const topic = document.getElementById("topic").value;
     const type = document.getElementById("outputType").value;
-    const grade = document.getElementById("grade").value;
+    const gradeNum = document.getElementById('grade-num').value;
+const gradeField = document.getElementById('grade-field').value;
+const fullGrade = `${gradeNum} ročník, obor ${gradeField}`; 
+
+
     const count = document.getElementById("count")?.value || "";
     const language = document.getElementById("language")?.value || "Čeština";
     const extra = document.getElementById("extraNotes").value;
@@ -62,8 +66,8 @@ function generatePrompt() {
     let diffs = Array.from(document.querySelectorAll('input[name="difficulty"]:checked')).map(el => el.value);
     let qTypes = Array.from(document.querySelectorAll('input[name="qType"]:checked')).map(el => el.value);
 
-    let prompt = `Jsi expert na moderní pedagogiku. Tvým úkolem je vytvořit ${type} na téma "${topic}" pro předmět ${subject}.
-- Cílová skupina: ${grade || "není specifikováno"}
+    let prompt = `Jsi expert na moderní pedagogiku na střední škole. Tvým úkolem je vytvořit ${type} na téma "${topic}" pro předmět ${subject}.
+- Cílová skupina: ${fullGrade || "není specifikováno"}
 - Požadovaný rozsah: ${count || "přiměřený typu úkolu"}
 - Jazyk výstupu: ${language}`;
 
@@ -84,6 +88,7 @@ function clearFields() {
         document.querySelectorAll('.prompt-builder input:not([type="checkbox"])').forEach(el => el.value = "");
         document.querySelectorAll('.prompt-builder textarea').forEach(el => el.value = "");
         document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = false);
+        document.getElementById('grade-num').selectedIndex = 0; // Vrátí na výchozí hodnotu
         document.getElementById("language").value = "Čeština";
         document.getElementById("tone").value = "Obecný, neutrální";
         toggleCustomTone();
