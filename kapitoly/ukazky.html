@@ -7,6 +7,7 @@
     <title>Ukázky AI - AI pro učitele</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/ukazky.css">
 </head>
 <body>
 
@@ -28,95 +29,56 @@
                 Ukázky použití AI v praxi
             </h1>
         </div>
-
-        <section class="lesson-content">
-            <p>Stránka v přípravě.</p>
-            <p>https://digitalizace.rvp.cz/napric-predmety/ai</p>
-            
-<div class="tab-menu cat-ukazka" style="border-bottom: 2px solid #4dd0e1;">
-    <button class="tab-btn active" onclick="openTab(event, 'ukazka-tab1')">Obrázky</button>
-    <button class="tab-btn" onclick="openTab(event, 'ukazka-tab2')">Gemy</button>
-    <button class="tab-btn" onclick="openTab(event, 'ukazka-tab3')">AI v lavicích</button>
-    <button class="tab-btn" onclick="openTab(event, 'ukazka-tab4')">Dynamika</button>
-    <button class="tab-btn" onclick="openTab(event, 'ukazka-tab5')">NPI Desatero</button>
-    <button class="tab-btn" onclick="openTab(event, 'ukazka-tab6')">Herní mód</button>
-    <button class="tab-btn" onclick="openTab(event, 'ukazka-tab7')">NotebookLM</button>
-</div>
-
-<div id="ukazka-tab1" class="tab-content bg-ukazka active">
-    <h3>Obrázky & Design</h3>
-    <p>Vytváření vizuálních pomůcek, schémat a ilustrací pro oživení výuky.</p>
-    <div class="prompt-box-ukazka">
-        <label>Prompt pro generování:</label>
-        <textarea id="p-img" readonly>Vytvoř detailní 2D ilustraci životního cyklu včely, styl čistý, vědecký, bílé pozadí, bez textu, pastelové barvy.</textarea>
-        <button class="copy-btn-ukazka" onclick="copyUkazkaPrompt('p-img')"><i class="fas fa-copy"></i> Kopírovat prompt</button>
+<section class="lesson-content">
+    <p>Inspirujte se hotovými prompty a postupy. Klikněte na kartu pro detaily a kopírování.</p>
+    
+    <div class="tab-menu cat-ukazka">
+        <button class="tab-btn active" onclick="openTab(event, 'ukazka-tab1')">Obrázky</button>
+        <button class="tab-btn" onclick="openTab(event, 'ukazka-tab2')">Gemy</button>
+        <button class="tab-btn" onclick="openTab(event, 'ukazka-tab3')">AI v lavicích</button>
+        <button class="tab-btn" onclick="openTab(event, 'ukazka-tab4')">Dynamika</button>
+        <button class="tab-btn" onclick="openTab(event, 'ukazka-tab5')">NPI Desatero</button>
+        <button class="tab-btn" onclick="openTab(event, 'ukazka-tab6')">Herní mód</button>
+        <button class="tab-btn" onclick="openTab(event, 'ukazka-tab7')">NotebookLM</button>
     </div>
-    <div class="result-preview">
-        <strong>Předpokládaný výsledek:</strong> Čistý obrázek bez rušivých prvků, ideální do prezentace nebo pracovního listu.
-    </div>
-</div>
 
-<div id="ukazka-tab2" class="tab-content bg-ukazka">
-    <h3>Gemy / GPTs</h3>
-    <p>Nastavení specializovaných asistentů, kteří znají vaše osnovy a styl výuky.</p>
-    <div class="prompt-box-ukazka">
-        <label>Konfigurace asistenta:</label>
-        <textarea id="p-gem" readonly>Jsi expert na inkluzivní vzdělávání. Pomáhej mi upravovat materiály pro žáky se specifickými poruchami učení tak, aby byly srozumitelné.</textarea>
-        <button class="copy-btn-ukazka" onclick="copyUkazkaPrompt('p-gem')"><i class="fas fa-copy"></i> Kopírovat</button>
+    <div id="ukazka-tab1" class="tab-content bg-ukazka active">
+        <div id="grid-obrazky" class="ukazky-grid"></div>
     </div>
-</div>
 
-<div id="ukazka-tab3" class="tab-content bg-ukazka">
-    <h3>AI v lavicích</h3>
-    <p>Nápady pro aktivní zapojení studentů do práce s AI přímo v hodině.</p>
-    <div class="prompt-box-ukazka">
-        <label>Zadání pro žáka:</label>
-        <textarea id="p-lav" readonly>Najdi v textu o [TÉMA] tři historické nepřesnosti, které AI záměrně vygenerovalo. Použij učebnici k ověření faktů.</textarea>
-        <button class="copy-btn-ukazka" onclick="copyUkazkaPrompt('p-lav')"><i class="fas fa-copy"></i> Kopírovat</button>
+    <div id="ukazka-tab2" class="tab-content bg-ukazka">
+        <div id="grid-gemy" class="ukazky-grid"></div>
     </div>
-</div>
 
-<div id="ukazka-tab4" class="tab-content bg-ukazka">
-    <h3>Dynamické zobrazení</h3>
-    <p>Simulace procesů a převody textu na interaktivní struktury.</p>
-    <div class="prompt-box-ukazka">
-        <label>Prompt pro simulaci:</label>
-        <textarea id="p-dyn" readonly>Nasimuluj cestu e-mailu "Ahoj" rozloženého na pakety. Ukaž textově jejich cestu přes Router A a Router B k cíli.</textarea>
-        <button class="copy-btn-ukazka" onclick="copyUkazkaPrompt('p-dyn')"><i class="fas fa-copy"></i> Kopírovat</button>
+    <div id="ukazka-tab3" class="tab-content bg-ukazka">
+        <div id="grid-lavice" class="ukazky-grid"></div>
+    </div>
+
+    <div id="ukazka-tab4" class="tab-content bg-ukazka">
+        <div id="grid-dynamika" class="ukazky-grid"></div>
+    </div>
+
+    <div id="ukazka-tab5" class="tab-content bg-ukazka">
+        <div id="grid-npi" class="ukazky-grid"></div>
+    </div>
+
+    <div id="ukazka-tab6" class="tab-content bg-ukazka">
+        <div id="grid-hry" class="ukazky-grid"></div>
+    </div>
+
+    <div id="ukazka-tab7" class="tab-content bg-ukazka">
+        <div id="grid-notebook" class="ukazky-grid"></div>
+    </div>
+</section>
+
+<div id="ukazka-modal" class="modal-ukazka">
+    <div class="modal-content-ukazka">
+        <span class="close-modal" onclick="closeUkazkaModal()">&times;</span>
+        <div id="modal-body-ukazka">
+            </div>
     </div>
 </div>
 
-<div id="ukazka-tab5" class="tab-content bg-ukazka">
-    <h3>NPI Desatero</h3>
-    <p>Jak pomocí promptů naplnit oficiální metodická doporučení pro práci s AI.</p>
-    <div class="prompt-box-ukazka">
-        <label>Metodický prompt:</label>
-        <textarea id="p-npi" readonly>Uprav tento test tak, aby se zaměřoval na vyšší úrovně Bloomovy taxonomie v souladu s doporučením NPI.</textarea>
-        <button class="copy-btn-ukazka" onclick="copyUkazkaPrompt('p-npi')"><i class="fas fa-copy"></i> Kopírovat</button>
-    </div>
-</div>
-
-<div id="ukazka-tab6" class="tab-content bg-ukazka">
-    <h3>Herní mód</h3>
-    <p>AI jako tvůrce únikových her, simulací a interaktivních příběhů.</p>
-    <div class="prompt-box-ukazka">
-        <label>Prompt pro hru:</label>
-        <textarea id="p-gam" readonly>Vytvoř textovou únikovou hru z období baroka. Hráč musí vyřešit hádanku o stavbě chrámu, aby mohl pokračovat.</textarea>
-        <button class="copy-btn-ukazka" onclick="copyUkazkaPrompt('p-gam')"><i class="fas fa-copy"></i> Kopírovat</button>
-    </div>
-</div>
-
-<div id="ukazka-tab7" class="tab-content bg-ukazka">
-    <h3>NotebookLM</h3>
-    <p>Tvorba studijních průvodců a audio podcastů z vašich vlastních zdrojů.</p>
-    <p>Vložte své podklady do NotebookLM a nechte si vygenerovat "Audio Overview" nebo "Briefing Doc".</p>
-    <div class="prompt-box-ukazka">
-        <label>Prompt pro shrnutí zdrojů:</label>
-        <textarea id="p-not" readonly>Na základě mých nahraných dokumentů vytvoř seznam 10 nejdůležitějších pojmů s vysvětlením pro studenty.</textarea>
-        <button class="copy-btn-ukazka" onclick="copyUkazkaPrompt('p-not')"><i class="fas fa-copy"></i> Kopírovat</button>
-    </div>
-</div>
-        </section>
     </main>
 
     <footer>
@@ -128,5 +90,9 @@
     </footer>
 
 <script src="../js/script.js"></script>
+<script src="../js/data/obrazky.js"></script>
+<script src="../js/data/gemy.js"></script>
+<script src="../js/data/dynamika.js"></script>
+<script src="../js/ukazky.js"></script>
 </body>
 </html>
