@@ -3,6 +3,7 @@ const vsechnaData = [
     ...(typeof dataObrazky !== 'undefined' ? dataObrazky : []),
     ...(typeof dataGemy !== 'undefined' ? dataGemy : []),
     ...(typeof dataDynamika !== 'undefined' ? dataDynamika : []),
+    ...(typeof dataNPI !== 'undefined' ? dataNPI : [])
 ];
 
 let aktualniIndex = 0;
@@ -33,7 +34,12 @@ function renderCards(filterTag = 'vše', isSearch = false) {
             const grid = document.getElementById(item.gridId);
             if (grid) {
                 const card = document.createElement('div');
-                card.className = 'ukazka-card';
+                const máObrázek = item.img || (item.imgs && item.imgs.length > 0);
+                if (item.tag === "NPI Metodika" || !máObrázek) {
+                    card.className = 'ukazka-card card-small';
+                } else {
+                    card.className = 'ukazka-card';
+}
                 card.onclick = () => openUkazkaModal(item);
                 const pocetIkonka = (item.type === 'gallery' && item.imgs) 
                     ? `<div class="image-count-badge"> ${item.imgs.length}</div>` 
@@ -47,6 +53,7 @@ function renderCards(filterTag = 'vše', isSearch = false) {
                 } else {
                     thumb = `<i class="fas ${item.icon || 'fa-lightbulb'}"></i>`;
                 }
+                
                 card.innerHTML = `
                     <div class="card-img-wrap">
                         ${pocetIkonka}
@@ -115,6 +122,17 @@ function openUkazkaModal(item) {
                 <span class="tag">${item.tag}</span>
                 <h2 style="margin: 10px 0;">${item.title}</h2>
                 <p style="color: #666; margin-bottom: 20px;">${item.desc}</p>
+                <div class="npi-metodika-box">
+                    <small>METODICKÝ ZÁKLAD (NPI ČR):</small>
+                    <p>${item.descNPI}</p>
+                </div>
+
+                <hr class="modal-divider">
+
+                <div class="moje-napady-box">
+                    <small>JAK TO POUŽÍT V HODINĚ (TIPY):</small>
+                    <div>${item.mojeNapady}</div>
+                </div>
                 <div class="prompt-box">
                     <strong style="display:block; margin-bottom:10px; color:#00838f;">Prompt k použití:</strong>
                     <div id="copy-text" class="prompt-text">${item.prompt}</div>
@@ -174,3 +192,4 @@ function searchData() {
         renderCards(input.value, true);
     }
 }
+

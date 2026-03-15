@@ -29,64 +29,65 @@
                 Ukázky použití AI v praxi
             </h1>
         </div>
-<section class="lesson-content">
-    <p>Inspirujte se hotovými prompty a postupy. Klikněte na kartu pro detaily a kopírování. Všechny prompty nejsou vytvořeny mnou, ale je použita inspirace z různých zdrojů.</p>
-    <p>Moje největší inspirace jsou Chris KE a Fakhre Alam</p>
-    <div class="tab-menu cat-ukazka">
-        <button class="tab-btn active" onclick="openTab(event, 'ukazka-tab1')">Obrázky</button>
-        <button class="tab-btn" onclick="openTab(event, 'ukazka-tab2')">Gemy</button>
-        <button class="tab-btn" onclick="openTab(event, 'ukazka-tab3')">AI v lavicích</button>
-        <button class="tab-btn" onclick="openTab(event, 'ukazka-tab4')">Dynamika</button>
-        <button class="tab-btn" onclick="openTab(event, 'ukazka-tab5')">NPI Desatero</button>
-        <button class="tab-btn" onclick="openTab(event, 'ukazka-tab6')">Herní mód</button>
-        <button class="tab-btn" onclick="openTab(event, 'ukazka-tab7')">NotebookLM</button>
-    </div>
-
-    <div id="ukazka-tab1" class="tab-content bg-ukazka active">
-        <div class="search-container">
-            <div class="search-wrapper">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" id="ukazky-search" placeholder="Hledejte podle názvu nebo #hashtagu..." onkeyup="searchData()">
+        <section class="lesson-content">
+            <p>Inspirujte se hotovými prompty a postupy. Klikněte na kartu pro detaily a kopírování. Všechny prompty nejsou vytvořeny mnou, ale je použita inspirace z různých zdrojů.</p>
+            <p>Moje největší inspirace jsou Chris KE a Fakhre Alam</p>
+            <p>Samozřejmně je to AI, která vytváří tyto ukázky, ale jsou tam i možné chyby. Když bude potřeba, otevřete v Canvě a upravíte výsledek k obrazu svému.</p>
+            <div class="tab-menu cat-ukazka">
+                <button class="tab-btn active" onclick="openTab(event, 'ukazka-tab1')">Obrázky</button>
+                <button class="tab-btn" onclick="openTab(event, 'ukazka-tab2')">Gemy</button>
+                <button class="tab-btn" onclick="openTab(event, 'ukazka-tab3')">AI v lavicích</button>
+                <button class="tab-btn" onclick="openTab(event, 'ukazka-tab4')">Dynamika</button>
+                <button class="tab-btn" onclick="openTab(event, 'ukazka-tab5')">NPI Desatero</button>
+                <button class="tab-btn" onclick="openTab(event, 'ukazka-tab6')">Herní mód</button>
+                <button class="tab-btn" onclick="openTab(event, 'ukazka-tab7')">NotebookLM</button>
             </div>
-        </div>
-        <div class="filter-bar">
-            <button class="filter-btn active" onclick="filterData('vše', event)">Vše</button>
-            <button class="filter-btn" onclick="filterData('Cukrář', event)">Cukrář</button>
-            <button class="filter-btn" onclick="filterData('Pekař', event)">Pekař</button>
-            <button class="filter-btn" onclick="filterData('Řezník', event)">Řezník</button>
-            <button class="filter-btn" onclick="filterData('Kuchař', event)">Kuchař</button>
-            <button class="filter-btn" onclick="filterData('Fotograf', event)">Fotograf</button>
-            <button class="filter-btn" onclick="filterData('Kosmetička', event)">Kosmetička</button>
-            <button class="filter-btn" onclick="filterData('Cestovní ruch', event)">Cestovní ruch</button>
-            <button class="filter-btn" onclick="filterData('Informatika', event)">Informatika</button>
-        </div>    
-        <div id="grid-obrazky" class="ukazky-grid"></div>
-    </div>
 
-    <div id="ukazka-tab2" class="tab-content bg-ukazka">
-        <div id="grid-gemy" class="ukazky-grid"></div>
-    </div>
+            <div id="ukazka-tab1" class="tab-content bg-ukazka active">
+                <div class="search-container">
+                    <div class="search-wrapper">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="ukazky-search" placeholder="Hledejte podle názvu nebo #hashtagu..." onkeyup="searchData()">
+                    </div>
+                </div>
+                <div class="filter-bar">
+                    <button class="filter-btn active" onclick="filterData('vše', event)">Vše</button>
+                    <button class="filter-btn" onclick="filterData('Cukrář', event)">Cukrář</button>
+                    <button class="filter-btn" onclick="filterData('Pekař', event)">Pekař</button>
+                    <button class="filter-btn" onclick="filterData('Řezník', event)">Řezník</button>
+                    <button class="filter-btn" onclick="filterData('Kuchař', event)">Kuchař</button>
+                    <button class="filter-btn" onclick="filterData('Fotograf', event)">Fotograf</button>
+                    <button class="filter-btn" onclick="filterData('Kosmetička', event)">Kosmetička</button>
+                    <button class="filter-btn" onclick="filterData('Cestovní ruch', event)">Cestovní ruch</button>
+                    <button class="filter-btn" onclick="filterData('Informatika', event)">Informatika</button>
+                </div>    
+                <div id="grid-obrazky" class="ukazky-grid"></div>
+            </div>
 
-    <div id="ukazka-tab3" class="tab-content bg-ukazka">
-        <div id="grid-lavice" class="ukazky-grid"></div>
-    </div>
+            <div id="ukazka-tab2" class="tab-content bg-ukazka">
+                <div id="grid-gemy" class="ukazky-grid"></div>
+            </div>
 
-    <div id="ukazka-tab4" class="tab-content bg-ukazka">
-        <div id="grid-dynamika" class="ukazky-grid"></div>
-    </div>
+            <div id="ukazka-tab3" class="tab-content bg-ukazka">
+                <div id="grid-lavice" class="ukazky-grid"></div>
+            </div>
 
-    <div id="ukazka-tab5" class="tab-content bg-ukazka">
-        <div id="grid-npi" class="ukazky-grid"></div>
-    </div>
+            <div id="ukazka-tab4" class="tab-content bg-ukazka">
+                <div id="grid-dynamika" class="ukazky-grid"></div>
+            </div>
 
-    <div id="ukazka-tab6" class="tab-content bg-ukazka">
-        <div id="grid-hry" class="ukazky-grid"></div>
-    </div>
+            <div id="ukazka-tab5" class="tab-content bg-ukazka">
+                <div id="grid-npi" class="ukazky-grid"></div>
+            </div>
 
-    <div id="ukazka-tab7" class="tab-content bg-ukazka">
-        <div id="grid-notebook" class="ukazky-grid"></div>
-    </div>
-</section>
+            <div id="ukazka-tab6" class="tab-content bg-ukazka">
+                <div id="grid-hry" class="ukazky-grid"></div>
+            </div>
+
+            <div id="ukazka-tab7" class="tab-content bg-ukazka">
+                <div id="grid-notebook" class="ukazky-grid"></div>
+            </div>
+        </section>
 
 <div id="ukazka-modal" class="modal-ukazka">
     <div class="modal-content-ukazka">
@@ -110,6 +111,7 @@
 <script src="../js/data/obrazky.js"></script>
 <script src="../js/data/gemy.js"></script>
 <script src="../js/data/dynamika.js"></script>
+<script src="../js/data/dataNPI.js"></script>
 <script src="../js/ukazky.js"></script>
 <script src="../js/script.js"></script>
 </body>
