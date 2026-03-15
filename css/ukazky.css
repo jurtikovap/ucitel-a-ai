@@ -296,8 +296,8 @@
 .search-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
-    padding: 0 20px;
+    margin-bottom: 10px;
+    padding: 0 10px;
 }
 
 .search-wrapper {
@@ -318,8 +318,8 @@
     width: 100%;
     padding: 12px 15px 12px 45px;
     border: 2px solid #4dd0e1;
-    border-radius: 25px;
-    font-size: 1rem;
+    border-radius: 10px;
+    font-size: 0.75rem;
     outline: none;
     transition: 0.3s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
