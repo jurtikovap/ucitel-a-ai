@@ -43,6 +43,17 @@
     </div>
 
     <div id="ukazka-tab1" class="tab-content bg-ukazka active">
+        <div class="search-container">
+            <div class="search-wrapper">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="ukazky-search" placeholder="Hledejte podle názvu nebo #hashtagu..." onkeyup="searchData()">
+            </div>
+        </div>
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterData('vše', event)">Vše</button>
+            <button class="filter-btn" onclick="filterData('Biologie', event)">Biologie</button>
+            <button class="filter-btn" onclick="filterData('Informatika', event)">Informatika</button>
+        </div>    
         <div id="grid-obrazky" class="ukazky-grid"></div>
     </div>
 
@@ -89,10 +100,11 @@
         </div>
     </footer>
 
-<script src="../js/script.js"></script>
+
 <script src="../js/data/obrazky.js"></script>
 <script src="../js/data/gemy.js"></script>
 <script src="../js/data/dynamika.js"></script>
 <script src="../js/ukazky.js"></script>
+<script src="../js/script.js"></script>
 </body>
 </html>

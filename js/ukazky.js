@@ -8,37 +8,76 @@ const vsechnaData = [
 let aktualniIndex = 0;
 
 // 2. FUNKCE PRO VYKRESLENÍ KARET DO MŘÍŽKY
-function renderCards() {
+function renderCards(filterTag = 'vše', isSearch = false) {
+    // Nejdřív vymažeme starý obsah gridů
+    const grids = document.querySelectorAll('.ukazky-grid');
+    grids.forEach(grid => {grid.innerHTML = "";});
+
     vsechnaData.forEach(item => {
-        const grid = document.getElementById(item.gridId);
-        if (!grid) return;
-
-        const card = document.createElement('div');
-        card.className = 'ukazka-card';
-        card.onclick = () => openUkazkaModal(item);
-
-        // Rozhodnutí, co zobrazit jako náhled na kartě
-        let thumb = "";
-        if (item.type === 'gallery' && item.imgs && item.imgs.length > 0) {
-            thumb = `<img src="${item.imgs[0]}" alt="${item.title}" onerror="this.src='https://placehold.co/400x300?text=Chyba+Cesty'">`;
-        } else if (item.img) {
-            thumb = `<img src="${item.img}" alt="${item.title}" onerror="this.src='https://placehold.co/400x300?text=Chyba+Cesty'">`;
+        let matches = false;
+        if (isSearch) {
+// VYHLEDÁVÁNÍ: Koukáme do názvu, tagu i hashtagů
+            const term = filterTag.toLowerCase().replace('#', '');
+            const inTitle = item.title.toLowerCase().includes(term);
+            const inTag = item.tag.toLowerCase().includes(term);
+            // Prohledání hashtagů (pole)
+            const inHashtags = item.hashtagy ? item.hashtagy.some(h => h.toLowerCase().includes(term)) : false;
+            
+            matches = inTitle || inTag || inHashtags;
         } else {
-            thumb = `<i class="fas ${item.icon || 'fa-lightbulb'}"></i>`;
+            // KLASICKÝ FILTR (Tlačítka)
+            matches = (filterTag === 'vše' || item.tag.toLowerCase() === filterTag.toLowerCase());
+        }
+        // Filtrování podle tagu
+        if (matches) {
+            const grid = document.getElementById(item.gridId);
+            if (grid) {
+                const card = document.createElement('div');
+                card.className = 'ukazka-card';
+                card.onclick = () => openUkazkaModal(item);
+                const pocetIkonka = (item.type === 'gallery' && item.imgs) 
+                    ? `<div class="image-count-badge"> ${item.imgs.length}</div>` 
+                    : "";
+                // Rozhodnutí, co zobrazit jako náhled na kartě
+                let thumb = "";
+                if (item.type === 'gallery' && item.imgs && item.imgs.length > 0) {
+                    thumb = `<img src="${item.imgs[0]}" alt="${item.title}" onerror="this.src='https://placehold.co/400x300?text=Chyba+Cesty'">`;
+                } else if (item.img) {
+                    thumb = `<img src="${item.img}" alt="${item.title}" onerror="this.src='https://placehold.co/400x300?text=Chyba+Cesty'">`;
+                } else {
+                    thumb = `<i class="fas ${item.icon || 'fa-lightbulb'}"></i>`;
+                }
+                card.innerHTML = `
+                    <div class="card-img-wrap">
+                        ${pocetIkonka}
+                        ${thumb}
+                    </div>
+                    <div class="card-info">
+                        <span class="tag">${item.tag}</span>
+                        <h4>${item.title}</h4>
+                        <div class="hashtags-container">
+                            ${item.hashtagy ? item.hashtagy.map(h => `<span class="hashtag">#${h}</span>`).join('') : ''}
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            }
         }
 
-        card.innerHTML = `
-            <div class="card-img-wrap">${thumb}</div>
-            <div class="card-info">
-                <span class="tag">${item.tag}</span>
-                <h4>${item.title}</h4>
-                <div class="hashtags-container">
-                    ${item.hashtagy ? item.hashtagy.map(h => `<span class="hashtag">#${h}</span>`).join('') : ''}
-                </div>
-            </div>
-        `;
-        grid.appendChild(card);
     });
+}
+
+// 3. FUNKCE FILTROVÁNÍ (pro tlačítka)
+function filterData(tag, event) {
+    // Odstranění třídy 'active' ze všech tlačítek
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    
+    // Přidání třídy 'active' na kliknuté tlačítko
+    if (event) {
+        event.target.classList.add('active');
+    }
+
+    renderCards(tag);
 }
 
 // 3. LOGIKA MODÁLNÍHO OKNA
@@ -127,4 +166,11 @@ function copyToClipboard() {
 }
 
 // Spuštění po načtení
-window.onload = renderCards;
+window.onload = () => renderCards('vše');
+
+function searchData() {
+    const input = document.getElementById('ukazky-search');
+    if (input) {
+        renderCards(input.value, true);
+    }
+}

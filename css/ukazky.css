@@ -64,8 +64,8 @@
     background: #e0f7fa;
     color: #00838f;
     padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.75rem;
+    border-radius: 4px;
+    font-size: 0.65rem;
     font-weight: bold;
 }
 
@@ -112,7 +112,20 @@
 /* 4. Vnitřek modálu (Detail) */
 .modal-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 2fr; /* První sloupec (obrázek) dostane 3 díly, druhý (text) 2 díly */
+    gap: 30px;
+    align-items: start; /* Zarovná text i obrázek k hornímu okraji */
+}
+
+/* 2. Stylování stran pro lepší vzhled */
+.modal-media-side {
+    width: 100%;
+}
+
+.modal-text-side {
+    display: flex;
+    flex-direction: column;
+    padding-right: 10px; /* Malá mezera od kraje modálu */
 }
 
 @media (max-width: 768px) {
@@ -121,7 +134,7 @@
 
 .prompt-box {
     background: #f0ffff;
-    border: 2px dashed #4dd0e1;
+    border: 1px solid #4dd0e1;
     padding: 15px;
     border-radius: 8px;
     margin-top: 15px;
@@ -132,9 +145,13 @@
 }
 
 .prompt-text {
+    background: transparent !important; /* Vynutí průhlednost */
+    border: none !important;            /* Odstraní ten vnitřní tečkovaný rám */
+    box-shadow: none !important;        /* Pro jistotu odstraní případné stíny */
+    padding: 0;                         /* Zruší vnitřní odsazení té šedé plochy */
     white-space: pre-wrap;   
     padding-left: 10px;      /* Prostor pro odrážky zleva */
-    
+    margin: 0;             /* Odstraní výchozí mezery kolem textu */
     font-size: 0.75rem; /* Zmenší písmo (1rem je standard, 0.85rem je cca 13-14px) */
     line-height: 1.5;   /* Nastaví příjemný rozestup mezi řádky */
     color: #000000;        /* Barva hlavního textu promptu */
@@ -178,7 +195,7 @@
 }
 
 .hashtag {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     color: #4dd0e1; /* Tvoje tyrkysová */
     font-weight: 600;
     background: rgba(77, 208, 225, 0.1); /* Velmi jemné pozadí */
@@ -233,5 +250,82 @@
 #img-counter {
     font-weight: bold;
     color: #666;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
+}
+
+.card-img-wrap { position: relative; } /* Nutné pro správné umístění badge */
+
+.image-count-badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(0, 131, 143, 0.75); /* Tmavší tyrkysová s průhledností */
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    z-index: 10;
+    backdrop-filter: blur(4px); /* Moderní efekt rozostření podkladu */
+}
+
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 10px;
+    border: 2px solid #4dd0e1;
+    background: white;
+    color: #00838f;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 200;
+    transition: 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: #4dd0e1;
+    color: white;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #4dd0e1;
+}
+
+#ukazky-search {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 2px solid #4dd0e1;
+    border-radius: 25px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+#ukazky-search:focus {
+    box-shadow: 0 0 10px rgba(77, 208, 225, 0.4);
+    border-color: #00838f;
 }
