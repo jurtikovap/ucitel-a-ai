@@ -114,6 +114,28 @@ function openUkazkaModal(item) {
     } else {
         mediaContent = `<div style="text-align:center; padding:40px; background:#f0ffff; border-radius:10px;"><i class="fas ${item.icon || 'fa-lightbulb'}" style="font-size:5rem; color:#4dd0e1;"></i></div>`;
     }
+// VYTVOŘÍME OBSAH TEXTOVÉ STRANY PODLE TYPU KARTY
+    let textSideContent = "";
+
+    if (item.tag === "NPI Metodika") {
+        // Formát pro NPI (rozdělený text)
+        textSideContent = `
+            <div class="npi-metodika-box">
+                <small>METODICKÝ ZÁKLAD (NPI ČR):</small>
+                <p>${item.descNPI}</p>
+            </div>
+            <hr class="modal-divider">
+            <div class="moje-napady-box">
+                <small>JAK TO POUŽÍT V HODINĚ (TIPY):</small>
+                <div>${item.mojeNapady}</div>
+            </div>
+        `;
+    } else {
+        // Formát pro VŠECHNY OSTATNÍ karty (klasický popis)
+        textSideContent = `
+            <p>${item.desc || ""}</p>
+        `;
+    }
 
     body.innerHTML = `
         <div class="modal-grid" style="padding: 20px; gap: 30px;">
@@ -121,18 +143,8 @@ function openUkazkaModal(item) {
             <div class="modal-text-side">
                 <span class="tag">${item.tag}</span>
                 <h2 style="margin: 10px 0;">${item.title}</h2>
-                <p style="color: #666; margin-bottom: 20px;">${item.desc}</p>
-                <div class="npi-metodika-box">
-                    <small>METODICKÝ ZÁKLAD (NPI ČR):</small>
-                    <p>${item.descNPI}</p>
-                </div>
-
-                <hr class="modal-divider">
-
-                <div class="moje-napady-box">
-                    <small>JAK TO POUŽÍT V HODINĚ (TIPY):</small>
-                    <div>${item.mojeNapady}</div>
-                </div>
+                
+                ${textSideContent}
                 <div class="prompt-box">
                     <strong style="display:block; margin-bottom:10px; color:#00838f;">Prompt k použití:</strong>
                     <div id="copy-text" class="prompt-text">${item.prompt}</div>
