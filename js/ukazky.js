@@ -95,7 +95,7 @@ function openUkazkaModal(item) {
 
     let mediaContent = "";
 
-    // Logika pro různé typy obsahu v modálu
+    // --- 1. PŘÍPRAVA MÉDIÍ  ---
     if (item.type === 'gallery' && item.imgs) {
         mediaContent = `
             <div class="gallery-container">
@@ -114,47 +114,62 @@ function openUkazkaModal(item) {
     } else {
         mediaContent = `<div style="text-align:center; padding:40px; background:#f0ffff; border-radius:10px;"><i class="fas ${item.icon || 'fa-lightbulb'}" style="font-size:5rem; color:#4dd0e1;"></i></div>`;
     }
-// VYTVOŘÍME OBSAH TEXTOVÉ STRANY PODLE TYPU KARTY
-    let textSideContent = "";
-
+// --- 2. LOGIKA PRO NPI VS OSTATNÍ ---
     if (item.tag === "NPI Metodika") {
-        // Formát pro NPI (rozdělený text)
-        textSideContent = `
-            <div class="npi-metodika-box">
-                <small>METODICKÝ ZÁKLAD (NPI ČR):</small>
-                <p>${item.descNPI}</p>
-            </div>
-            <hr class="modal-divider">
-            <div class="moje-napady-box">
-                <small>JAK TO POUŽÍT V HODINĚ (TIPY):</small>
-                <div>${item.mojeNapady}</div>
+        // NOVÉ ROZLOŽENÍ PRO NPI: Moje nápady jdou pod mediaContent (vlevo)
+        body.innerHTML = `
+            <div class="modal-grid" style="padding: 20px; gap: 30px; align-items: start;">
+                
+                <div class="modal-media-side">
+                    ${mediaContent}
+                    <div class="moje-napady-section" style="margin-top:20px; padding:15px; ">
+                        <h3 style="color:#00838f; font-size:1.1rem; margin-bottom:10px;text-transform: uppercase;letter-spacing: 0.5px;"> Nápady do výuky</h3>
+                        <div style="line-height:1.6;">${item.mojeNapady}</div>
+                    </div>
+                </div>
+
+                <div class="modal-text-side">
+                    <span class="tag">${item.tag}</span>
+                    <h3 style="margin: 10px 0;">${item.title}</h3>
+                    
+                    <div class="npi-structured-box" style="background:#f9f9f9; padding:15px; border-radius:10px; border-left:4px solid #00838f; margin-bottom:10px;">
+                        <div style="margin-bottom:10px;"><strong>Popis:</strong> <br><span>${item.npiPopis}</span></div>
+                        <div style="margin-bottom:10px;"><strong>Příklad:</strong> <br><span>${item.npiPriklad}</span></div>
+                        <div style="margin-bottom:10px;"><strong>Co tento způsob rozvíjí:</strong> <br><span>${item.npiRozviji}</span></div>
+                        <div style="margin-bottom:10px;"><strong>Proč ho využít:</strong> <br><span>${item.npiProc}</span></div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <strong style="display:block; margin-bottom:10px; color:#00838f;">Prompt k použití:</strong>
+                        <div id="copy-text" class="prompt-text">${item.prompt}</div>
+                    </div>
+                    <button class="copy-btn-modal" onclick="copyToClipboard()" style="width:100%;">
+                        <i class="fas fa-copy"></i> Kopírovat prompt
+                    </button>
+                </div>
+
             </div>
         `;
     } else {
-        // Formát pro VŠECHNY OSTATNÍ karty (klasický popis)
-        textSideContent = `
-            <p>${item.desc || ""}</p>
+        // KLASICKÉ ROZLOŽENÍ PRO OSTATNÍ
+        body.innerHTML = `
+            <div class="modal-grid" style="padding: 20px; gap: 30px;">
+                <div class="modal-media-side">${mediaContent}</div>
+                <div class="modal-text-side">
+                    <span class="tag">${item.tag}</span>
+                    <h2 style="margin: 10px 0;">${item.title}</h2>
+                    <p>${item.desc || ""}</p>
+                    <div class="prompt-box">
+                        <strong style="display:block; margin-bottom:10px; color:#00838f;">Prompt k použití:</strong>
+                        <div id="copy-text" class="prompt-text">${item.prompt}</div>
+                    </div>
+                    <button class="copy-btn-modal" onclick="copyToClipboard()">
+                        <i class="fas fa-copy"></i> Kopírovat prompt
+                    </button>
+                </div>
+            </div>
         `;
     }
-
-    body.innerHTML = `
-        <div class="modal-grid" style="padding: 20px; gap: 30px;">
-            <div class="modal-media-side">${mediaContent}</div>
-            <div class="modal-text-side">
-                <span class="tag">${item.tag}</span>
-                <h2 style="margin: 10px 0;">${item.title}</h2>
-                
-                ${textSideContent}
-                <div class="prompt-box">
-                    <strong style="display:block; margin-bottom:10px; color:#00838f;">Prompt k použití:</strong>
-                    <div id="copy-text" class="prompt-text">${item.prompt}</div>
-                </div>
-                <button class="copy-btn-modal" onclick="copyToClipboard()">
-                    <i class="fas fa-copy"></i> Kopírovat prompt
-                </button>
-            </div>
-        </div>
-    `;
     
     modal.style.display = 'block';
 }

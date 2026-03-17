@@ -145,6 +145,9 @@
 /* 2. Stylování stran pro lepší vzhled */
 .modal-media-side {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .modal-text-side {
@@ -385,4 +388,58 @@
     border: 0;
     border-top: 1px solid #eee;
     margin: 15px 0;
+}
+
+.npi-item {
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.npi-item strong {
+    display: block;
+    font-size: 0.75rem;
+    color: #00838f;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.npi-item span {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.download-npi-btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #00838f;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,131,143, 0.2);
+}
+
+.download-npi-btn:hover {
+    background-color: #4dd0e1;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,131,143, 0.3);
+}
+
+/* Kontejner pro celou strukturovanou metodiku */
+.npi-structured-box span {
+    font-size: 0.75rem; /* Tady nastavuješ velikost samotného textu */
+    line-height: 1.4;   /* Trochu menší řádkování pro kompaktnost */
+    color: #444;        /* Jemnější černá pro lepší čitelnost */
+    display: block;     /* Aby text začínal pod nadpisem */
+    margin-bottom: 8px;
+}
+
+/* Zmenšení i samotných popisků (Popis, Příklad...) */
+.npi-structured-box strong {
+    font-size: 0.7rem; /* Ještě menší než text pod tím */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #00838f;
 }
