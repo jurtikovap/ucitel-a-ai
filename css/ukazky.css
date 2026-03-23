@@ -34,7 +34,7 @@
 /* Menší verze karty */
 .ukazka-card.card-small {
     width: 100%;
-    max-width: 150px; /* Volitelné: zúžení karty */
+    max-width: 200px; /* Volitelné: zúžení karty */
 }
 
 .ukazka-card.card-small .card-icon-placeholder {

@@ -123,8 +123,12 @@ function openUkazkaModal(item) {
                 <div class="modal-media-side">
                     ${mediaContent}
                     <div class="moje-napady-section" style="margin-top:20px; padding:15px; ">
-                        <h3 style="color:#00838f; font-size:1.1rem; margin-bottom:10px;text-transform: uppercase;letter-spacing: 0.5px;"> Nápady do výuky</h3>
+                        <h3 style="color:#00838f; font-size:1.1rem; margin-bottom:10px;text-transform: uppercase;letter-spacing: 0.5px;">Tvorba chatbota</h3>
                         <div style="line-height:1.6;">${item.mojeNapady}</div>
+                        <h3 style="color:#00838f; font-size:1.1rem; margin-bottom:10px;text-transform: uppercase;letter-spacing: 0.5px;">Aplikace do výuky</h3>
+                        <div style="line-height:1.6;">${item.mojeFunkce}</div>
+                        <h3 style="color:#00838f; font-size:1.1rem; margin-bottom:10px;text-transform: uppercase;letter-spacing: 0.5px;">Nápady</h3>
+                        <div style="line-height:1.6;">${item.mojeUkazky}</div>
                     </div>
                 </div>
 
