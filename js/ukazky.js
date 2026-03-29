@@ -224,3 +224,32 @@ function searchData() {
     }
 }
 
+function toggleGemsTable() {
+    const table = document.getElementById('gems-collapsible-table');
+    const btnText = document.getElementById('table-btn-text');
+    
+    if (table.style.display === 'none') {
+        table.style.display = 'block';
+        btnText.innerText = 'Skrýt přehled AI asistentů';
+    } else {
+        table.style.display = 'none';
+        btnText.innerText = 'Zobrazit přehled AI asistentů';
+    }
+}
+
+
+// FUNKCE PRO LAVICE
+function showLaviceDetail(groupId, itemId) {
+    const group = dataLavice.find(g => g.id === groupId);
+    const item = group.items.find(i => i.id === itemId);
+    const detailBox = document.getElementById('lavice-detail'); // <--- Tady to míří do ID pro Lavice
+    
+    detailBox.innerHTML = `
+        <div class="detail-card">
+            <h2>${item.title}</h2>
+            <p><strong>K čemu slouží:</strong> ${item.popis}</p>
+            <div class="prompt-box">${item.prompt}</div>
+            <button onclick="copyPrompt('${item.prompt}')">Kopírovat prompt</button>
+        </div>
+    `;
+}

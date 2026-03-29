@@ -30,9 +30,14 @@
             </h1>
         </div>
         <section class="lesson-content">
-            <p>Inspirujte se hotovými prompty a postupy. Klikněte na kartu pro detaily a kopírování. Všechny prompty jsou zcela vytvořeny mnou a AI, jen u obrázků je částečně použita inspirace z různých zdrojů.</p>
-            <p>Moje největší inspirace jsou Chris KE a Fakhre Alam</p>
-            <p>Samozřejmě je to AI, která vytváří tyto ukázky, ale jsou tam i možné chyby. Když bude potřeba, otevřete v Canvě a upravíte výsledek k obrazu svému.</p>
+            <p>Inspirujte se hotovými prompty a postupy. Klikněte na kartu pro detaily a kopírování. Všechny prompty jsou zcela vytvořeny mnou a AI, jen u obrázků je částečně použita inspirace z jiných zdrojů.</p>
+            Najdete zde:
+            <ul>
+                <li>Obrázky do výuky</li>
+                <li>AI asistenty – pro tvorbu promptů, výuky jazyků, tvorbu webů ...</li>
+                <li>AI asistenty NPI desatero – zaměření na různé dovednosti žáků</li>
+                <li>AI do lavic – prompty do chatů pro žáky na aktivizaci</li>               
+            </ul>
             <div class="tab-menu cat-ukazka">
                 <button class="tab-btn active" onclick="openTab(event, 'ukazka-tab1')">Obrázky</button>
                 <button class="tab-btn" onclick="openTab(event, 'ukazka-tab2')">Gemy</button>
@@ -45,10 +50,15 @@
             </div>
 
             <div id="ukazka-tab1" class="tab-content bg-ukazka active">
+                <h3 style="margin-bottom: 10px; color: #4dd0e1;">Obrázky do výuky</h3>
+                <p>Prompty pro vás pro vytvoření obrázků do výuky. U některých ukázky generování pomocí různých chatů.</p>
+                <p>Moje největší inspirace pro obrázky jsou Chris KE a Fakhre Alam</p>
+                <p>Samozřejmě je to AI, která vytváří tyto ukázky, ale jsou tam i možné chyby. Když bude potřeba, otevřete v Canvě a upravíte výsledek pomocí magických úprav k obrazu svému.</p>
+                <p></p>
                 <div class="search-container">
                     <div class="search-wrapper">
                         <i class="fas fa-search search-icon"></i>
-                        <input type="text" id="ukazky-search" placeholder="Hledejte podle názvu nebo #hashtagu..." onkeyup="searchData()">
+                        <input type="text" id="ukazky-search" placeholder="Hledejte podle oboru nebo #hashtagu (předmětu, tématu)..." onkeyup="searchData()">
                     </div>
                 </div>
                 <div class="filter-bar">
@@ -67,10 +77,38 @@
 
             <div id="ukazka-tab2" class="tab-content bg-ukazka">
                 <div id="grid-gemy" class="ukazky-grid"></div>
+                <div class="clean-layout">
+                    <div class="clean-sidebar">
+                        <div id="gems-menu" class="menu-container">
+                            <div id="gems-menu" class="menu-container">
+                                <button class="gem-btn" onclick="showGemDetail('gem-1')">Tvořič promptů</button>
+                                <button class="gem-btn" onclick="showGemDetail('gem-2')">GemLingo</button>
+                                <button class="gem-btn" onclick="showGemDetail('gem-3')">Web Architekt</button>
+                                <button class="gem-btn" onclick="showGemDetail('gem-4')">Formální přepisovač</button>
+                                <button class="gem-btn" onclick="showGemDetail('gem-5')">Informatický pohádkář</button>
+                                <button class="gem-btn" onclick="showGemDetail('gem-6')">Analytik dokumentu</button>
+                            </div>
+                            </div>
+                    </div>
+
+                    <div id="gems-detail" class="clean-detail-view">
+                        <div class="placeholder-text">Vyberte Gema pro zobrazení detailu...</div>
+                    </div>
+                </div>
             </div>
 
             <div id="ukazka-tab3" class="tab-content bg-ukazka">
                 <div id="grid-lavice" class="ukazky-grid"></div>
+                <div class="clean-layout">
+                    <div class="clean-sidebar">
+                        <div id="lavice-menu" class="menu-container">
+                            </div>
+                    </div>
+
+                    <div id="lavice-detail" class="clean-detail-view">
+                        <div class="placeholder-text">Vyberte si aktivitu z menu vlevo...</div>
+                    </div>
+                </div>
             </div>
 
             <div id="ukazka-tab4" class="tab-content bg-ukazka">
@@ -79,7 +117,95 @@
 
             <div id="ukazka-tab5" class="tab-content bg-ukazka">
                 <h3 style="margin-bottom: 10px; color: #4dd0e1;">NPI Metodika – 10 způsobů využití AI ve výuce</h3>
-                <p>Prompty pro vytvoření AI asistentů, kteří pracují ve výuce za vás. Sdílejte odkaz, žáci si jej otevřou na svém mobilu a pracují svým tempem.</p>
+                <p>Prompty pro vytvoření AI asistentů, kteří pracují ve výuce za vás.</p>
+                <div class="npi-prep-bar">
+                    <div class="prep-main-row">
+                        <span class="prep-label">Moje metodika:</span>
+                        
+                        <a href="../assets/metodika.pdf" target="_blank" class="mini-prep-btn">
+                            <i class="fas fa-file-pdf"></i> Stažení a použití promptů
+                        </a>
+
+                        <button onclick="toggleGemsTable()" class="mini-prep-btn outline">
+                            <i class="fas fa-table"></i> <span id="table-btn-text">Přehled Asistenů s vlastnostmi</span>
+                        </button>
+                    </div>
+
+                <div id="gems-collapsible-table" class="gems-table-wrapper" style="display: none;">
+                    <table class="gems-mini-table">
+                        <thead>
+                            <tr>
+                                <th>Č.</th>
+                                <th>Název Gemu</th>
+                                <th>Hlavní cíl</th>
+                                <th>Kdy ho použít?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><strong>Sokratovský průvodce</strong></td>
+                                <td>Aktivní objevování látky</td>
+                                <td>Úvod do nového tématu, procvičování.</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><strong>Architek obsahu</strong></td>
+                                <td>Logická struktura práce</td>
+                                <td>Před psaním seminárky nebo projektu.</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><strong>Provokatér nápadů</strong></td>
+                                <td>Pohled z více úhlů</td>
+                                <td>Brainstorming, hledání inovací.</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><strong>Mistr Logistiky</strong></td>
+                                <td>Plánování času a týmu</td>
+                                <td>Na začátku dlouhodobých projektů.</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><strong>Detektiv chyb</strong></td>
+                                <td>Kritické myšlení</td>
+                                <td>Procvičování a hledání chyb v látce.</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><strong>Konstruktivní kritik</strong></td>
+                                <td>Vylepšování výstupů</td>
+                                <td>Průběžná zpětná vazba před odevzdáním.</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><strong>Oponent argumentátor</strong></td>
+                                <td>Obhajoba názoru</td>
+                                <td>Příprava na argumentaci a praxi.</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><strong>Oborový expert</strong></td>
+                                <td>Kladení správných dotazů</td>
+                                <td>Prohloubení znalostí u pokročilých témat.</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><strong>Inovátor</strong></td>
+                                <td>Žák jako tvůrce AI</td>
+                                <td>Rozvoj digitálních kompetencí.</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td><strong>Mentor učení</strong></td>
+                                <td>Sebereflexe</td>
+                                <td>Souhrn učení, projektu, pololetí.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
                 <div id="grid-npi" class="ukazky-grid"></div>
                 <div style="text-align: center; margin: 40px 0;">
                     <a href="https://digitalizace.rvp.cz/files/10-zpusobu-vyuziti-generativni-ai-ve-vyuce-na-2-stupni-zs-a-ss.pdf" 

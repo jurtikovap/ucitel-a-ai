@@ -8,7 +8,7 @@ const dataObrazky = [
         hashtagy: ["Výroba", "Suroviny", "Infografika"],
         desc: "Detailní infografika výroby čokolády.",
         prompt: 
-`Vytvoř infografický obrázek <span class="promenna">[PRODUKT]</span>, ilustrující proces její výroby od surovin až po konečný konzumovatelný produkt.
+`Vytvoř infografický obrázek <span class="promenna">PRODUKT</span>, ilustrující proces její výroby od surovin až po konečný konzumovatelný produkt.
 Kombinuj realistickou fotografii nebo fotorealistické rendery s technickými vysvětlivkami (anotacemi) umístěnými přímo na nich.
 Dominantně zobraz konečný potravinářský produkt a zároveň vizuálně rozepiš, jak se vyrábí.
 Použij perokresbu ve stylu černého inkoustu a text (vzhled technického pera, food-engineering náčrtu) na čistě bílém studiovém pozadí, včetně:
@@ -37,7 +37,35 @@ Výstup: 1080×1080, ultra-ostrý, optimalizovaný pro sociální sítě, bez vo
     imgs: ["../img/ukazky/coko_vyroba.jpg", "../img/ukazky/coko_vyroba_2.jpg"], // Pole dvou obrázků
     type: "gallery" // Nový typ pro naši logiku
     },
-    // Sem budeš připisovat jen další obrázky
+
+  {
+    id: 110,
+    kategorie: "obrazky",
+    gridId: "grid-obrazky",
+    title: "Zdraví v potravinách",
+    tag: "Kuchař",
+    hashtagy: ["Zdraví", "Potraviny"],
+    desc: "Ilustrace zdravé výživy. Při generování v jednom chatu různých potravin je zajištěno, že všechny plakáty dodržují stejný styl a estetiku, aby byly konzistentní v rámci série.",
+    prompt: `Infografický plakát, který je součástí JEDNOTNÉ SÉRIE VZDĚLÁVACÍCH PLAKÁTŮ o zdraví. Styl musí striktně dodržovat čistou, minimalistickou a vzdušnou estetiku, která byla definována pro tuto sérii. 
+
+Pozadí je čisté, ve světlé barvě: <span class="promenna"> např. PASTELOVĚ RŮŽOVÉM</span>. Kompozice musí zachovat velké množství volného bílého prostoru, aby plakát nepůsobil přeplněně.
+
+Uprostřed plakátu je umístěna vysoce kvalitní, realistická fotografie <span class="promenna">např. MALINY</span>.
+
+Struktura a prvky:
+1. NAHOŘE UPROSTŘED: Velký a dominantní nadpis v češtině, vyvedený stejným tučným sans-serif písmem jako v předchozích dílech série: "<span class="promenna">NÁZEV POTRAVINY</span>".
+2. VPRAVO NAHOŘE: Identický, malý, diskrétní ozdobný štítek (např. s logem listu) s textem: "Zdravé potraviny". Musí vypadat přesně jako na ostatních plakátech série.
+3. KOLEM POTRAVINY (V PROSTORU): 4 až 6 krátkých českých popisků se zdravotními přínosy. Tyto popisky jsou napsány MENŠÍM, jemným a elegantním písmem, který se používá pro sérii, a jsou k potravině připojeny jemnými ručně kreslenými přerušovanými šipkami. Písmo popisků musí být výrazně menší než hlavní nadpis a musí kolem něj být hodně volného prostoru.
+
+Stylistiká pravidla pro konzistenci:
+- Písmo popisků: Elegantní, čitelné, mírně ozdobné, vypadající jako úhledné ruční písmo, v decentní velikosti.
+- Jazyk: Veškerý text musí být v češtině a se správnou diakritikou.
+- Zachování prvků: Umístění nadpisu, štítku, stylu šipek a typu písma musí být na všech plakátech identické.
+    `,
+    img: "../img/ukazky/zdravi_1.jpg", 
+    type: "image"
+},    
+
     {
     id: 102,
     kategorie: "obrazky",
@@ -46,7 +74,7 @@ Výstup: 1080×1080, ultra-ostrý, optimalizovaný pro sociální sítě, bez vo
     tag: "Řezník",
     hashtagy: ["Technologie", "Porážka", "Maso"],
     desc: "Detailní vědecká ilustrace rozdělení hovězího masa.",
-    prompt: `Vytvoř infografiku řeznických řezů pro <span class="promenna">[MASO]</span>
+    prompt: `Vytvoř infografiku řeznických řezů pro <span class="promenna">MASO</span>
 Zadání pro generování:
 Tato šablona slouží k vytvoření ultra ostré, technicky přesné infografiky o řeznických řezech konkrétního druhu masa. 
 Infografika musí mít vzhled průmyslového manuálu nebo blueprintu s vysokým kontrastem a klinickou přesností.
@@ -56,10 +84,10 @@ přes realistickou fotografii. Vyvážený prázdný prostor.
 
 Struktura a Obsah Infografiky:
 1. Název a Záhlaví
- V horním LEVÉM rohu, v ručně kresleném technickém rámečku, je velkým písmem uveden název: <span class="promenna">[MASO]</span>.
+ V horním LEVÉM rohu, v ručně kresleném technickém rámečku, je velkým písmem uveden název: <span class="promenna">MASO</span>.
  Integrovaný do záhlaví je ručně kreslený diagram se šipkami znázorňujícími tok zpracování: Jatečné tělo → Základní řezy (Primal Cuts) → Maloobchodní řezy (Retail Cuts).
 2. Hlavní Vizuál (Uprostřed)
- Základ: Hyperrealistický studiový snímek celé <span class="promenna">[ZVÍŘE]</span> na čistě bílém pozadí.
+ Základ: Hyperrealistický studiový snímek celé <span class="promenna">ZVÍŘE</span> na čistě bílém pozadí.
  Překryv: Minimalistická technická skica černou tuší (styl technického pera), která přesně vymezuje základní řeznické řezy přímo přes fotografii zvířete.
 3. Technické Popisky a Vodící Linky
  K identifikaci jednotlivých svalových skupin použij přesné tenké černé vodící linky a šipky, které vedou k popiskům psaným technickým rukopisem. 
@@ -106,7 +134,7 @@ Infografika obsahuje detailní rozložené technické pohledy na <span class="pr
     tag: "Kuchař",
     hashtagy: ["Maso", "Jídlo", "Vaření"],
     desc: "Detailní infografika rozloženého burgeru.",
-    prompt: `Vytvoř hyperrealistickou redakční food infografiku pro <span class="promenna">[JÍDLO]</span>. 
+    prompt: `Vytvoř hyperrealistickou redakční food infografiku pro <span class="promenna">JÍDLO</span>. 
     Zobraz hlavní jídlo krásně naservírované v misce nebo na talíři ve spodní části, vypadající čerstvě připravené, horké a lákavé. 
     Nad ním zobraz jeho typické ingredience vznášející se nebo levitující ve vzduchu, jako by byly zachyceny v momentu zmrazeného pohybu (motion-freeze). 
     Zahrň ingredience: hlavní komponenty pokrmu, běžně používaná zelenina, bylinky nebo ozdoby pro daný pokrm; omáčky, koření nebo dochucovadla odpovídající k pokrmu; texturní prvky (drobky, stříkance, pára)
@@ -128,7 +156,7 @@ Infografika obsahuje detailní rozložené technické pohledy na <span class="pr
     tag: "Fotograf",
     hashtagy: ["iPhone", "Fotoaparát", "Technika"],
     desc: "Detailní vědecká ilustrace rozloženého zařízení.",
-    prompt: `Vytvoř technickou infografiku <span class="promenna">[ZAŘÍZENÍ]</span> 
+    prompt: `Vytvoř technickou infografiku <span class="promenna">ZAŘÍZENÍ</span> 
     v 45stupňové izometrické 3D perspektivě (isometric 3D perspective) ukazující zařízení v mírném náklonu pro odhalení hloubky a rozměrů.
     Kombinuj realistický fotorealistický render s technickými anotacemi černou tuší na čistě bílém pozadí. 
     
@@ -140,13 +168,57 @@ Infografika obsahuje detailní rozložené technické pohledy na <span class="pr
     • Barevně kódované šipky pro funkce/toky: ČERVENÁ (napájení/baterie), MODRÁ (data/konektivita), ORANŽOVÁ (teplo/procesor), ZELENÁ (senzory/haptika).
     • Jednoduchá schémata nebo diagramy průřezů, kde je to relevantní.
     
-    Název „<span class="promenna">[ZAŘÍZENÍ]</span>“ umísti do ručně kresleného technického rámečku (horní levý roh).
+    Název „<span class="promenna">ZAŘÍZENÍ</span>“ umísti do ručně kresleného technického rámečku (horní levý roh).
     
     Styl: Černá perokresba (technické pero/architektonický styl), skicované, ale přesné. Objekt zůstává jasně viditelný. Estetika vzdělávacího muzejního exponátu. Čistá kompozice, vyvážený negativní prostor.
     Perspektiva: Izometrický 3D úhel – nakloněný pro dramatické zobrazení hloubky, rozměrů a vnitřní architektury. Jako profesionální rozbor produktu (product teardown) nebo inženýrský manuál.
     Barvy: Hustota akcentů ~10–15 %. Dominantní černá. Bílé pozadí.Výstup: 1080×1080, ultra ostré, optimalizované pro sociální sítě.
     `,
     imgs: ["../img/ukazky/foto_nikon.jpg", "../img/ukazky/iPhone_struktura.jpg"], // Pole dvou obrázků
+    type: "gallery" 
+},
+
+{
+    id: 108,
+    kategorie: "obrazky",
+    gridId: "grid-obrazky",
+    title: "Mapa Prahy",
+    tag: "Cestovní ruch",
+    hashtagy: ["Mapa", "Zeměpis", "Praha"],
+    desc: "Stará mapa Prahy s památkami a ikonami na staré mapě. První obrázek generován pomocí ChatGPT, druhý pomocí Copilota a třetí pomocí Gemini.",
+    prompt: `Vytvoř vizuálně úchvatný, edukativní infografický obrázek v stylu "street-style mapa" <span class="promenna">MĚSTO</span> (historické centrum).
+
+Základ a Pozadí:
+Mapa je umístěna na texturovaném povrchu ze starého, zvětralého pergamenu, který tvoří podklad. Pozadí je tmavší, aby lépe vynikly detaily miniatur.
+
+3D Dioráma (Vystupující prvky):
+Z povrchu pergamenu, jako 3D městské diorama, vystupuje vysoce detailní, fotorealistická miniaturní verze <span class="promenna">MĚSTO</span>. Všechny prvky "rostou" přímo z mapy.
+
+Klíčové památky a dominanty (Zahrnout):
+Dioráma musí obsahovat detailní miniatury těchto ikonických staveb:
+<span class="promenna">
+1.  NÁZEV PAMÁTKY 1, NAPŘ. HRAD NEBO KATEDRÁLA
+2.  NÁZEV PAMÁTKY 2, NAPŘ. IKONICKÝ MOST NEBO VĚŽ
+3.  NÁZEV PAMÁTKY 3, NAPŘ. STAROBYLÁ RADNICE NEBO DIVADLO</span>
+Tyto dominanty jsou klíčovými body na mapě.
+
+Přírodní prvek a integrace:
+Přírodní prvek <span class="promenna">NÁZEV ŘEKY NEBO JEZERA</span> je plynule integrován do mapy a proplouvá jím několik miniaturních loděk, které pomáhají udržet měřítko celého města.
+
+Prvek městského života a dopravy:
+Do diorámatu jsou začleněny živé prvky:
+1.  Městský život: Miniaturní verze <span class="promenna">AKCE, NAPŘ. VÁNOČNÍ TRHY na NAPŘ. STAROMĚSTSKÉM NÁMĚSTÍ</span>.
+2.  Ikonická doprava: Na mapě je zobrazena <span class="promenna">NAPŘ. HISTORICKÁ TRAMVAJ</span>, která je pro město typická.
+
+Extra detaily:
+Aby diorama působilo uvěřitelně, přidej jemné detaily: dlážděné kostky na ulicích, miniaturní lampy veřejného osvětlení a drobné, nepatrné postavičky lidí, které zvýrazňují obrovské měřítko památek. 
+
+Estetika a formát:
+- Osvětlení: Jemné studiové osvětlení, které vytváří hluboké stíny a zvýrazňuje 3D efekt.
+- Efekt: Filmová hloubka ostrosti, která zaměřuje pozornost na centrum diorámatu.
+- Formát: Vertikální, 2:3.
+    `,
+    imgs: ["../img/ukazky/Praha_chatgpt.jpg", "../img/ukazky/Praha_copilot.jpg", "../img/ukazky/Praha_gemini.jpg"], // Pole dvou obrázků
     type: "gallery" 
 },
 
@@ -158,9 +230,70 @@ Infografika obsahuje detailní rozložené technické pohledy na <span class="pr
     tag: "Kosmetička",
     hashtagy: ["Kůže", "Zdravověda"],
     desc: "Detailní ilustrace řezem kůže.",
-    prompt: `Vytvoř detailní 2D ilustraci složení dortu...`,
+    prompt: `Vytvoř infografiku: <span class="promenna">STRUKTURA KŮŽE</span>
+Hlavní Vizuál (Uprostřed)
+Základ: Hyperrealistický 3D makro snímek (render) příčného řezu lidskou kůží na čistě bílém pozadí. Musí být vidět reálná textura pórů, jemných chloupků a struktura tkáně.
+Překryv: Minimalistická technická skica černou tuší, která přesně vymezuje vrstvy kůže přímo přes fotografii.
+Technické Popisky a Vodící Linky
+Místo bublin přesné tenké černé šipky k popiskům (technický rukopis):
+
+Hlavní vrstvy: <span class="promenna">'Pokožka' (Epidermis), 'Škára' (Dermis), 'Podkoží' (Hypodermis)</span>.
+Specifické struktury: <span class="promenna">'Rohová vrstva' (Stratum Corneum), 'Melanocyty', 'Kolagenová a elastinová vlákna', 'Mazová žláza', 'Vlasový folikul', 'Krevní kapiláry'</span>.
+
+Datové Body a Parametry (Technickým rukopisem)
+U každé vrstvy technické parametry:
+<span class="promenna">např. Pokožka: tloušťka (0,05–1,5 mm) ..., škára: ...</span>
+
+Rozložené Pohledy (Exploded Views)
+Detail póru: Technický nákres vývodu mazové žlázy.
+Detail kolagenní sítě: Mikroskopický pohled na propletená vlákna s vyznačením pružnosti (elasticity).
+
+Grafy a Stupnice (Dolní Roh)
+Graf Hydratace: Technický diagram ukazující transepidermální ztrátu vody (TEWL) v závislosti na integritě kožní bariéry.
+Stupnice pH: Lineární technická osa od kyselého po alkalické prostředí.
+
+Celkový Styl a Estetika
+Atmosféra: Lékařský manuál, blueprint, dermato-kosmetická příručka.
+Vizuál: Vysoký kontrast, černé linky přes "živou" tkáň.
+Název: <span class="promenna">STRUKTURA KŮŽE</span> v rýsovaném rámečku v horním rohu.
+    `,
     img: "../img/ukazky/kuze_slozeni.jpg", 
     type: "image"
+},
+
+{
+    id: 109,
+    kategorie: "obrazky",
+    gridId: "grid-obrazky",
+    title: "Architektura Karlova mostu",
+    tag: "Cestovní ruch",
+    hashtagy: ["Karlův most", "Architektura", "Praha"],
+    desc: "Architektura Karlova mostu. První obrázek generován pomocí Gemini, druhý pomocí Copilota a třetí pomocí ChatGPT.",
+    prompt: `Vytvoř vysoce detailní a edukativní infografický obrázek v stylu technického inženýrského manuálu, který nese název: <span class="promenna">NÁZEV PAMÁTKY (MĚSTO)</span> - Inženýrský manuál.
+
+Hlavní Vizuál (Základ):
+Základ tvoří reálná fotografie <span class="promenna">NÁZEV PAMÁTKY v MĚSTO</span> za jasného denního světla. Památka musí být zobrazena tak, aby vynikly její architektonické prvky (např. z ptačí perspektivy, z boku nebo čelní pohled, podle typu stavby).
+
+Překryv a Technické Popisky:
+Přímo přes reálnou fotografii je překryta vrstva vysoce detailních, křídových skic (bílými nebo modrými čárami) a technických poznámek ve stylu blueprintu (modrotisku).
+
+Název: V horním rohu je v ručně kresleném technickém rámečku umístěn název '<span class="promenna">NÁZEV PAMÁTKY</span>' v přesném architektonickém bezpatkovém (sans-serif) písmu.
+
+Křídové nákresy a diagramy:
+Musí obsahovat následující technické analýzy:
+1.  Diagram konstrukce: Detailní skica klíčové části konstrukce <span class="promenna">KONKRÉTNÍ ČÁST, NAPŘ. KLENBY MOSTU, PILÍŘE ROZHLEDNY</span> s měřeními a popisem hloubky/výšky.
+2.  Zatížení a struktura: Diagram se šipkami demonstrující rozložení tlaku a zatížení, které konstrukce nese, od <span class="promenna">NAPŘ. OD STŘECHY K ZÁKLADŮM NEBO OD VOZOVKY K PILÍŘŮM</span>.
+3.  Vnitřní pohled: Diagram vnitřního uspořádání <span class="promenna">KONKRÉTNÍ ČÁST, NAPŘ. PŮDORYS PODLAŽÍ VĚŽE, SCHODIŠTĚ</span> se skicami schodišť nebo místností.
+4.  Identifikace materiálu: Přesné poznámky identifikující klíčové materiály <span class="promenna">KONKRÉTNÍ MATERIÁLY, NAPŘ. ŽULA, DŘEVO NEBO OCEL</span> s odhady množství a technickými popisy jejich vlastností.
+5.  Detailní diagramy ochranných prvků: Skici specifických prvků, které chrání stavbu <span class="promenna">KONKRÉTNÍ OCHRANU, NAPŘ. LEDOLAMY, OPĚRNÉ SYSTÉMY</span> s vysvětlením jejich funkce.
+
+Celkový Styl a Estetika:
+- Atmosféra: Průmyslový inženýrský manuál, blueprint, muzejní kvalita, edukační.
+- Vizuál: Vysoký kontrast, přesné bílé nebo modré křídové linky přes reálnou fotografii, technické/architektonické rukopisné popisky s kótami a měřítky.
+- Formát: Ultra ostrý, vysoké rozlišení, vhodný pro velkoformátovou ilustraci, s viditelným reálným prostředím za poznámkami.
+    `,
+    imgs: ["../img/ukazky/Karluv_most_gemini.jpg", "../img/ukazky/Karluv_most_copilot.jpg", "../img/ukazky/Karluv_most_chatgpt.jpg"], // Pole dvou obrázků
+    type: "gallery" 
 },
 
   {
@@ -171,7 +304,7 @@ Infografika obsahuje detailní rozložené technické pohledy na <span class="pr
     tag: "Pekař",
     hashtagy: ["Chleba", "Stroje", "Pekárna"],
     desc: "Detailní infografika děličky na chleba.",
-    prompt: `Vytvoř technickou infografiku <span class="promenna">[ZAŘÍZENÍ]</span> 
+    prompt: `Vytvoř technickou infografiku <span class="promenna">ZAŘÍZENÍ</span> 
     v 45stupňové izometrické 3D perspektivě (isometric 3D perspective) ukazující zařízení v mírném náklonu pro odhalení hloubky a rozměrů.
     Kombinuj realistický fotorealistický render s technickými anotacemi černou tuší na čistě bílém pozadí. 
     
@@ -183,7 +316,7 @@ Infografika obsahuje detailní rozložené technické pohledy na <span class="pr
     • Barevně kódované šipky pro funkce/toky: ČERVENÁ (napájení/baterie), MODRÁ (data/konektivita), ORANŽOVÁ (teplo/procesor), ZELENÁ (senzory/haptika).
     • Jednoduchá schémata nebo diagramy průřezů, kde je to relevantní.
     
-    Název „<span class="promenna">[ZAŘÍZENÍ]</span>“ umísti do ručně kresleného technického rámečku (horní levý roh).
+    Název „<span class="promenna">ZAŘÍZENÍ</span>“ umísti do ručně kresleného technického rámečku (horní levý roh).
     
     Styl: Černá perokresba (technické pero/architektonický styl), skicované, ale přesné. Objekt zůstává jasně viditelný. Estetika vzdělávacího muzejního exponátu. Čistá kompozice, vyvážený negativní prostor.
     Perspektiva: Izometrický 3D úhel – nakloněný pro dramatické zobrazení hloubky, rozměrů a vnitřní architektury. Jako profesionální rozbor produktu (product teardown) nebo inženýrský manuál.
@@ -192,6 +325,11 @@ Infografika obsahuje detailní rozložené technické pohledy na <span class="pr
     img: "../img/ukazky/chleba_delicka.jpg", 
     type: "image"
 },
+
+
+
+
+
 
 ];
 

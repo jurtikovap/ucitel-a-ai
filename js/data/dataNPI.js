@@ -8,17 +8,20 @@ const dataNPI = [
         hashtagy: ["individualizace", "aktivizace"],
         // LEVÁ STRANA - TVOJE INSPIRACE
         mojeNapady: `<ul><li>Zkopíruj prompt</li>
-                         <li>Otevři si rozhraní pro tvorbu AI Asistenta</li>
-                         <li>Do pole instrukce vlož celý text promptu</li>
-                         <li>Pojmenuj asistenta, např. SOKRATOVSKÝ PRŮVODCE</li>
-                         <li>Ulož svého nového asistenta</li>
-                         <li>A těš se na využití</li></ul>`,
-        mojeFunkce: `<ul><li>Otevři svého nového asistenta SOKRATOVSKÝ PRŮVODCE</li>
-                         <li>Napiš téma je: ... a vlož soubory, ze kterých má chatbot čerpat, či zadej webovou stránku nebo nech jen téma</li>
-                         <li>Napiš cílovou metu, co má žák na konci umět</li>
-                         <li>Klikni na odkaz Sdílet a pošli odkaz žákům</li>
-                         <li>Žák konverzaci zahájí pozdravem a volbou světa, ve kterém chce výuku</li>
-                         <li>Nech žáka vést rozhovor s asistentem a odpovídat na jeho otázky až na cílovou metu</li></ul>`,
+                         <li>Pomocí metodiky aplikuj <a href="../assets/metodika.pdf" target="_blank" class="mini-prep-btn">
+                            <i class="fas fa-file-pdf"></i> </a></li>
+                         <li>Pojmenuj asistenta, např. SOKRATOVSKÝ PRŮVODCE</li></ul>`,
+        mojeFunkce: `<ul><li>Zde je aktivní učení či procvičování nové látky</li>
+                         <li>Učitel<ul>
+                                <li>Zadá úvodní téma a může nahrát zdrojové soubory</li>
+                                <li>Určí cílovou metu pro žáky</li>
+                                <li>Nasdílí žákům odkaz na asistenta</li>
+                         </ul></li>
+                         <li>Žák<ul>
+                                <li>Zahájí konverzaci pozdravem a volbou světa, ve kterém chce výuku</li>
+                                <li>Vede rozhovor s asistentem a odpovídá na jeho otázky až na cílovou metu</li>
+                         </ul></li>
+                    </ul>`,
         mojeUkazky: "Odborné téma, odhalení události, zeměpisné místo, vysvěltení pojmu, pohovor na místo ...",
         // PRAVÁ STRANA - METODIKA NPI
         npiPopis: "GenAI generuje otázky na míru, čímž podporuje hlubší porozumění tématu a schopnost samostatně myslet. ",
@@ -65,16 +68,20 @@ FÁZE 4: DOSAŽENÍ METY A ZÁVĚR
         gridId: "grid-npi",
         hashtagy: ["osnova", "priprava"],
         mojeNapady: `<ul><li>Zkopíruj prompt</li>
-                         <li>Otevři si rozhraní pro tvorbu AI Asistenta</li>
-                         <li>Do pole instrukce vlož celý text promptu</li>
-                         <li>Pojmenuj asistenta, např. ARCHITEKT OBSAHU</li>
-                         <li>Ulož svého nového asistenta</li>
-                         <li>A těš se na využití</li></ul>`,
-        mojeFunkce: `<ul><li>Otevři svého nového asistenta ARCHITEKT OBSAHU</li>
-                         <li>Klikni na odkaz Sdílet a pošli odkaz žákům</li>
-                         <li>Žák konverzaci zahájí pozdravem a dál se nechá vést asistentem</li>
-                         <li>Nech žáka vést rozhovor s asistentem a odpovídat na jeho otázky až bude spokojen s osnovou</li></ul>`,
-        mojeUkazky: "Odborné téma, odhalení události, zeměpisné místo, vysvěltení pojmu, pohovor na místo ...",
+                         <li>Pomocí metodiky aplikuj <a href="../assets/metodika.pdf" target="_blank" class="mini-prep-btn">
+                            <i class="fas fa-file-pdf"></i> </a></li>
+                         <li>Pojmenuj asistenta, např. ARCHITEKT OBSAHU</li></ul>`,
+        mojeFunkce: `<ul><li>Zde je struktura práce</li>
+                         <li>Učitel<ul>
+                                <li>Pouze nasdílí žákům odkaz na asistenta</li>
+                         </ul></li>
+                         <li>Žák<ul>
+                                <li>Zahájí konverzaci pozdravem a dál se nechá vést asistentem</li>
+                                <li>Asistent se zeptá na formát práce, cílovou skupinu a hlavní sdělení</li>
+                                <li>Vede rozhovor s asistentem a odpovídá na jeho otázky až bude spokojen s osnovou</li>
+                         </ul></li>
+                    </ul>`,
+        mojeUkazky: "Odborné téma, prezentace, referát, různé publikum, cíle ...",
         npiPopis: "Žáci využívají GenAI k návrhu osnovy nebo struktury tématu zadaného úkolu. ",
         npiPriklad: "Osnova slohové práce, návrh kapitol prezentace, myšlenkové mapy, struktura rozhovoru nebo argumentace.",
         npiRozviji: "Porozumění komplexitě tématu, schopnost třídit a prioritizovat informace, vytvářet logickou strukturu.",
@@ -117,18 +124,21 @@ Poté, co student odpoví na kritické otázky, vygeneruj finální verzi v tomt
         gridId: "grid-npi",
         hashtagy: ["kreativita", "inspirace"],
         mojeNapady: `<ul><li>Zkopíruj prompt</li>
-                         <li>Otevři si rozhraní pro tvorbu AI Asistenta</li>
-                         <li>Do pole instrukce vlož celý text promptu</li>
-                         <li>Pojmenuj asistenta, např. BOŘIČ STEREOTYPŮ</li>
-                         <li>Ulož svého nového asistenta</li>
-                         <li>A těš se na využití</li></ul>`,
-        mojeFunkce: `<ul><li>Otevři svého nového asistenta BOŘIČ STEREOTYPŮ</li>
-                         <li>Napiš téma je: ... a vlož soubory, ze kterých má asistent čerpat, či zadej webovou stránku nebo nech jen téma</li>
-                         <li>Napiš cílovou metu, co má žák na konci umět</li>
-                         <li>Klikni na odkaz Sdílet a pošli odkaz žákům</li>
-                         <li>Žák konverzaci zahájí pozdravem a volbou světa, ve kterém chce výuku</li>
-                         <li>Nech žáka vést rozhovor s chatbotem a odpovídat na jeho otázky až na cílovou metu</li></ul>`,
-        mojeUkazky: "Odborné téma, odhalení události, zeměpisné místo, vysvěltení pojmu, pohovor na místo ...",
+                         <li>Pomocí metodiky aplikuj <a href="../assets/metodika.pdf" target="_blank" class="mini-prep-btn">
+                            <i class="fas fa-file-pdf"></i> </a></li>
+                         <li>Pojmenuj asistenta, např. PROVOKATÉR NÁPADŮ</li></ul>`,
+        mojeFunkce: `<ul><li>Zde je pohled z více úhlů</li>
+                         <li>Učitel<ul>
+                                <li>Pouze nasdílí žákům odkaz na asistenta</li>
+                         </ul></li>
+                         <li>Žák<ul>
+                                <li>Zahájí konverzaci pozdravem a dál se nechá vést asistentem</li>
+                                <li>Asistent se zeptá na téma a dosavadní nápady</li>
+                                <li>Vede rozhovor s asistentem a odpovídá na jeho provokativní otázky</li>
+                                <li>Asistent žáka "nepustí ke dveřím" a neustále přidává nové nečekané prvky k jeho nápadům</li>
+                         </ul></li>
+                    </ul>`,
+        mojeUkazky: "Odborné téma, pohovor, projekt ...",
         npiPopis: "Žáci využívají GenAI k rozvíjení nápadů, pro inspiraci nebo hledání různých úhlů pohledu na dané téma.",
         npiPriklad: "Argumentace pro a proti, hledání různých pojetí tématu, možností či neobvyklých řešení nebo forem.",
         npiRozviji: "Posiluje kreativní myšlení, schopnost rozvíjet myšlenku, vnímat téma z více úhlů pohledu.",
@@ -165,18 +175,21 @@ UKONČENÍ
         gridId: "grid-npi",
         hashtagy: ["organizace", "postup"],
         mojeNapady: `<ul><li>Zkopíruj prompt</li>
-                         <li>Otevři si rozhraní pro tvorbu AI Asistenta</li>
-                         <li>Do pole instrukce vlož celý text promptu</li>
-                         <li>Pojmenuj asistenta, např. SOKRATOVSKÝ PRŮVODCE</li>
-                         <li>Ulož svého nového asistenta</li>
-                         <li>A těš se na využití</li></ul>`,
-        mojeFunkce: `<ul><li>Otevři svého nového asistenta SOKRATOVSKÝ PRŮVODCE</li>
-                         <li>Napiš téma je: ... a vlož soubory, ze kterých má asistent čerpat, či zadej webovou stránku nebo nech jen téma</li>
-                         <li>Napiš cílovou metu, co má žák na konci umět</li>
-                         <li>Klikni na odkaz Sdílet a pošli odkaz žákům</li>
-                         <li>Žák konverzaci zahájí pozdravem a volbou světa, ve kterém chce výuku</li>
-                         <li>Nech žáka vést rozhovor s chatbotem a odpovídat na jeho otázky až na cílovou metu</li></ul>`,
-        mojeUkazky: "Odborné téma, odhalení události, zeměpisné místo, vysvěltení pojmu, pohovor na místo ...",
+                         <li>Pomocí metodiky aplikuj <a href="../assets/metodika.pdf" target="_blank" class="mini-prep-btn">
+                            <i class="fas fa-file-pdf"></i> </a></li>
+                         <li>Pojmenuj asistenta, např. MISTR LOGISTIKY</li></ul>`,
+        mojeFunkce: `<ul><li>Zde je plánování a organizace</li>
+                         <li>Učitel<ul>
+                                <li>Pouze nasdílí žákům odkaz na asistenta</li>
+                         </ul></li>
+                         <li>Žák<ul>
+                                <li>Zahájí konverzaci pozdravem a dál se nechá vést asistentem</li>
+                                <li>Asistent se zeptá na cíl, termín a práci ve skupině</li>
+                                <li>Vede rozhovor s asistentem a odpovídá na jeho podrobné otázky</li>
+                                <li>Asistent žáka "nepustí ke dveřím" a neustále přidává nové nečekané prvky</li>
+                         </ul></li>
+                    </ul>`,
+        mojeUkazky: "Projekt, praktická zkouška, spolupráce v týmu ...",
         npiPopis: "Žáci s pomocí GenAI plánují postup práce, rozvrhují dílčí kroky a vytvářejí časový plán. ",
         npiPriklad: "Rozdělení úlohy na dílčí kroky, návrh harmonogramu projektu, plán postupu při psaní slohové práce.",
         npiRozviji: "Schopnost organizace a realistického plánování cílů.",
@@ -222,18 +235,23 @@ Na konci vygeneruj přehledný plán:
         gridId: "grid-npi",
         hashtagy: ["kritické_myšlení", "revize"],
         mojeNapady: `<ul><li>Zkopíruj prompt</li>
-                         <li>Otevři si rozhraní pro tvorbu AI Asistenta</li>
-                         <li>Do pole instrukce vlož celý text promptu</li>
-                         <li>Pojmenuj asistenta, např. SOKRATOVSKÝ PRŮVODCE</li>
-                         <li>Ulož svého nového asistenta</li>
-                         <li>A těš se na využití</li></ul>`,
-        mojeFunkce: `<ul><li>Otevři svého nového asistenta SOKRATOVSKÝ PRŮVODCE</li>
-                         <li>Napiš téma je: ... a vlož soubory, ze kterých má asistent čerpat, či zadej webovou stránku nebo nech jen téma</li>
-                         <li>Napiš cílovou metu, co má žák na konci umět</li>
-                         <li>Klikni na odkaz Sdílet a pošli odkaz žákům</li>
-                         <li>Žák konverzaci zahájí pozdravem a volbou světa, ve kterém chce výuku</li>
-                         <li>Nech žáka vést rozhovor s chatbotem a odpovídat na jeho otázky až na cílovou metu</li></ul>`,
-        mojeUkazky: "Odborné téma, odhalení události, zeměpisné místo, vysvěltení pojmu, pohovor na místo ...",
+                         <li>Pomocí metodiky aplikuj <a href="../assets/metodika.pdf" target="_blank" class="mini-prep-btn">
+                            <i class="fas fa-file-pdf"></i> </a></li>
+                         <li>Pojmenuj asistenta, např. DETEKTIV CHYB</li></ul>`,
+        mojeFunkce: `<ul><li>Zde je kritické myšlení a hledání chyb</li>
+                         <li>Učitel<ul>
+                                <li>Zadá úvodní téma a může nahrát zdrojové soubory</li>
+                                <li>Určí počet chyb v textu</li>
+                                <li>Nasdílí žákům odkaz na asistenta</li>
+                         </ul></li>
+                         <li>Žák<ul>
+                                <li>Zahájí konverzaci pozdravem a volbou světa, ve kterém chce odborný text</li>
+                                <li>Asistent vysvětlí cíl a pravidla hry</li>
+                                <li>Hledá chyby v textu a musí je vysvětlit</li>
+                                <li>Konec je, když jsou všechny chyby odhaleny</li>
+                         </ul></li>
+                    </ul>`,
+        mojeUkazky: "Odborné téma, popis události, vysvěltení pojmu, recept ...",
         npiPopis: "Žáci kriticky hodnotí výstup vygenerovaný pomocí AI - hledají nepřesnosti a výstup vylepšují. ",
         npiPriklad: "Žáci pomocí GenAI vygenerují text na dané téma, posuzují jeho kvalitu a navrhnou vylepšení. ",
         npiRozviji: "Kritické myšlení, jazykovou kulturu, schopnost posoudit kvalitu informací. ",
@@ -278,18 +296,22 @@ PŘÍSNÉ PRAVIDLO PRO GENEROVÁNÍ TEXTU:
         gridId: "grid-npi",
         hashtagy: ["reflexe", "evaluace"],
          mojeNapady: `<ul><li>Zkopíruj prompt</li>
-                         <li>Otevři si rozhraní pro tvorbu AI Asistenta</li>
-                         <li>Do pole instrukce vlož celý text promptu</li>
-                         <li>Pojmenuj asistenta, např. SOKRATOVSKÝ PRŮVODCE</li>
-                         <li>Ulož svého nového asistenta</li>
-                         <li>A těš se na využití</li></ul>`,
-        mojeFunkce: `<ul><li>Otevři svého nového asistenta SOKRATOVSKÝ PRŮVODCE</li>
-                         <li>Napiš téma je: ... a vlož soubory, ze kterých má asistent čerpat, či zadej webovou stránku nebo nech jen téma</li>
-                         <li>Napiš cílovou metu, co má žák na konci umět</li>
-                         <li>Klikni na odkaz Sdílet a pošli odkaz žákům</li>
-                         <li>Žák konverzaci zahájí pozdravem a volbou světa, ve kterém chce výuku</li>
-                         <li>Nech žáka vést rozhovor s chatbotem a odpovídat na jeho otázky až na cílovou metu</li></ul>`,
-        mojeUkazky: "Odborné téma, odhalení události, zeměpisné místo, vysvěltení pojmu, pohovor na místo ...",
+                         <li>Pomocí metodiky aplikuj <a href="../assets/metodika.pdf" target="_blank" class="mini-prep-btn">
+                            <i class="fas fa-file-pdf"></i> </a></li>
+                         <li>Pojmenuj asistenta, např. KONSTRUKTIVNÍ KRITIK</li><ul>`,
+        mojeFunkce: `<ul><li>Zde je vylepšování výstupů a zpětná vazba</li>
+                         <li>Učitel<ul>
+                                <li>Zadá kritéria hodnocení (odbornost, gramatika, praktičnost...)</li>
+                                <li>Určí cíl (postup, slohovka, projekt ...)</li>
+                                <li>Nasdílí žákům odkaz na asistenta</li>
+                         </ul></li>
+                         <li>Žák<ul>
+                                <li>Zahájí konverzaci pozdravem a nahraje svoji práci</li>
+                                <li>Vede rozhovor s asistentem a obhajuje nahranou práci</li>
+                                <li>Asistent žáka nedovolí opustit konverzaci, dokud neprojeví všechny své nápady</li>
+                         </ul></li>
+                    </ul>`,
+        mojeUkazky: "Slohová práce, popis postupu, odborný článek ...",
         npiPopis: "Žáci na základě daných kritérií využijí GenAI pro zhodnocení své práce a svůj výstup vylepšují. ",
         npiPriklad: "Chatbot ohodnotí žákův výstup na základě pedagogem daných kritérií. Žák dle vlastního uvážení výstup upraví. ",
         npiRozviji: "Schopnost reflektovat vlastní práci, porozumět hodnoticím kritériím. ",
@@ -338,18 +360,21 @@ POJISTKA PROTI RYCHLÉMU UKONČENÍ:
         gridId: "grid-npi",
         hashtagy: ["diskuze", "rétorika"],
         mojeNapady: `<ul><li>Zkopíruj prompt</li>
-                         <li>Otevři si rozhraní pro tvorbu AI Asistenta</li>
-                         <li>Do pole instrukce vlož celý text promptu</li>
-                         <li>Pojmenuj asistenta, např. SOKRATOVSKÝ PRŮVODCE</li>
-                         <li>Ulož svého nového asistenta</li>
-                         <li>A těš se na využití</li></ul>`,
-        mojeFunkce: `<ul><li>Otevři svého nového asistenta SOKRATOVSKÝ PRŮVODCE</li>
-                         <li>Napiš téma je: ... a vlož soubory, ze kterých má asistent čerpat, či zadej webovou stránku nebo nech jen téma</li>
-                         <li>Napiš cílovou metu, co má žák na konci umět</li>
-                         <li>Klikni na odkaz Sdílet a pošli odkaz žákům</li>
-                         <li>Žák konverzaci zahájí pozdravem a volbou světa, ve kterém chce výuku</li>
-                         <li>Nech žáka vést rozhovor s chatbotem a odpovídat na jeho otázky až na cílovou metu</li></ul>`,
-        mojeUkazky: "Odborné téma, odhalení události, zeměpisné místo, vysvěltení pojmu, pohovor na místo ...",
+                         <li>Pomocí metodiky aplikuj <a href="../assets/metodika.pdf" target="_blank" class="mini-prep-btn">
+                            <i class="fas fa-file-pdf"></i> </a></li>
+                         <li>Pojmenuj asistenta, např. OPONENT ARGUMENTÁTOR</li></ul>`,
+        mojeFunkce: `<ul><li>Zde je obhajoba a argumentace</li>
+                         <li>Učitel<ul>
+                                <li>Zadá úvodní téma diskuse</li>
+                                <li>Určí míru agresivity (A - Přátelský oponent, B - Tvrdý vyjednavač, C - Ďáblův advokát)</li>
+                                <li>Nasdílí žákům odkaz na asistenta</li>
+                         </ul></li>
+                         <li>Žák<ul>
+                                <li>Zahájí konverzaci pozdravem a dál se nechá vést asistentem</li>
+                                <li>Vede rozhovor s asistentem a odpovídá na jeho argumentační otázky</li>
+                         </ul></li>
+                    </ul>`,
+        mojeUkazky: "Diskuse na téma, různé názory, vymýšlení řešení ...",
         npiPopis: "Žáci argumentují s chatbotem a učí se rozpoznat silné i slabé stránky jeho argumentace.",
         npiPriklad: "Diskuze o kontroverzním tématu, identifikace klamů ve výstupech GenAI, obhajoba vlastního názoru.",
         npiRozviji: "Argumentační dovednosti, schopnost reagovat na oponenturu, kritické myšlení.",
@@ -394,18 +419,23 @@ PRAVIDLA CHOVÁNÍ
         gridId: "grid-npi",
         hashtagy: ["expertíza", "intervjů"],
         mojeNapady: `<ul><li>Zkopíruj prompt</li>
-                         <li>Otevři si rozhraní pro tvorbu AI Asistenta</li>
-                         <li>Do pole instrukce vlož celý text promptu</li>
-                         <li>Pojmenuj asistenta, např. SOKRATOVSKÝ PRŮVODCE</li>
-                         <li>Ulož svého nového asistenta</li>
-                         <li>A těš se na využití</li></ul>`,
-        mojeFunkce: `<ul><li>Otevři svého nového asistenta SOKRATOVSKÝ PRŮVODCE</li>
-                         <li>Napiš téma je: ... a vlož soubory, ze kterých má asistent čerpat, či zadej webovou stránku nebo nech jen téma</li>
-                         <li>Napiš cílovou metu, co má žák na konci umět</li>
-                         <li>Klikni na odkaz Sdílet a pošli odkaz žákům</li>
-                         <li>Žák konverzaci zahájí pozdravem a volbou světa, ve kterém chce výuku</li>
-                         <li>Nech žáka vést rozhovor s chatbotem a odpovídat na jeho otázky až na cílovou metu</li></ul>`,
-        mojeUkazky: "Odborné téma, odhalení události, zeměpisné místo, vysvěltení pojmu, pohovor na místo ...",
+                         <li>Pomocí metodiky aplikuj <a href="../assets/metodika.pdf" target="_blank" class="mini-prep-btn">
+                            <i class="fas fa-file-pdf"></i> </a></li>
+                         <li>Pojmenuj asistenta, např. OBOROVÝ EXPERT</li></ul>`,
+        mojeFunkce: `<ul><li>Zde je prohloubení znalostí a kladení správných otázek</li>
+                         <li>Učitel<ul>
+                                <li>Určí roli experta (šéfkuchar, básník, odborník)</li>
+                                <li>Určí žákovi, proč s expertem mluví</li>
+                                <li>Nasdílí žákům odkaz na asistenta</li>
+                         </ul></li>
+                         <li>Žák<ul>
+                                <li>Zahájí konverzaci pozdravem a dál se nechá vést asistentem</li>
+                                <li>Asistent vede strohý rozhovor</li>
+                                <li>Vede rozhovor s asistentem a musí asistenta zaujmout</li>
+                                <li>Se snaží vydržet v dialogu co nejdéle</li>
+                         </ul></li>
+                    </ul>`,
+        mojeUkazky: "Rozhovor s expertem, postavou, odborníkem ...",
         npiPopis: "Žáci využívají GenAI jako simulaci experta v daném oboru a učí se klást správné otázky.",
         npiPriklad: "Chatbot hraje roli historika, lékaře nebo vědce, žáci s ním vedou rozhovor a porovnávají názory. ",
         npiRozviji: "Komunikační dovednosti, schopnost tázat se a interpretovat odpovědi. ",
@@ -449,18 +479,20 @@ PRAVIDLA CHOVÁNÍ
         gridId: "grid-npi",
         hashtagy: ["technologie", "tvorba"],
         mojeNapady: `<ul><li>Zkopíruj prompt</li>
-                         <li>Otevři si rozhraní pro tvorbu AI Asistenta</li>
-                         <li>Do pole instrukce vlož celý text promptu</li>
-                         <li>Pojmenuj asistenta, např. SOKRATOVSKÝ PRŮVODCE</li>
-                         <li>Ulož svého nového asistenta</li>
-                         <li>A těš se na využití</li></ul>`,
-        mojeFunkce: `<ul><li>Otevři svého nového asistenta SOKRATOVSKÝ PRŮVODCE</li>
-                         <li>Napiš téma je: ... a vlož soubory, ze kterých má asistent čerpat, či zadej webovou stránku nebo nech jen téma</li>
-                         <li>Napiš cílovou metu, co má žák na konci umět</li>
-                         <li>Klikni na odkaz Sdílet a pošli odkaz žákům</li>
-                         <li>Žák konverzaci zahájí pozdravem a volbou světa, ve kterém chce výuku</li>
-                         <li>Nech žáka vést rozhovor s chatbotem a odpovídat na jeho otázky až na cílovou metu</li></ul>`,
-        mojeUkazky: "Odborné téma, odhalení události, zeměpisné místo, vysvěltení pojmu, pohovor na místo ...",
+                         <li>Pomocí metodiky aplikuj <a href="../assets/metodika.pdf" target="_blank" class="mini-prep-btn">
+                            <i class="fas fa-file-pdf"></i> </a></li>
+                         <li>Pojmenuj asistenta, např. INOVÁTOR</li></ul>`,
+        mojeFunkce: `<ul><li>Zde je rozvoj digitálních kompetencí</li>
+                         <li>Učitel<ul>
+                                <li>Pouze nasdílí žákům odkaz na asistenta</li>
+                         </ul></li>
+                         <li>Žák<ul>
+                                <li>Zahájí konverzaci pozdravem a dál se nechá vést asistentem</li>
+                                <li>Asistent se zeptá na problém, který chce vyřešit</li>
+                                <li>Za pomoci asistentavymýšlí správný prompt na řešení</li>
+                         </ul></li>
+                    </ul>`,
+        mojeUkazky: "Prompt na test, opravu textu, změna jazyku ...",
         npiPopis: "Žáci experimentují s GenAI, navrhují a vyvíjejí nové přístupy, které slouží ve vzdělávání. ",
         npiPriklad: "Vytvoření vlastního AI asistenta pro výuku, vytvoření vzdělávacího nástroje pro spolužáky. ",
         npiRozviji: "Schopnost navrhovat a vytvářet technologie s reálným využitím. ",
@@ -511,18 +543,20 @@ Na konci vygeneruj studentovi "Technickou kartu projektu":
         gridId: "grid-npi",
         hashtagy: ["metakognice", "strategie"],
         mojeNapady: `<ul><li>Zkopíruj prompt</li>
-                         <li>Otevři si rozhraní pro tvorbu AI Asistenta</li>
-                         <li>Do pole instrukce vlož celý text promptu</li>
-                         <li>Pojmenuj asistenta, např. SOKRATOVSKÝ PRŮVODCE</li>
-                         <li>Ulož svého nového asistenta</li>
-                         <li>A těš se na využití</li></ul>`,
-        mojeFunkce: `<ul><li>Otevři svého nového asistenta SOKRATOVSKÝ PRŮVODCE</li>
-                         <li>Napiš téma je: ... a vlož soubory, ze kterých má asistent čerpat, či zadej webovou stránku nebo nech jen téma</li>
-                         <li>Napiš cílovou metu, co má žák na konci umět</li>
-                         <li>Klikni na odkaz Sdílet a pošli odkaz žákům</li>
-                         <li>Žák konverzaci zahájí pozdravem a volbou světa, ve kterém chce výuku</li>
-                         <li>Nech žáka vést rozhovor s chatbotem a odpovídat na jeho otázky až na cílovou metu</li></ul>`,
-        mojeUkazky: "Odborné téma, odhalení události, zeměpisné místo, vysvěltení pojmu, pohovor na místo ...",
+                         <li>Pomocí metodiky aplikuj <a href="../assets/metodika.pdf" target="_blank" class="mini-prep-btn">
+                            <i class="fas fa-file-pdf"></i> </a></li>
+                         <li>Pojmenuj asistenta, např. MENTOR UČENÍ</li></ul>`,
+        mojeFunkce: `<ul><li>Zde je souhrn učení, projektu, sebereflexe</li>
+                         <li>Učitel<ul>
+                                <li>Pouze nasdílí žákům odkaz na asistenta</li>
+                         </ul></li>
+                         <li>Žák<ul>
+                                <li>Zahájí konverzaci pozdravem a dál se nechá vést asistentem</li>
+                                <li>Asistent se ptá na dosavadní práci s AI</li>
+                                <li>Vede rozhovor s asistentem a odpovídá na jeho reflexivní otázky</li>
+                         </ul></li>
+                    </ul>`,
+        mojeUkazky: "Vytvoření promptu, brainstorming, vylepšení projektu ...",
         npiPopis: "Žáci hodnotí, zda využití GenAI v konkrétních úlohách bylo přínosem v jejich výukovém procesu. ",
         npiPriklad: "Zhodnocení využití GenAI v projektech, porovnání různých přístupů využití GenAI. ",
         npiRozviji: "Schopnost přemýšlet o vlastním myšlení, plánovat a řídit své učení. ",

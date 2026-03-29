@@ -319,6 +319,7 @@ const methodData = {
     }
 };
 
+
 function showMethod(id) {
     // 1. Vizuální přepnutí tlačítek
     document.querySelectorAll('.method-btn').forEach(btn => btn.classList.remove('active'));
