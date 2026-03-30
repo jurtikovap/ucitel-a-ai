@@ -3,7 +3,8 @@ const vsechnaData = [
     ...(typeof dataObrazky !== 'undefined' ? dataObrazky : []),
     ...(typeof dataGemy !== 'undefined' ? dataGemy : []),
     ...(typeof dataDynamika !== 'undefined' ? dataDynamika : []),
-    ...(typeof dataNPI !== 'undefined' ? dataNPI : [])
+    ...(typeof dataNPI !== 'undefined' ? dataNPI : []),
+    ...(typeof dataLavice !== 'undefined' ? dataLavice : [])
 ];
 
 let aktualniIndex = 0;
@@ -237,19 +238,3 @@ function toggleGemsTable() {
     }
 }
 
-
-// FUNKCE PRO LAVICE
-function showLaviceDetail(groupId, itemId) {
-    const group = dataLavice.find(g => g.id === groupId);
-    const item = group.items.find(i => i.id === itemId);
-    const detailBox = document.getElementById('lavice-detail'); // <--- Tady to míří do ID pro Lavice
-    
-    detailBox.innerHTML = `
-        <div class="detail-card">
-            <h2>${item.title}</h2>
-            <p><strong>K čemu slouží:</strong> ${item.popis}</p>
-            <div class="prompt-box">${item.prompt}</div>
-            <button onclick="copyPrompt('${item.prompt}')">Kopírovat prompt</button>
-        </div>
-    `;
-}

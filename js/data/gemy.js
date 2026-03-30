@@ -54,46 +54,44 @@ function showGemDetail(gemId) {
     
     if (gem) {
         detailBox.innerHTML = `
-            <div class="detail-card">
+            <<div class="detail-card">
                 <h3>${gem.title}</h3>
                 <div class="popis-box">
                     <strong>K čemu slouží:</strong><br>
                     ${gem.popis}
                 </div>
                 <div class="prompt-box">
-                    <strong>Prompt pro Gema:</strong><br>
-                    <code id="prompt-text">${gem.prompt}</code>
-                </div>
-                <button class="mini-prep-btn" onclick="copyPrompt('${gem.prompt}')" style="margin-top:20px">
-                    <i class="fas fa-copy"></i> Kopírovat prompt
-                </button>
+    <strong>Prompt pro Gema:</strong><br>
+    <code id="current-prompt-text">${gem.prompt}</code> </div>
+<button class="mini-prep-btn" onclick="copyCurrentPrompt(this)" style="margin-top:20px">
+    <i class="fas fa-copy"></i> Kopírovat prompt
+</button>
             </div>
         `;
     }
 }
 
-function copyPrompt(text, buttonElement) {
-    // Záložní kopírování pro případy, kdy navigator.clipboard nefunguje
-    const textArea = document.createElement("textarea");
-    textArea.value = text;
-    document.body.appendChild(textArea);
-    textArea.select();
+function copyCurrentPrompt(btn) {
+    // 1. Najdeme text přímo v tom elementu <code>
+    const textToCopy = document.getElementById('current-prompt-text').innerText;
     
-    try {
-        document.execCommand('copy');
-        // Vizuální zpětná vazba přímo na tlačítku, které jsi poslala
-        if (buttonElement) {
-            const originalText = buttonElement.innerHTML;
-            buttonElement.innerHTML = '<i class="fas fa-check"></i> Hotovo!';
-            buttonElement.classList.add('copy-success'); // můžeš mu dát v CSS zelenou barvu
-            
-            setTimeout(() => {
-                buttonElement.innerHTML = originalText;
-                buttonElement.classList.remove('copy-success');
-            }, 2000);
-        }
-    } catch (err) {
-        console.error('Chyba při kopírování', err);
-    }
-    document.body.removeChild(textArea);
+    // 2. Vytvoříme pomocný textarea pro kopírování
+    const el = document.createElement('textarea');
+    el.value = textToCopy;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+
+    // 3. Vizuální zpětná vazba na tlačítku
+    const originalContent = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-check"></i> Hotovo!';
+    btn.style.backgroundColor = "#00838f"; // zezelená
+    btn.style.color = "white";
+
+    setTimeout(() => {
+        btn.innerHTML = originalContent;
+        btn.style.backgroundColor = ""; // vrátí se k CSS
+        btn.style.color = "";
+    }, 2000);
 }
