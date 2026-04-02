@@ -54,7 +54,7 @@ function showGemDetail(gemId) {
     
     if (gem) {
         detailBox.innerHTML = `
-            <<div class="detail-card">
+            <div class="detail-card">
                 <h3>${gem.title}</h3>
                 <div class="popis-box">
                     <strong>K čemu slouží:</strong><br>

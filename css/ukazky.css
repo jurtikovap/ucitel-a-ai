@@ -608,9 +608,9 @@
 
 /* Kontejner pro celou skupinu v menu */
 .lavice-group {
-    margin-bottom: 15px;
-    border-bottom: 1px solid #e0f7fa;
-    padding-bottom: 10px;
+    margin-bottom: 2px;
+    
+    padding-bottom: 0px;
 }
 
 /* Nadpis skupiny (např. 4. Plánování) */
@@ -619,9 +619,10 @@
     color: #00838f;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 8px;
-    font-weight: 800;
+    margin-bottom: 2px;
+    font-weight: 700;
     padding-left: 5px;
+    padding: 6px 12px;
 }
 
 /* Tlačítka pro jednotlivé nápady */
@@ -629,15 +630,15 @@
 .lavice-item-btn {
     display: block;
     width: 100%;
-    padding: 10px 15px;
+    padding: 6px 12px;
     background: white;
     border: 1px solid #4dd0e1;
-    border-radius: 8px;
+    border-radius: 6px;
     color: #333;
     text-align: left;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     cursor: pointer;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     border-color: #b2ebf2; /* Jemnější linky uvnitř */
     transition: all 0.2s;
 }
@@ -669,6 +670,6 @@
 
 /* Odsazení tlačítek uvnitř otevřené harmoniky */
 .group-content {
-    padding: 5px 0 10px 10px; /* Odsazení zleva, aby to vypadalo jako podmenu */
+    padding: 2px 0 8px 10px;; /* Odsazení zleva, aby to vypadalo jako podmenu */
 }
 

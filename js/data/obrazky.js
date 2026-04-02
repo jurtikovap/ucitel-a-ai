@@ -1,5 +1,40 @@
 const dataObrazky = [
     {
+        id: 111, // Obrázky mohou začínat stovkou
+        kategorie: "obrazky",
+        gridId: "grid-obrazky",
+        title: "Recepty",
+        tag: "Kuchař",
+        hashtagy: ["Recepty", "Suroviny", "Infografika"],
+        desc: "Suroviny a různé recepty. První obrázek generován pomocí ChatGPT, druhý pomocí Copilota a třetí pomocí Gemini.",
+        prompt: `Vzdělávací infografická karta s receptem, která je součástí JEDNOTNÉ SÉRIE RECEPTŮ. Styl musí striktně dodržovat čistou, minimalistickou a vzdušnou estetiku této série.
+
+Pozadí: Čisté, ve světlé barvě: PASTELOVĚ ŽLUTá. Kompozice zachovává velké množství prázdného prostoru. 
+
+Struktura a prvky:
+1. NAHOŘE UPROSTŘED: Velký, dominantní nadpis v češtině, vyvedený <span class="promenna">BARVA</span> tučným sans-serif písmem (stejné písmo pro celou sérii): "<span class="promenna">NÁZEV JÍDLA</span>".
+2. NA ÚROVNI HORNÍCH ŠTÍTKŮ (Identické písmo a výška):
+- ZCELA VLEVO (POSUNUTO VÝŠE): Nápis "<span class="promenna">KATEGORIE</span>" v identickém hezkém, elegantním, mírně ozdobném ručně psaném písmu. 
+- ZCELA VPRAVO (POSUNUTO VÝŠE): Malá, diskrétní visačka s nápisem: "Recepty" (malé ozdobné logo s malou siluetou vařečky) v identickém hezkém, elegantním, mírně ozdobném ručně psaném písmu. 
+Oba nápisy (vlevo i vpravo) musí být na NAPROSTO STEJNÉ horizontální úrovni. 
+3. POD HLAVNÍM NADPISEM JÍDLA: Žádný další text ani obrázek. Prostor je prázdný a čistý.
+4. UPROSTŘED: Vysoce kvalitní, realistická fotografie hotového jídla <span class="promenna">JÍDLO</span>. 
+5. KOLEM FOTOGRAFIE JÍDLA: Volně, ale esteticky rozmístěné reálné suroviny, které jsou potřeba pro recept (viz seznam surovin). Měřítko miniatur je zachováno.
+6. MEZI FOTOGRAFIÍ JÍDLA A SEZNAMEM SUROVIN: Větší oddělovač (ozdobná dvojitá tenká čára, horní delší, spodní kratší). Nad a pod oddělovačem estetické volné místo.
+7. DOLE UPROSTŘED (SEZNAM SUROVIN): Seznam surovin vyjmenovaný v jednom sloupci pod sebou, bez odrážek.
+- Písmo surovin: Elegantní, čitelné, mírně ozdobné, vypadající jako úhledné ruční písmo (stejný typ a decentní velikost pro celou sérii).
+- Seznam k vygenerování (přesně): "<span class="promenna">SEZNAM SUROVIN S GRAMÁŽÍ</span>". 
+
+Stylistická pravidla pro konzistenci:
+- Zachování prvků: Umístění nadpisu, štítků, stylu náčiní a typu písma (sans-serif pro nadpis, ruční pro štítky a suroviny) musí být na všech kartách identické.
+- Velikost písma: Velikost písma popisků (surovin) a štítků musí být decentní, stejná na všech kartách, a výrazně menší než hlavní nadpis.
+- Jazyk: Veškerý text musí být v češtině a se správnou diakritikou.
+- Důležité: Zabránit generování velkých textových bloků, které by zaplňovaly celou plochu. Udržovat minimalistický a vzdušný layout..`,        
+    imgs: ["../img/ukazky/recept_chatgpt.jpg", "../img/ukazky/recept_copilot.jpg", "../img/ukazky/recept_gemini.jpg"], // Pole dvou obrázků
+    type: "gallery" // Nový typ pro naši logiku
+    },
+    
+    {
         id: 101, // Obrázky mohou začínat stovkou
         kategorie: "obrazky",
         gridId: "grid-obrazky",
@@ -45,12 +80,12 @@ Výstup: 1080×1080, ultra-ostrý, optimalizovaný pro sociální sítě, bez vo
     title: "Zdraví v potravinách",
     tag: "Kuchař",
     hashtagy: ["Zdraví", "Potraviny"],
-    desc: "Ilustrace zdravé výživy. Při generování v jednom chatu různých potravin je zajištěno, že všechny plakáty dodržují stejný styl a estetiku, aby byly konzistentní v rámci série.",
+    desc: "Ilustrace zdravé výživy. Při generování v jednom chatu různých potravin je zajištěno, že všechny plakáty dodržují stejný styl a estetiku, aby byly konzistentní v rámci série. První obrázek je vygenerovaný pomocí Gemini, druhý ChatGPT a třetí a čtvrtý Copilotem.",
     prompt: `Infografický plakát, který je součástí JEDNOTNÉ SÉRIE VZDĚLÁVACÍCH PLAKÁTŮ o zdraví. Styl musí striktně dodržovat čistou, minimalistickou a vzdušnou estetiku, která byla definována pro tuto sérii. 
 
-Pozadí je čisté, ve světlé barvě: <span class="promenna"> např. PASTELOVĚ RŮŽOVÉM</span>. Kompozice musí zachovat velké množství volného bílého prostoru, aby plakát nepůsobil přeplněně.
+Pozadí je čisté, ve světlé pastelové barvě: <span class="promenna">BARVA</span>. Kompozice musí zachovat velké množství volného bílého prostoru, aby plakát nepůsobil přeplněně.
 
-Uprostřed plakátu je umístěna vysoce kvalitní, realistická fotografie <span class="promenna">např. MALINY</span>.
+Uprostřed plakátu je umístěna vysoce kvalitní, realistická fotografie <span class="promenna">POTRAVINA</span>.
 
 Struktura a prvky:
 1. NAHOŘE UPROSTŘED: Velký a dominantní nadpis v češtině, vyvedený stejným tučným sans-serif písmem jako v předchozích dílech série: "<span class="promenna">NÁZEV POTRAVINY</span>".
@@ -61,9 +96,10 @@ Stylistiká pravidla pro konzistenci:
 - Písmo popisků: Elegantní, čitelné, mírně ozdobné, vypadající jako úhledné ruční písmo, v decentní velikosti.
 - Jazyk: Veškerý text musí být v češtině a se správnou diakritikou.
 - Zachování prvků: Umístění nadpisu, štítku, stylu šipek a typu písma musí být na všech plakátech identické.
+- Formát: <span class="promenna">např. Vertikální, 2:3; čtvercový</span>.
     `,
-    img: "../img/ukazky/zdravi_1.jpg", 
-    type: "image"
+    imgs: ["../img/ukazky/zdravi_1.jpg", "../img/ukazky/zdravi_2.jpg", "../img/ukazky/zdravi_3.jpg", "../img/ukazky/zdravi_4.jpg"], // Pole dvou obrázků
+    type: "gallery"
 },    
 
     {
@@ -326,7 +362,35 @@ Celkový Styl a Estetika:
     type: "image"
 },
 
-
+{
+    id: 112,
+    kategorie: "obrazky",
+    gridId: "grid-obrazky",
+    title: "iPhone",
+    tag: "Informatika",
+    hashtagy: ["Mobil", "iPhone", "Technika"],
+    desc: "Detailní infografika iPhone.",
+    prompt: `Vytvoř technickou infografiku <span class="promenna">ZAŘÍZENÍ</span> 
+    v 45stupňové izometrické 3D perspektivě (isometric 3D perspective) ukazující zařízení v mírném náklonu pro odhalení hloubky a rozměrů.
+    Kombinuj realistický fotorealistický render s technickými anotacemi černou tuší na čistě bílém pozadí. 
+    
+    Zahrň:
+    • Štítky klíčových komponentů s barevně odlišenými popisovými poli (callout boxes).
+    • Viditelnost vnitřních prvků skrze průhledné/řezové sekce (cutaway sections).
+    • Měření, rozměry a přesné měřítko.
+    • Popisy materiálů a počty kusů.
+    • Barevně kódované šipky pro funkce/toky: ČERVENÁ (napájení/baterie), MODRÁ (data/konektivita), ORANŽOVÁ (teplo/procesor), ZELENÁ (senzory/haptika).
+    • Jednoduchá schémata nebo diagramy průřezů, kde je to relevantní.
+    
+    Název „<span class="promenna">ZAŘÍZENÍ</span>“ umísti do ručně kresleného technického rámečku (horní levý roh).
+    
+    Styl: Černá perokresba (technické pero/architektonický styl), skicované, ale přesné. Objekt zůstává jasně viditelný. Estetika vzdělávacího muzejního exponátu. Čistá kompozice, vyvážený negativní prostor.
+    Perspektiva: Izometrický 3D úhel – nakloněný pro dramatické zobrazení hloubky, rozměrů a vnitřní architektury. Jako profesionální rozbor produktu (product teardown) nebo inženýrský manuál.
+    Barvy: Hustota akcentů ~10–15 %. Dominantní černá. Bílé pozadí.Výstup: 1080×1080, ultra ostré, optimalizované pro sociální sítě.
+    `,
+    imgs: ["../img/ukazky/iPhone_rozlozeni.jpg", "../img/ukazky/iPhone_struktura.jpg"], // Pole dvou obrázků
+    type: "gallery"
+},
 
 
 
