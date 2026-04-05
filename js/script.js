@@ -316,7 +316,7 @@ const methodData = {
     vizual: {
         how: "Vložíte obrázek (náčrt, screenshot webu, fotku tabule) a necháte AI analyzovat strukturu nebo styl.",
         why: "Získáte odborný popis věci, kterou vidíte, ale neumíte ji přesně pojmenovat (barvy, rozvržení).",
-        prompt: "Analyzuj tento obrázek. Popiš jeho strukturu, použitý styl a navrhni, jak bych mohl podobný výsledek vytvořit pomocí kódu nebo textu."
+        prompt: "Analyzuj tento obrázek. Popiš jeho strukturu, použitý styl a navrhni prompt, abych mohl vytvořit podobný výsledek."
     },
     architekt: {
         how: "AI se stane vaším průvodcem, který s vámi postupně buduje zadání (prompt) krok za krokem.",
@@ -325,18 +325,18 @@ const methodData = {
     },
     gema: {
         how: "Nakonfigurujete si vlastního asistenta (Gem), který má pravidla doptávání vryta v 'popisu práce'.",
-        why: "Šetříte čas. Nemusíte ChatGPT pokaždé vysvětlovat, že se má doptávat – on to má v instrukcích.",
-        prompt: "Tvé instrukce: Jsi metodický poradce. Každý můj dotaz nejprve analyzuj a doptávej se na chybějící pedagogické parametry, než odpovíš."
+        why: "Šetříte čas. Nemusíte chatu pokaždé vysvětlovat, že se má doptávat – on to má v instrukcích.",
+        prompt: "Kombinace reverzního promptování a doptávání povede k tvorbě gema."
     },
     mentor: {
         how: "Předložíte AI svůj hotový výtvor (zadání testu, článek, kód) a požádáte o tvrdou konstruktivní kritiku.",
         why: "Získáte pohled zvenčí a učíte se ze svých chyb v reálném čase. AI vidí nelogičnosti, které vy už ne.",
-        prompt: "Tady je můj [VÝSLEDEK]. ZauProcessuj roli přísného mentora a zkritizuj můj návrh. Najdi 3 slabá místa a navrhni jejich konkrétní vylepšení."
+        prompt: "Tady je můj [VÝSLEDEK]. Buď v roli přísného mentora a zkritizuj můj návrh. Najdi 3 slabá místa a navrhni jejich konkrétní vylepšení."
     },
     roleplay: {
         how: "AI převtělíte do role specifické osoby – např. žáka se specifickou poruchou učení nebo naštvaného klienta.",
         why: "Uvidíte svůj projekt z úplně jiného úhlu a můžete si nanečisto vyzkoušet reakce a řešení situací.",
-        prompt: "Předstírej, že jsi žák 1. ročníku SOŠ, který má problém s pozorností a odbornou terminologií. Přečti si tento můj výklad a řekni mi, co ti nedává smysl."
+        prompt: "Předstírej, že jsi [OSOBA], která má problém s pozorností a odbornou terminologií. Veď se mnou dialog na [TÉMA], abych si vyzkoušel její reakci."
     },
     otazka: {
         how: "Přidáte k jakémukoliv promptu příkaz, aby AI každou svou zprávu končila doplňujícím dotazem.",
@@ -385,35 +385,59 @@ window.addEventListener('DOMContentLoaded', () => {
     showMethod('zamer');
 });
 
-const settingsData = {
+const aiConfigMap = {
     tipy: { isGenerator: true },
     copilot: {
         isGenerator: false,
-        text: "<ol><li>Otevřete <span class='blue-text'>Microsoft Copilot</span>.</li><li>Klikněte na svůj profil.</li><li>Vyberte <b>'Vlastní instrukce'</b>.</li></ol>",
-        img: "img/copilot-navod.jpg" // Sem si pak dej svou cestu k obrázku
+        text: `<ol>
+        <li>Otevřete <span class='blue-text'>Microsoft Copilot</span>.</li>
+        <li>Klikněte na tři tečky v levém dolním rohu u svého jména.</li>
+        <li>Vyberte <b>Nastavení</b>.</li>
+        <li>Dále vyberte <b>Přizpůsobení</b>.</li>
+        <li>A Vlastní pokyny/Upravit pokyny.</li>
+        <li>Nakopírujte text.</li>
+        <li>Uložte změny.</li>
+        <li>Užívejte si lepšího chatu :)</li>
+        </ol>`,
+        images: ["../img/cop_1.jpg", "../img/cop_2.jpg"]
     },
     gemini: {
         isGenerator: false,
-        text: "<ol><li>Přejděte na <span class='blue-text'>Google Gemini</span>.</li><li>Vlevo dole klikněte na <b>Nastavení</b>.</li><li>Zvolte <b>'Vlastní pokyny'</b>.</li></ol>",
-        img: "img/gemini-navod.jpg"
+        text: `<ol>
+        <li>Přejděte na <span class='blue-text'>Google Gemini</span>.</li>
+        <li>Vlevo dole klikněte na <b>Nastavení a nápověda</b>.</li>
+        <li>Vyberte <b>Instrukce pro Gemini</b>.</li>
+        <li>Můžete ještě <b>Zobrazit příklady</b>.</li>
+        <li>Popřípadě Přidat.</li>
+        <li>Nakopírujte text.</li>
+        <li>Uložte změny.</li>
+        <li>Užívejte si lepšího chatu :)</li>
+        </ol>`,
+        images: ["../img/gem_1.jpg", "../img/gem_2.jpg"]
     },
     chatgpt: {
         isGenerator: false,
-        text: "<ol><li>Otevřete <span class='blue-text'>ChatGPT</span>.</li><li>Klikněte na svůj profil vlevo dole.</li><li>Vyberte <b>'Customize ChatGPT'</b>.</li><li>Vložte text do spodního pole.</li></ol>",
-        img: "img/chatgpt-navod.jpg"
+        text: `<ol>
+        <li>Otevřete <span class='blue-text'>ChatGPT</span>.</li>
+        <li>Klikněte na své jméno vlevo dole.</li>
+        <li>Vyberte <b>Nastavení</b>.</li>
+        <li>Dále vyberte <b>Personalizace</b>.</li>
+        <li>Můžete nastavit i styl, tón.</li>
+        <li>A Vlastní pokyny.</li>
+        <li>Nakopírujte text.</li>
+        <li>Uložte změny.</li>
+        <li>Užívejte si lepšího chatu :)</li>
+        </ol>`,
+        images: ["../img/gpt_1.jpg", "../img/gpt_2.jpg"]
     }
 };
 
 function switchSettings(topic) {
-    // 1. Vizuální přepnutí tlačítek (topic-card)
+    // 1. Reset aktivních tříd na kartách
     document.querySelectorAll('.topic-card').forEach(card => card.classList.remove('active'));
-    // Najdeme kliknutý element - buď přímo, nebo přes rodiče
-    const clickedCard = event.currentTarget;
-    clickedCard.classList.add('active');
+    event.currentTarget.classList.add('active');
 
-    const data = settingsData[topic];
-
-    // 2. Přepínání pohledů (view-generator vs view-guide)
+    const data = aiConfigMap[topic];
     const genView = document.getElementById('view-generator');
     const guideView = document.getElementById('view-guide');
 
@@ -423,8 +447,28 @@ function switchSettings(topic) {
     } else {
         genView.style.display = 'none';
         guideView.style.display = 'block';
+
+        // 2. Vložení textu do levé karty
         document.getElementById('guide-content').innerHTML = data.text;
-        document.getElementById('guide-image').src = data.img;
+
+        // 3. Generování HTML pro oba obrázky do pravé karty
+        let imagesHtml = '<div class="showcase-container">';
+        data.images.forEach(path => {
+            // Přidáváme ../ pro správnou cestu ke složce img
+            const correctPath = path.startsWith('../') ? path : '../' + path;
+            
+            imagesHtml += `
+                <div class="showcase-item">
+                    <div class="img-placeholder" onclick="openLightbox(this)">
+                        <img src="${correctPath}" alt="Návod">
+                        <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                    </div>
+                </div>`;
+        });
+        imagesHtml += '</div>';
+
+        // 4. Vložení vygenerovaného bloku do pravé karty
+        document.getElementById('guide-images-wrapper').innerHTML = imagesHtml;
     }
 }
 
@@ -589,3 +633,87 @@ function switchPath(evt, pathId) {
     document.getElementById(pathId).classList.add("active");
     evt.currentTarget.classList.add("active");
 }
+
+function switchNotebookPath(evt, pathId) {
+    // Schová obsah pouze v rámci sekce NotebookLM
+    const parent = evt.currentTarget.closest('.notebook-section');
+    const contents = parent.getElementsByClassName("path-content");
+    for (let i = 0; i < contents.length; i++) {
+        contents[i].classList.remove("active");
+    }
+
+    // Deaktivuje tlačítka v této sekci
+    const buttons = parent.getElementsByClassName("tabc-btn");
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+    }
+
+    // Aktivuje vybranou cestu
+    document.getElementById(pathId).classList.add("active");
+    evt.currentTarget.classList.add("active");
+}
+
+// 1. Data pro Textová usnadnění (3x2)
+const textToolsData = [
+    { title: "Tvořič promptů", desc: "Pomocník pro psaní zadání.", links: [{ txt: "Otevřít", url: "#" }] },
+    { title: "Tvořič gemů", desc: "Vytvořte si experty.", links: [{ txt: "Návod 1", url: "#" }, { txt: "Návod 2", url: "#" }] },
+    { title: "Tvořič kvízů", desc: "Rychlé prověření znalostí.", links: [{ txt: "Spustit", url: "#" }] },
+    { title: "AI promptuje", desc: "Metodika pro pokročilé.", links: [{ txt: "Více", url: "#" }] },
+    { title: "Aktivita pro žáky", desc: "Zapojení AI do výuky.", links: [{ txt: "Příklady", url: "#" }, { txt: "Metodika", url: "#" }] },
+    { title: "Myšlenková mapa", desc: "Vizualizace souvislostí.", links: [{ txt: "Odkaz", url: "#" }, { txt: "Soubor", url: "#" }] },
+    { title: "Etika", desc: "Vizualizace souvislostí.", links: [{ txt: "Odkaz", url: "#" }, { txt: "Soubor", url: "#" }] }
+];
+
+// 2. Data pro Obrázková usnadnění
+const mediaToolsData = [
+    { 
+        title: "Obrázy", 
+        images: ["img/info1.jpg", "img/info2.jpg", "img/info3.jpg"], 
+        files: [{ name: "PDF", url: "doc/info.pdf" }, { name: "DOCX", url: "doc/info.docx" }]
+    },
+    { 
+        title: "Infografika", 
+        images: ["img/info1.jpg", "img/info2.jpg", "img/info3.jpg"], 
+        files: [{ name: "PDF", url: "doc/info.pdf" }, { name: "DOCX", url: "doc/info.docx" }]
+    },
+    { 
+        title: "Prezentace", 
+        images: ["img/pres1.jpg"], 
+        files: [{ name: "PPTX", url: "doc/prezentace.pptx" }]
+    }
+];
+
+// 3. Hlavní funkce, která "vstříkne" kód do HTML
+function initHelpers() {
+    const textGrid = document.getElementById('text-helper-grid');
+    const mediaList = document.getElementById('media-helper-list');
+
+    if (textGrid) {
+        textGrid.innerHTML = textToolsData.map(item => `
+            <div class="text-tool-card">
+                <h4>${item.title}</h4>
+                <p>${item.desc}</p>
+                <div style="margin-top: auto; display: flex; gap: 5px;">
+                    ${item.links.map(l => `<a href="${l.url}" class="btn-small">${l.txt}</a>`).join('')}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    if (mediaList) {
+        mediaList.innerHTML = mediaToolsData.map(item => `
+            <div class="media-tool-row">
+                <div style="font-weight: bold;">${item.title}</div>
+                <div class="mini-previews">
+                    ${item.images.map(img => `<img src="${img}" class="thumb" onclick="openLightbox(this)">`).join('')}
+                </div>
+                <div class="file-links">
+                    ${item.files.map(f => `<a href="${f.url}" class="btn-download">${f.name}</a>`).join('')}
+                </div>
+            </div>
+        `).join('');
+    }
+}
+
+// Spustíme hned po načtení skriptu
+initHelpers();

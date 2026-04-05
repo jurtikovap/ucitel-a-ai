@@ -1661,17 +1661,35 @@ footer {
 .step-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
 
 .step-number { 
-    background: #d3b22f; color: white; width: 30px; height: 30px; 
+    background: #d3b22f; color: white; width: 20px; height: 20px; 
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-weight: bold; margin-bottom: 15px;
+    font-weight: bold; margin: 0; flex-shrink: 0;
+}
+
+/* Kontejner pro číslo a nadpis */
+.card-header {
+    display: flex;
+    align-items: center; /* Vertikální vycentrování textu vůči číslu */
+    gap: 10px;           /* Mezera mezi číslem a textem */
+    margin-bottom: 10px; /* Odstup hlavičky od obrázku pod ní */
+}
+
+/* Resetujeme okraje, aby se prvky netlačily jinam */
+
+.card-header h4 {
+    margin: 0;           /* Odstranění horního/spodního marginu nadpisu */
+    font-size: 1rem;
+    line-height: 1.2;
 }
 
 /* Obrázky a Lightbox */
 .img-placeholder { 
-    margin-top: 15px; cursor: pointer; position: relative; 
+    width: 100%;
+    height: 150px;
+    margin-top: 10px; cursor: pointer; position: relative; 
     border-radius: 8px; overflow: hidden; background: #f0f0f0;
 }
-.img-placeholder img { width: 100%; display: block; transition: 0.3s; }
+.img-placeholder img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: 0.3s; }
 .img-placeholder:hover img { opacity: 0.8; }
 .overlay { 
     position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
@@ -1686,14 +1704,14 @@ footer {
     width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); 
 }
 .lightbox-content { 
-    margin: auto; display: block; width: 80%; max-width: 1000px; 
-    max-height: 80%; margin-top: 5%; border-radius: 10px; 
+    margin: auto; display: block; width: auto; height: auto; max-width: 90%; 
+    max-height: 85vh; margin-top: 5%; border-radius: 5px; 
 }
 .close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
 
 /* Varovný box */
 .warning-box { 
-    margin-top: 40px; padding: 20px; background: #fff9e6; 
+    font-size: 0.85rem; margin-top: 10px; padding: 10px; background: #fff9e6; 
     border-left: 3px solid #d3b22f; color: #856404; border-radius: 8px;
 }
 
@@ -1769,4 +1787,101 @@ footer {
         width: 100%;
         justify-content: center;
     }
+}
+
+/* Kontejner pro vizuální Showcase (dvě fotky vedle sebe) */
+.showcase-container {
+    display: flex;
+    gap: 5px;
+    margin: 5px 0 5px 0;
+    padding: 5px;
+    background: none; /* Jemné šedé pozadí pro odlišení od návodu */
+    border-radius: 8px;
+    border: 1px solid #d3b22f;
+}
+
+/* Styl jednotlivé položky Showcase */
+.showcase-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Použijeme stávající styl pro .img-placeholder, 
+   ale můžeme mu pro showcase dát trochu jinou výšku */
+.showcase-item .img-placeholder {
+    width: 100%;
+    height: 100px; /* O něco vyšší náhled než u kroků návodu */
+    margin-bottom: 5px;
+}
+
+.showcase-item h4 {
+    margin: 10px 0 5px 0;
+    font-size: 1.1rem;
+    color: #1e293b;
+}
+
+.showcase-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* Responzivita pro mobily */
+@media (max-width: 768px) {
+    .showcase-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 15px;
+    }
+    .showcase-item .img-placeholder {
+        height: 200px; /* Trochu nižší na mobilu */
+    }
+}
+
+/* Mřížka 3x2 pro textové nástroje */
+.text-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 sloupce */
+    gap: 10px;
+    padding: 10px 0;
+}
+
+/* Styl textové karty */
+.text-tool-card {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid #3498db;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Široké a nízké karty pro obrázky/soubory */
+.media-tools-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.media-tool-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    border: 1px solid #3498db;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+    padding: 10px;
+}
+
+.thumb { width: 50px; height: 50px; object-fit: cover; cursor: pointer; margin-right: 5px; border-radius: 4px; }
+.btn-small, .btn-download { background:none; color: #3498db; padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+
+/* Responzivita - na mobilu pod sebe */
+@media (max-width: 992px) {
+    .text-tools-grid { grid-template-columns: repeat(2, 1fr); }
+    .media-tool-row { grid-template-columns: 1fr; }
 }

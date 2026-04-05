@@ -34,15 +34,17 @@
             
             <div class="tab-menu cat-nastav " style="border-bottom: 2px solid #3498db;">
                 <button class="tab-btn active" onclick="openTab(event, 'tab1')">Nastavení chatu</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab2')">Usnadnění</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab3')">3</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab2')">Usnadnění textové</button>  
+                <button class="tab-btn" onclick="openTab(event, 'tab3')">Usnadnění obrázkové</button>
+                    <!--
                 <button class="tab-btn" onclick="openTab(event, 'tab4')">4</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab5')">5</button>           
+                <button class="tab-btn" onclick="openTab(event, 'tab5')">5</button>  -->         
             </div>
 
             <div id="tab1" class="tab-content bg-nastav active">
                 <h3>Nastavení chatu</h3>
-                <p>Ukážeme si pár příkladů, jakým způsobem nastavit chat AI pro efektivní práci s výukou</p>
+                <p>Ukážeme si pár příkladů, jakým způsobem nastavit <strong>Nastavení</strong> chatu AI pro efektivní práci s výukou.
+                Můžete si zkopírovat následující možnosti a jen vložit do Nastavení. Cestu pro jednotlivé chaty jsou v záložkách.</p>
                 <div class="sos-interaction-section sekce-nastaveni" id="nastaveni-sekce">
                     <div class="topic-selector">
                         <div class="topic-card active" onclick="switchSettings('tipy')">
@@ -62,6 +64,7 @@
                             <span>ChatGPT</span>
                         </div>
                     </div>
+
                     <div class="settings-interaction-wrapper">
                         <div class="settings-main-area">
                             <div id="view-generator" class="settings-view-panel">
@@ -106,7 +109,7 @@
                                     </div>
                                     <div class="settings-card">
                                         <div class="settings-card-header">NÁHLED</div>
-                                        <img id="guide-image" src="" alt="Návod" class="guide-img">
+                                        <div id="guide-images-wrapper"></div>
                                     </div>
                                 </div>
                             </div>
@@ -117,16 +120,22 @@
             </div>
 
             <div id="tab2" class="tab-content bg-nastav">
-                <h3>Usnadnění</h3>
-                <p>Nápady, jak obrátit promptování na AI, ať to udělá za vás, a získat tak lepší výsledky.</p>
+                <h3>Usnadnění pro textové záležitosti</h3>
+                <p>Nápady, jak efektivně AI nasměrovat k lepším výsledkům.</p>
 
+                <!-- Přímý kontejner pro mřížku karet -->
+                <div id="text-helper-grid" class="text-tools-grid">
+                    <!-- Sem JavaScript vloží 6 karet -->
+                </div>
             </div>
 
             <div id="tab3" class="tab-content bg-nastav">
-                <h3>A jdeme do finále ... jdeme tvořit ...</h3>
-                <p>Třetí sekce obsahu...</p>
-                <div class="generator-container">
+                <h3>Usnadnění pro obrázkové záležitosti</h3>
+                <p>Práce s vizuálním obsahem, infografikami a prezentacemi.</p>
 
+                <!-- Přímý kontejner pro řádky s obrázky -->
+                <div id="media-helper-list" class="media-tools-list">
+                    <!-- Sem JavaScript vloží řádky -->
                 </div>
             </div>
 
@@ -163,6 +172,12 @@
                 <p>Čtvrtá sekce obsahu...</p>
             </div>
         </section>
+                <!-- Tento blok musí být na konci stránky, mimo všechny taby -->
+            <div id="lightbox" class="lightbox" onclick="this.style.display='none'">
+                <span class="close">&times;</span>
+                <img class="lightbox-content" id="lightbox-img">
+                <div id="caption"></div>
+            </div>
     </main>
 
     <footer>

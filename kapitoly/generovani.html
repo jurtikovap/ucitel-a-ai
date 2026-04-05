@@ -35,8 +35,9 @@
             <div class="tab-menu cat-gener " style="border-bottom: 2px solid #d3b22f;">
                 <button class="tab-btn active" onclick="openTab(event, 'tab1')">Tvořič promptů materiálů</button>
                 <button class="tab-btn" onclick="openTab(event, 'tab2')">Tvořič kvízů</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab3')">NotebookLM</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab4')">Tlačítko 4</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab3')">Tvořič v NotebookLM</button>
+                <!-- 
+                <button class="tab-btn" onclick="openTab(event, 'tab4')">Tlačítko 4</button> zatím bez obsahu -->
             </div>
 
             <div id="tab1" class="tab-content bg-gener active">
@@ -164,7 +165,7 @@
             
             <div id="tab2" class="tab-content bg-gener">
                 <h3>Tvořič kvízů v Gemini Canvas</h3>
-                <p>Proměňte statické materiály v interaktivní testy během pár sekund. Postupujte podle těchto kroků.</p>
+                <p>Proměňte statické materiály v interaktivní testy během pár sekund. Postupujte podle těchto kroků. I zde může AI opět halucinovat.</p>
                 <!-- Přepínač cest -->
                 <div class="method-selector">
                     <button class="tabc-btn active" onclick="switchPath(event, 'express-path')">
@@ -180,50 +181,52 @@
                     <section class="canvas-tutorial">
                     <div class="step-grid">
                         <div class="step-card">
-                            <div class="step-number">1</div>
-                            <h3>Rychlé zadání</h3>
-                            <p>Zapněte Nástroje/Canvas a napište téma přímo do chatu nebo nahrejte text či dokument a požádejte o vytvoření kvízu.</p>
+                            <div class="card-header">
+                                    <div class="step-number">1</div>
+                                    <h4>Rychlé zadání</h4></div>
+                            <p>Zapněte Nástroje/Canvas a napište téma přímo do chatu nebo nahrejte text či dokument a <em>požádejte o vytvoření kvízu</em>.</p>
                             <div class="img-placeholder" onclick="openLightbox(this)">
-                                <img src="../img/expres_1.jpg" alt="Rychlý prompt pro kvíz">
+                                <img src="../img/nlm/expres_1.jpg" alt="Rychlý prompt pro kvíz">
                                 <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
                             </div>
                         </div>
                         <div class="step-card">
-                            <div class="step-number">2</div>
-                            <h3>Okamžitý výsledek</h3>
+                            <div class="card-header">
+                                <div class="step-number">2</div>
+                                <h4>Okamžitý výsledek</h4></div>
                             <p>Gemini vygeneruje kvíz přímo v chatu nebo Canvasu bez mezikroků.</p>
                             <div class="img-placeholder" onclick="openLightbox(this)">
-                                <img src="../img/expres_2.jpg" alt="Vygenerovaný kvíz v chatu">
+                                <img src="../img/nlm/expres_2.jpg" alt="Vygenerovaný kvíz v chatu">
                                 <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
                             </div>
                         </div>
                         <div class="step-card">
-                            <div class="step-number">3</div>
-                            <h3>Oprava otázek</h3>
+                            <div class="card-header">
+                                <div class="step-number">3</div>
+                                <h4>Oprava otázek</h4></div>
                             <p>Pomocí chatu můžete upravit a změnit generované otázky či odpovědi.</p>
                             <div class="img-placeholder" onclick="openLightbox(this)">
-                                <img src="../img/expres_3.jpg" alt="Vygenerovaný kvíz v chatu">
+                                <img src="../img/nlm/expres_3.jpg" alt="Vygenerovaný kvíz v chatu">
                                 <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
                             </div>
                         </div>
                         <div class="step-card">
-                            <div class="step-number">4</div>
-                            <h3>Sdílení kvízu</h3>
+                            <div class="card-header">
+                                <div class="step-number">4</div>
+                                <h4>Sdílení kvízu</h4></div>
                             <p>Sdílejte odkaz na vygenerovaný kvíz, vložte ho do emailu, EduPage, MS Teams ...</p>
                             <div class="img-placeholder" onclick="openLightbox(this)">
-                                <img src="../img/expres_4.jpg" alt="Vygenerovaný kvíz v chatu">
+                                <img src="../img/nlm/expres_4.jpg" alt="Vygenerovaný kvíz v chatu">
                                 <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
                             </div>
                         </div>
                     </div>
                     </section>
                     <div class="warning-box">
-                        <i class="fas fa-lightbulb"></i>
-                        <strong>Inspirace z praxe:</strong> Prohlédněte si, jak vypadá hotový kvíz vygenerovaný v Gemini, který můžete vyzkoušet.
+                        <strong>Inspirace:</strong> Prohlédněte si a vyzkoušejte, jak vypadá hotový kvíz vygenerovaný v Gemini.
                         <a href="https://gemini.google.com/share/eb1e63a0744e" target="_blank" class="btn-example">
-                            Zobrazit ukázku kvízu <i class="fas fa-external-link-alt"></i>
+                            Ukázka kvízu <i class="fas fa-external-link-alt"></i>
                         </a>
-
                     </div>
                 </div>
 
@@ -232,140 +235,358 @@
                     <section class="canvas-tutorial">
                     <div class="step-grid">
                         <div class="step-card">
-                            <div class="step-number">1</div>
-                            <h3>Text jako základ</h3>
-                            <p>Zapněte Nástroje/Canvas a nechte si v Canvasu vygenerovat textový kvíz na zadané téma nebo vložte vlastní odborný text.</p>
+                            <div class="card-header">
+                                    <div class="step-number">1</div>
+                                    <h4>Text jako základ</h4></div>
+                            <p>Zapněte Nástroje/Canvas a nechte si v Canvasu <em>vygenerovat textový kvíz</em> na zadané téma nebo vložte vlastní odborný text.</p>
                             <div class="img-placeholder" onclick="openLightbox(this)">
-                                <img src="../img/preci_1.jpg" alt="Vložení textu do Canvasu">
+                                <img src="../img/nlm/preci_1.jpg" alt="Vložení textu do Canvasu">
                                 <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
                             </div>
                         </div>
                         <div class="step-card">
-                            <div class="step-number">2</div>
-                            <h3>Vygenerovaný textový kvíz</h3>
+                            <div class="card-header">
+                                <div class="step-number">2</div>
+                                <h4>Vygenerovaný textový kvíz</h4></div>
                             <p>Text v Canvasu si sami opravte, přesuňte, změňte odpovědi ...</p>
                             <div class="img-placeholder" onclick="openLightbox(this)">
-                                <img src="../img/preci_2.jpg" alt="Ruční úprava textu učitelem">
+                                <img src="../img/nlm/preci_2.jpg" alt="Ruční úprava textu učitelem">
                                 <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
                             </div>
                         </div>
                         <div class="step-card">
-                            <div class="step-number">3</div>
-                            <h3>Ruční korektura – pomoc AI</h3>
+                            <div class="card-header">
+                                <div class="step-number">3</div>
+                                <h4>Ruční korektura – pomoc AI</h4></div>
                             <p>Označte otázku a nechte si vygenerovat novou verzi nebo jiné odpovědi.</p>
                             <div class="img-placeholder" onclick="openLightbox(this)">
-                                <img src="../img/preci_3.jpg" alt="Ruční úprava textu učitelem">
+                                <img src="../img/nlm/preci_3.jpg" alt="Ruční úprava textu učitelem">
                                 <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
                             </div>
                         </div>
                         <div class="step-card">
-                            <div class="step-number">4</div>
-                            <h3>Ruční korektura – vlastní úprava textu</h3>
+                            <div class="card-header">
+                                <div class="step-number">4</div>
+                                <h4>Ruční korektura – vlastní úprava textu</h4></div>
                             <p>Sami si text opravte, smažte chyby nebo doplňte fakta.</p>
                             <div class="img-placeholder" onclick="openLightbox(this)">
-                                <img src="../img/preci_4.jpg" alt="Ruční úprava textu učitelem">
+                                <img src="../img/nlm/preci_4.jpg" alt="Ruční úprava textu učitelem">
                                 <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
                             </div>
                         </div>
                         <div class="step-card">
-                            <div class="step-number">5</div>
-                            <h3>Ruční korektura – přesun textu</h3>
+                            <div class="card-header">
+                                <div class="step-number">5</div>
+                                <h4>Ruční korektura – přesun textu</h4></div>
                             <p>Označte text a levým tlačítkem myši přetáhněte text na jiné místo.</p>
                             <div class="img-placeholder" onclick="openLightbox(this)">
-                                <img src="../img/preci_5.jpg" alt="Ruční úprava textu učitelem">
+                                <img src="../img/nlm/preci_5.jpg" alt="Ruční úprava textu učitelem">
                                 <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
                             </div>
                         </div>
                         <div class="step-card">
-                            <div class="step-number">6</div>
-                            <h3>Konverze na kvíz</h3>
+                            <div class="card-header">
+                                <div class="step-number">6</div>
+                                <h4>Konverze na kvíz</h4></div>
                             <p>Příkazem Vytvořit/Kvíz v Canvasu jej proměňte v bezchybný kvíz.</p>
                             <div class="img-placeholder" onclick="openLightbox(this)">
-                                <img src="../img/preci_6.jpg" alt="Příkaz pro tvorbu kvízu z upraveného textu">
+                                <img src="../img/nlm/preci_6.jpg" alt="Příkaz pro tvorbu kvízu z upraveného textu">
                                 <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
                             </div>
                         </div>
                         <div class="step-card">
-                            <div class="step-number">7</div>
-                            <h3>Zapracované změny</h3>
+                            <div class="card-header">
+                                <div class="step-number">7</div>
+                                <h4>Zapracované změny</h4></div>
                             <p>Výsledný text s novými odpověďmi a přesunutými částmi.</p>
                             <div class="img-placeholder" onclick="openLightbox(this)">
-                                <img src="../img/preci_7.jpg" alt="Příkaz pro tvorbu kvízu z upraveného textu">
+                                <img src="../img/nlm/preci_7.jpg" alt="Příkaz pro tvorbu kvízu z upraveného textu">
                                 <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
                             </div>
                         </div>
                         <div class="step-card">
-                            <div class="step-number">8</div>
-                            <h3>Přepínání ve výstupech a verzích</h3>
-                            <p>Pomocí scrolování v chatu nacházíte různé verze a výstupy. Otevřena je verze bez nápisu "Otevřít". Do jiných verzí přepnete pomocí tlačítka Otevřít.</p>
+                            <div class="card-header">
+                                <div class="step-number">8</div>
+                                <h4>Přepínání ve výstupech a verzích</h4></div>
+                            <p>Pomocí scrolování v chatu v zobrazení Canvas nacházíte různé verze a výstupy. Otevřena je verze bez nápisu "Otevřít". Do jiných verzí přepnete pomocí tlačítka Otevřít.</p>
                             <div class="img-placeholder" onclick="openLightbox(this)">
-                                <img src="../img/preci_8.jpg" alt="Příkaz pro tvorbu kvízu z upraveného textu">
+                                <img src="../img/nlm/preci_8.jpg" alt="Příkaz pro tvorbu kvízu z upraveného textu">
                                 <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
                             </div>
                         </div>
                     </div>
                     </section>
+                    <div class="warning-box">
+                        <strong>Inspirace:</strong> Prohlédněte si a vyzkoušejte
+                        <ul><li>vygenerovaný textový dokument <a href="https://gemini.google.com/share/6644ef84584c" target="_blank" class="btn-example">
+                            Ukázka dokumentu <i class="fas fa-external-link-alt"></i></a></li>
+                            <li>hotový kvíz vygenerovaný v Gemini <a href="https://gemini.google.com/share/6f7061c25cec" target="_blank" class="btn-example">
+                            Ukázka kvízu <i class="fas fa-external-link-alt"></i></a></li>
+                            <li>celá konverzace k tvorbě textového dokumentu a kvízu <a href="https://gemini.google.com/share/a2a0586bd942" target="_blank" class="btn-example">
+                            Ukázka tvorby <i class="fas fa-external-link-alt"></i></a></li>
+                        </ul>
+                    </div>
                 </div>               
             </div>
 
             <div id="tab3" class="tab-content bg-gener">
-                <h3>Obsah pro Tlačítko 3</h3>
-                <p>Třetí sekce obsahu...</p>
-                <section class="canvas-tutorial">
-                    
-                    <div class="step-grid">
-                        <!-- Krok 1 -->
-                        <div class="step-card">
-                            <div class="step-number">1</div>
-                            <h3>Vstupní data</h3>
-                            <p>Nahrajte PDF, vložte text nebo jen zadejte téma, zapněte Nastavení/Canvas a zadejte prompt: <em>"Vytvoř z tohoto textu kvíz pro SŠ."</em></p>
-                            <div class="img-placeholder" onclick="openLightbox(this)">
-                                <img src="img/kviz_1.jpg" alt="Zadání promptu v Gemini">
-                                <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
-                                <img src="../img/expres_1.jpg" alt="Rychlý prompt pro kvíz">
-                                <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
-                            </div>
-                        </div>
-
-                        <!-- Krok 2 -->
-                        <div class="step-card">
-                            <div class="step-number">2</div>
-                            <h3>Aktivace Canvasu</h3>
-                            <p>Gemini otevře pracovní plochu (Canvas) vedle chatu, kde uvidíte první verzi kvízu.</p>
-                            <div class="img-placeholder" onclick="openLightbox(this)">
-                                <img src="img/kviz-krok2.jpg" alt="Pohled na rozhraní Canvas">
-                            </div>
-                        </div>
-
-                        <!-- Krok 3 -->
-                        <div class="step-card">
-                            <div class="step-number">3</div>
-                            <h3>Interaktivní úpravy</h3>
-                            <p>Označte otázku myší. V plovoucím menu zvolte změnu typu (ANO/NE) nebo náročnosti.</p>
-                            <div class="img-placeholder" onclick="openLightbox(this)">
-                                <img src="img/kviz-krok3.jpg" alt="Editace otázek v Canvasu">
-                            </div>
-                        </div>
-
-                        <!-- Krok 4 -->
-                        <div class="step-card">
-                            <div class="step-number">4</div>
-                            <h3>Export a klíč</h3>
-                            <p>Nechte si vygenerovat klíč odpovědí a kvíz nasdílejte odkazem nebo zkopírujte do Forms.</p>
-                            <div class="img-placeholder" onclick="openLightbox(this)">
-                                <img src="img/kviz-krok4.jpg" alt="Sdílení a export kvízu">
-                            </div>
-                        </div>
+                <h3>Tvořič výstupů v prostředí NotebookLM</h3>
+                <p>Proměňte své studijní podklady v interaktivní příručku nebo audio podcast. NotebookLM pracuje pouze ze zadaných zdrojů (PDF, URL, text).</p>
+                <p>Samostatné sdílení jednotlivých prvků přes odkaz <strong>nyní neexistuje</strong>. 
+                   Jedinou cestou, jak sdílet jen konkrétní výstup (kromě kopírování textu), je vytvořit úplně nový sešit a vložit do něj pouze ten jeden konkrétní materiál.</p>
+                <div class="notebook-section">
+                    <!-- Přepínač cest pro NotebookLM -->
+                    <div class="method-selector">
+                        <button class="tabc-btn active" onclick="switchNotebookPath(event, 'nb-fast')">
+                            <i class="fas fa-rocket"></i> Nastavení a popis
+                        </button>
+                        <button class="tabc-btn" onclick="switchNotebookPath(event, 'nb-deep')">
+                            <i class="fas fa-microscope"></i> Funkce a výstupy
+                        </button>
                     </div>
 
-                    <!-- Varovný box -->
+                    <!-- OBSAH: Nastavení a popis -->
+                    <div id="nb-fast" class="path-content active">
+                        <div class="showcase-container">
+                            <div class="showcase-item">
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_812.jpg" alt="Google Chrome">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                                <p>Vizuál v Google Chrome</p>                                
+                            </div>
+                            
+                            <div class="showcase-item">
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_811.jpg" alt="MS Edge">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                                <p>Vizuál v MS Edge</p>
+                            </div>
+                        </div>
+                        <section class="canvas-tutorial">
+                        <div class="step-grid">
+                            <div class="step-card">
+                                <div class="card-header">
+                                    <div class="step-number">1</div>
+                                    <h4>Spuštění NotebookLM</h4></div>
+                                <p>Nahrajte PDF, vložte URL nebo zkopírujte text. NotebookLM bude čerpat pouze z nich.</p>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_1.jpg" alt="Nahrávání zdrojů do NotebookLM">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="card-header">
+                                    <div class="step-number">2</div>
+                                    <h4>NotebookLM a vytvoření sešitu</h4></div>
+                                <p>Pro generování různých výstupů je nutné nejprve <em>vytvořit sešit</em> v prostředí NotebookLM.</p>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_2.jpg" alt="Automatické shrnutí dokumentu">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="card-header">
+                                    <div class="step-number">3</div>
+                                    <h4>Prostředí sešitu a zdroje</h4></div>
+                                <p>Základní pracovní části: přidávání zdrojů, místo pro chat a úpravy, typy výstupů a místo pro vygenerované výstupy.</p>
+                                <p>Přidávání zdrojů do sešitu.</p>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_3.jpg" alt="Automatické shrnutí dokumentu">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_31.jpg" alt="Automatické shrnutí dokumentu">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="card-header">
+                                    <div class="step-number">4</div>
+                                    <h4>Vytvořené výstupy</h4></div>
+                                <p>Různé typy výstupů generované AI v rámci sešitu na jeden klik.</p>
+                                <p>Možnost, jak sdílet celý sešit. Samostatné sdílení jednotlivých prvků není momentálně dostupné.</p>
+                                </p>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_41.jpg" alt="Automatické shrnutí dokumentu">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_42.jpg" alt="Automatické shrnutí dokumentu">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="card-header">
+                                    <div class="step-number">5</div>
+                                    <h4>Nastavení chatu</h4></div>
+                                <p>Možnosti nastavení komunikace s chatem v NotebookLM.</p>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_5.jpg" alt="Automatické shrnutí dokumentu">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="card-header">
+                                    <div class="step-number">6</div>
+                                    <h4>Možnost propojení Gemini a NotebookLM</h4></div>
+                                <p>Můžete propojit Gemini a NotebookLM pro vytváření komplexních AI řešení.</p>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_6.jpg" alt="Automatické shrnutí dokumentu">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                            </div>
+                        </div></section>
+                    </div>
+
+                    <!-- OBSAH: Hloubková analýza -->
+                    <div id="nb-deep" class="path-content">
+                        <div class="showcase-container">
+                            <div class="showcase-item">
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/vystupy_11.jpg" alt="Přehled funkcí NotebookLM">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>                                    
+                                </div>
+                                <p>Přehled možných výstupů od AI na jeden klik</p>                                
+                            </div>
+                            
+                            <div class="showcase-item">
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/vystupy_21.jpg" alt="Ukázka vygenerovaných výstupů">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                                <p>Vygenerované výstupy</p>
+                            </div>
+                        </div>
+                        <section class="canvas-tutorial">
+                        <h3><center>Možnosti, co vygenerovat, a jejich nastavení</center></h3>
+                        <div class="step-grid">
+                            <div class="step-card">
+                                <!-- Nová hlavička karty -->
+                                <div class="card-header">
+                                    <div class="step-number">1</div>
+                                    <h4>Audio výstupy</h4>                                    
+                                </div>                                
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_712.jpg" alt="Audio výstup">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_710.jpg" alt="Audio výstup nastavení">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="card-header">
+                                    <div class="step-number">2</div>
+                                    <h4>Prezentace</h4></div>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_722.jpg" alt="Prezentace">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_721.jpg" alt="Prezentace nastavení">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="card-header">
+                                    <div class="step-number">3</div>
+                                    <h4>Video přehled</h4></div>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_732.jpg" alt="Video přehled">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_730.jpg" alt="Video přehled nastavení">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="card-header">
+                                    <div class="step-number">4</div>
+                                    <h4>Zpráva</h4></div>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_742.jpg" alt="Generování zprávy">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_741.jpg" alt="Generování zprávy nastavení">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="card-header">
+                                    <div class="step-number">5</div>
+                                    <h4>Výukové kartičky</h4></div>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_752.jpg" alt="Výukové kartičky">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_751.jpg" alt="Výukové kartičky nastavení">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="card-header">
+                                    <div class="step-number">6</div>
+                                    <h4>Kvíz</h4></div>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_762.jpg" alt="Generování kvízu">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_761.jpg" alt="Generování kvízu nastavení">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="card-header">
+                                    <div class="step-number">7</div>
+                                    <h4>Infografika</h4></div>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_772.jpg" alt="Generování infografiky">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_771.jpg" alt="Generování infografiky nastavení">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="card-header">
+                                    <div class="step-number">8</div>
+                                    <h4>Tabulka dat</h4></div>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_782.jpg" alt="Generování tabulky dat">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_781.jpg" alt="Generování tabulky dat nastavení">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="card-header">
+                                    <div class="step-number">9</div>
+                                    <h4>Myšlenková mapa</h4></div>
+                                <div class="img-placeholder" onclick="openLightbox(this)">
+                                    <img src="../img/nlm/nlm_790.jpg" alt="Generování myšlenkové mapy">
+                                    <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                </div>
+                            </div>
+                        </div></section>
+                    </div>
                     <div class="warning-box">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <strong>Rada:</strong> AI je skvělý pomocník, ale u kvízů může "halucinovat". Vždy si nechte vygenerovat klíč správných odpovědí a osobně jej zkontrolujte!
+                        <strong>Ukázka:</strong> Prohlédněte si a vyzkoušejte, jak vypadá sdílený celý dokument. Nutné přihlášení do Google účtu.
+                        <a href="https://notebooklm.google.com/notebook/c268acdf-8616-43f1-8c03-d03432f505ae" target="_blank" class="btn-example">
+                            Ukázka <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
-                </section>
+                </div>
 
-                
             </div>
 
             <div id="tab4" class="tab-content bg-gener">
