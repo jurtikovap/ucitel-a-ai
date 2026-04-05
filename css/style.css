@@ -1650,3 +1650,123 @@ footer {
 }
 /* ukázky */
 
+/* Styl sekce s návodem */
+.canvas-tutorial { padding: 10px 20px; max-width: 1200px; margin: auto; }
+.step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 10px; }
+
+.step-card { 
+    background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #eee;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); position: relative; transition: 0.3s;
+}
+.step-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+
+.step-number { 
+    background: #d3b22f; color: white; width: 30px; height: 30px; 
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-weight: bold; margin-bottom: 15px;
+}
+
+/* Obrázky a Lightbox */
+.img-placeholder { 
+    margin-top: 15px; cursor: pointer; position: relative; 
+    border-radius: 8px; overflow: hidden; background: #f0f0f0;
+}
+.img-placeholder img { width: 100%; display: block; transition: 0.3s; }
+.img-placeholder:hover img { opacity: 0.8; }
+.overlay { 
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.4); color: white; opacity: 0; transition: 0.3s; 
+}
+.img-placeholder:hover .overlay { opacity: 1; }
+
+/* Lightbox Modal */
+.lightbox { 
+    display: none; position: fixed; z-index: 9999; left: 0; top: 0; 
+    width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); 
+}
+.lightbox-content { 
+    margin: auto; display: block; width: 80%; max-width: 1000px; 
+    max-height: 80%; margin-top: 5%; border-radius: 10px; 
+}
+.close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
+
+/* Varovný box */
+.warning-box { 
+    margin-top: 40px; padding: 20px; background: #fff9e6; 
+    border-left: 3px solid #d3b22f; color: #856404; border-radius: 8px;
+}
+
+/* Styly pro přepínač */
+.method-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+.tabc-btn {
+    padding: 10px 15px;
+    border: 2px solid #d3b22f;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.tabc-btn.active {
+    background: #d3b22f;
+    color: white;
+}
+/* Skrývání obsahu */
+.path-content {
+    display: none;
+}
+
+.path-content.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+.btn-example {
+    background: #d3b22f;
+    color: white !important;
+    padding: 3px 3px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.btn-example:hover {
+    background: #d3b22f;
+    transform: scale(1.05);
+}
+
+/* Úprava pro mobilní zařízení */
+@media (max-width: 600px) {
+    .example-box {
+        flex-direction: column;
+        text-align: center;
+    }
+    .example-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn-example {
+        width: 100%;
+        justify-content: center;
+    }
+}

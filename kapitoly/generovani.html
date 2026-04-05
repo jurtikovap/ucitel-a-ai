@@ -34,8 +34,8 @@
             
             <div class="tab-menu cat-gener " style="border-bottom: 2px solid #d3b22f;">
                 <button class="tab-btn active" onclick="openTab(event, 'tab1')">Tvořič promptů materiálů</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab2')">Možnosti rozšíření promptů</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab3')">Tlačítko 3</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab2')">Tvořič kvízů</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab3')">NotebookLM</button>
                 <button class="tab-btn" onclick="openTab(event, 'tab4')">Tlačítko 4</button>
             </div>
 
@@ -163,13 +163,209 @@
             </div>
             
             <div id="tab2" class="tab-content bg-gener">
-                <h3>Obsah pro Tlačítko 2</h3>
-                <p>Tady může být další zajímavý obsah, který se zobrazí po kliknutí na druhé tlačítko.</p>
+                <h3>Tvořič kvízů v Gemini Canvas</h3>
+                <p>Proměňte statické materiály v interaktivní testy během pár sekund. Postupujte podle těchto kroků.</p>
+                <!-- Přepínač cest -->
+                <div class="method-selector">
+                    <button class="tabc-btn active" onclick="switchPath(event, 'express-path')">
+                        <i class="fas fa-bolt"></i> Expresní cesta (1 min)
+                    </button>
+                    <button class="tabc-btn" onclick="switchPath(event, 'precision-path')">
+                        <i class="fas fa-graduation-cap"></i> Precizní cesta (5 min)
+                    </button>
+                </div>
+
+                <!-- OBSAH: Expresní cesta -->
+                <div id="express-path" class="path-content active">
+                    <section class="canvas-tutorial">
+                    <div class="step-grid">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h3>Rychlé zadání</h3>
+                            <p>Zapněte Nástroje/Canvas a napište téma přímo do chatu nebo nahrejte text či dokument a požádejte o vytvoření kvízu.</p>
+                            <div class="img-placeholder" onclick="openLightbox(this)">
+                                <img src="../img/expres_1.jpg" alt="Rychlý prompt pro kvíz">
+                                <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                            </div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <h3>Okamžitý výsledek</h3>
+                            <p>Gemini vygeneruje kvíz přímo v chatu nebo Canvasu bez mezikroků.</p>
+                            <div class="img-placeholder" onclick="openLightbox(this)">
+                                <img src="../img/expres_2.jpg" alt="Vygenerovaný kvíz v chatu">
+                                <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                            </div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <h3>Oprava otázek</h3>
+                            <p>Pomocí chatu můžete upravit a změnit generované otázky či odpovědi.</p>
+                            <div class="img-placeholder" onclick="openLightbox(this)">
+                                <img src="../img/expres_3.jpg" alt="Vygenerovaný kvíz v chatu">
+                                <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                            </div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">4</div>
+                            <h3>Sdílení kvízu</h3>
+                            <p>Sdílejte odkaz na vygenerovaný kvíz, vložte ho do emailu, EduPage, MS Teams ...</p>
+                            <div class="img-placeholder" onclick="openLightbox(this)">
+                                <img src="../img/expres_4.jpg" alt="Vygenerovaný kvíz v chatu">
+                                <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                            </div>
+                        </div>
+                    </div>
+                    </section>
+                    <div class="warning-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>Inspirace z praxe:</strong> Prohlédněte si, jak vypadá hotový kvíz vygenerovaný v Gemini, který můžete vyzkoušet.
+                        <a href="https://gemini.google.com/share/eb1e63a0744e" target="_blank" class="btn-example">
+                            Zobrazit ukázku kvízu <i class="fas fa-external-link-alt"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- OBSAH: Precizní cesta -->
+                <div id="precision-path" class="path-content">
+                    <section class="canvas-tutorial">
+                    <div class="step-grid">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h3>Text jako základ</h3>
+                            <p>Zapněte Nástroje/Canvas a nechte si v Canvasu vygenerovat textový kvíz na zadané téma nebo vložte vlastní odborný text.</p>
+                            <div class="img-placeholder" onclick="openLightbox(this)">
+                                <img src="../img/preci_1.jpg" alt="Vložení textu do Canvasu">
+                                <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                            </div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <h3>Vygenerovaný textový kvíz</h3>
+                            <p>Text v Canvasu si sami opravte, přesuňte, změňte odpovědi ...</p>
+                            <div class="img-placeholder" onclick="openLightbox(this)">
+                                <img src="../img/preci_2.jpg" alt="Ruční úprava textu učitelem">
+                                <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                            </div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <h3>Ruční korektura – pomoc AI</h3>
+                            <p>Označte otázku a nechte si vygenerovat novou verzi nebo jiné odpovědi.</p>
+                            <div class="img-placeholder" onclick="openLightbox(this)">
+                                <img src="../img/preci_3.jpg" alt="Ruční úprava textu učitelem">
+                                <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                            </div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">4</div>
+                            <h3>Ruční korektura – vlastní úprava textu</h3>
+                            <p>Sami si text opravte, smažte chyby nebo doplňte fakta.</p>
+                            <div class="img-placeholder" onclick="openLightbox(this)">
+                                <img src="../img/preci_4.jpg" alt="Ruční úprava textu učitelem">
+                                <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                            </div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">5</div>
+                            <h3>Ruční korektura – přesun textu</h3>
+                            <p>Označte text a levým tlačítkem myši přetáhněte text na jiné místo.</p>
+                            <div class="img-placeholder" onclick="openLightbox(this)">
+                                <img src="../img/preci_5.jpg" alt="Ruční úprava textu učitelem">
+                                <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                            </div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">6</div>
+                            <h3>Konverze na kvíz</h3>
+                            <p>Příkazem Vytvořit/Kvíz v Canvasu jej proměňte v bezchybný kvíz.</p>
+                            <div class="img-placeholder" onclick="openLightbox(this)">
+                                <img src="../img/preci_6.jpg" alt="Příkaz pro tvorbu kvízu z upraveného textu">
+                                <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                            </div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">7</div>
+                            <h3>Zapracované změny</h3>
+                            <p>Výsledný text s novými odpověďmi a přesunutými částmi.</p>
+                            <div class="img-placeholder" onclick="openLightbox(this)">
+                                <img src="../img/preci_7.jpg" alt="Příkaz pro tvorbu kvízu z upraveného textu">
+                                <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                            </div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">8</div>
+                            <h3>Přepínání ve výstupech a verzích</h3>
+                            <p>Pomocí scrolování v chatu nacházíte různé verze a výstupy. Otevřena je verze bez nápisu "Otevřít". Do jiných verzí přepnete pomocí tlačítka Otevřít.</p>
+                            <div class="img-placeholder" onclick="openLightbox(this)">
+                                <img src="../img/preci_8.jpg" alt="Příkaz pro tvorbu kvízu z upraveného textu">
+                                <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                            </div>
+                        </div>
+                    </div>
+                    </section>
+                </div>               
             </div>
 
             <div id="tab3" class="tab-content bg-gener">
                 <h3>Obsah pro Tlačítko 3</h3>
                 <p>Třetí sekce obsahu...</p>
+                <section class="canvas-tutorial">
+                    
+                    <div class="step-grid">
+                        <!-- Krok 1 -->
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h3>Vstupní data</h3>
+                            <p>Nahrajte PDF, vložte text nebo jen zadejte téma, zapněte Nastavení/Canvas a zadejte prompt: <em>"Vytvoř z tohoto textu kvíz pro SŠ."</em></p>
+                            <div class="img-placeholder" onclick="openLightbox(this)">
+                                <img src="img/kviz_1.jpg" alt="Zadání promptu v Gemini">
+                                <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                                <img src="../img/expres_1.jpg" alt="Rychlý prompt pro kvíz">
+                                <div class="overlay"><i class="fas fa-search-plus"></i> Zvětšit</div>
+                            </div>
+                        </div>
+
+                        <!-- Krok 2 -->
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <h3>Aktivace Canvasu</h3>
+                            <p>Gemini otevře pracovní plochu (Canvas) vedle chatu, kde uvidíte první verzi kvízu.</p>
+                            <div class="img-placeholder" onclick="openLightbox(this)">
+                                <img src="img/kviz-krok2.jpg" alt="Pohled na rozhraní Canvas">
+                            </div>
+                        </div>
+
+                        <!-- Krok 3 -->
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <h3>Interaktivní úpravy</h3>
+                            <p>Označte otázku myší. V plovoucím menu zvolte změnu typu (ANO/NE) nebo náročnosti.</p>
+                            <div class="img-placeholder" onclick="openLightbox(this)">
+                                <img src="img/kviz-krok3.jpg" alt="Editace otázek v Canvasu">
+                            </div>
+                        </div>
+
+                        <!-- Krok 4 -->
+                        <div class="step-card">
+                            <div class="step-number">4</div>
+                            <h3>Export a klíč</h3>
+                            <p>Nechte si vygenerovat klíč odpovědí a kvíz nasdílejte odkazem nebo zkopírujte do Forms.</p>
+                            <div class="img-placeholder" onclick="openLightbox(this)">
+                                <img src="img/kviz-krok4.jpg" alt="Sdílení a export kvízu">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Varovný box -->
+                    <div class="warning-box">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Rada:</strong> AI je skvělý pomocník, ale u kvízů může "halucinovat". Vždy si nechte vygenerovat klíč správných odpovědí a osobně jej zkontrolujte!
+                    </div>
+                </section>
+
+                
             </div>
 
             <div id="tab4" class="tab-content bg-gener">
@@ -177,6 +373,12 @@
                 <p>Čtvrtá sekce obsahu...</p>
             </div>
         </section>
+        <!-- Tento blok musí být na konci stránky, mimo všechny taby -->
+            <div id="lightbox" class="lightbox" onclick="this.style.display='none'">
+                <span class="close">&times;</span>
+                <img class="lightbox-content" id="lightbox-img">
+                <div id="caption"></div>
+            </div>
     </main>
 
     <footer>

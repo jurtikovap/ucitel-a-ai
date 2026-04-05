@@ -1,0 +1,94 @@
+/* Kontejner pro rozložení v každém tabu */
+.etika-layout {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px auto;
+    align-items: flex-start;
+    max-width: 800px; /* Zabrání přílišné šířce */
+    width: 100%;       /* Ale na mobilech využije 100 % */
+}
+
+/* Levý sloupec s tlačítky */
+.etika-sidebar {
+    flex: 0 0 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.etika-sidebar-btn {
+    background: white;
+    border: 1px solid #7ec46b;
+    padding: 12px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.etika-sidebar-btn:hover {
+    background: #f0f9f0;
+}
+
+.etika-sidebar-btn.active {
+    background: #7ec46b;
+    color: white;
+    font-weight: bold;
+}
+
+/* Pravá karta s detailem */
+.etika-detail-card {
+    flex: 1;
+    background: #f9fff5;
+    border: 2px solid #7ec46b;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    /* TATO ŘÁDKA JE KLÍČOVÁ: */
+    align-self: flex-start; 
+    
+    /* Můžeš přidat i minimální výšku, aby to nebylo úplně "placaté" */
+    min-height: 150px;
+    max-width: 800px;
+}
+
+.etika-placeholder {
+    text-align: center;
+    color: #666;
+    padding: 20px 0; /* Zmenšený padding z původních 50px */
+}
+
+.hint-box {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 15px;
+    background: #eef7ee;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+/* Obsah karty */
+.etika-card-content h4 { color: #2d5a27; margin-bottom: 10px; font-size: 1.4rem; }
+.bod-popis { font-style: italic; margin-bottom: 20px; color: #444; }
+
+.etika-example-item {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 4px solid #7ec46b;
+}
+
+.etika-example-item ul { margin-top: 5px; padding-left: 20px; }
+
+/* Animace */
+.animate-fade { animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Mobilní zobrazení */
+@media (max-width: 768px) {
+    .etika-layout { flex-direction: column; }
+    .etika-sidebar { flex: none; }
+}

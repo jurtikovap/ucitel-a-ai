@@ -7,6 +7,7 @@
     <title>Etika používání AI - AI pro učitele</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/etika.css">
 </head>
 <body>
 
@@ -30,8 +31,14 @@
         </div>
 
         <section class="lesson-content">
-            <p>Stránka v přípravě.</p>
-            <p>https://digitalizace.rvp.cz/napric-predmety/ai</p>
+            <p>Tento interaktivní průvodce vám otevře dveře do světa etiky, autorských práv a bezpečnosti v éře generativní umělé inteligence. 
+                Prozkoumáte nejen teoretické hranice a legislativní rámec, ale především praktické dopady AI na každodenní výuku, hodnocení žáků a ochranu digitálního soukromí. 
+                Získáte tak nezbytný přehled pro to, aby se pro vás i vaše studenty stala umělá inteligence bezpečným a inspirativním partnerem, nikoliv hrozbou.</p>
+            <p>Pro hlubší vhled do problematiky doporučuji také metodickou podporu na portálu RVP:
+                <a href="https://digitalizace.rvp.cz/napric-predmety/ai" target="_blank" class="ai-link-button">
+                    <span>Metodika AI napříč předměty</span>
+                    <i class="fas fa-external-link-alt"></i>
+                </a></p>
             
             <div class="tab-menu cat-etika">
                 <button class="tab-btn active" onclick="openTab(event, 'tab1')">Etika</button>
@@ -42,28 +49,53 @@
             </div>
 
             <div id="tab1" class="tab-content bg-etika active">
-                <h3>Obsah pro Tlačítko 1</h3>
-                <p>Zde bude tvůj první text k tématu generování promptů...</p>
+                <h3>Etika a AI</h3>
+                <p>Etika v AI je nezbytným filtrem pro každého pedagoga. 
+                    Odpovědnost za konečný výsledek a ochrana soukromí žáků nese vždy člověk, nikoliv stroj.</p>
+                    <div class="etika-layout">
+                        <div class="etika-sidebar"><!-- Zde JS vykreslí tlačítka --></div>
+                        <div class="etika-detail-card"><!-- Zde JS vykreslí kartu --></div>
+                    </div>   
             </div>
 
             <div id="tab2" class="tab-content bg-etika">
-                <h3>Obsah pro Tlačítko 2</h3>
-                <p>Tady může být další zajímavý obsah, který se zobrazí po kliknutí na druhé tlačítko.</p>
+                <h3>Autorské právo</h3>
+                <p>Technologie předběhla zákon. 
+                    Současné právo většinou neuznává AI jako autora, což mění pohled na vlastnictví a férové využívání digitálního obsahu.</p>
+                    <div class="etika-layout">
+                        <div class="etika-sidebar"><!-- Zde JS vykreslí tlačítka --></div>
+                        <div class="etika-detail-card"><!-- Zde JS vykreslí kartu --></div>
+                    </div>               
             </div>
 
             <div id="tab3" class="tab-content bg-etika">
-                <h3>Obsah pro Tlačítko 3</h3>
-                <p>Třetí sekce obsahu...</p>
+                <h3>Výhody a nevýhody AI</h3>
+                <p>Nasazení AI přináší paradox mezi nárůstem produktivity a rizikem oslabení lidských dovedností. 
+                    Klíčem je rovnováha mezi pomocí stroje a vlastním úsudkem.</p>
+                    <div class="etika-layout">
+                        <div class="etika-sidebar"><!-- Zde JS vykreslí tlačítka --></div>
+                        <div class="etika-detail-card"><!-- Zde JS vykreslí kartu --></div>
+                    </div>
             </div>
 
             <div id="tab4" class="tab-content bg-etika">
-                <h3>Obsah pro Tlačítko 4</h3>
-                <p>Čtvrtá sekce obsahu...</p>
+                <h3>Bezpečnost používání AI</h3>
+                <p>Kybernetická bezpečnost v éře AI vyžaduje kritický přístup. 
+                    Každá informace vložená do chatu se stává součástí ekosystému, nad kterým ztrácíte přímou kontrolu.</p>
+                    <div class="etika-layout">
+                        <div class="etika-sidebar"><!-- Zde JS vykreslí tlačítka --></div>
+                        <div class="etika-detail-card"><!-- Zde JS vykreslí kartu --></div>
+                    </div>
             </div>
 
-            <div id="tab5" class="tab-content">
-                <h3>Obsah pro Tlačítko 5</h3>
-                <p>Čtvrtá sekce obsahu...</p>
+            <div id="tab5" class="tab-content bg-etika">
+                <h3>Generativní AI ve škole</h3>
+                <p>Implementace AI vyžaduje změnu paradigmatu. 
+                    Cílem není technologie zakazovat, ale integrovat je jako partnera, který připraví žáky na budoucí trh práce.</p>
+                    <div class="etika-layout">
+                        <div class="etika-sidebar"><!-- Zde JS vykreslí tlačítka --></div>
+                        <div class="etika-detail-card"><!-- Zde JS vykreslí kartu --></div>
+                    </div>
             </div>
         </section>
     </main>
@@ -76,6 +108,7 @@
         </div>
     </footer>
 
+<script src="../js/dataEtika.js"></script>
 <script src="../js/script.js"></script>
 </body>
 </html>

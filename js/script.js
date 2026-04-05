@@ -2,19 +2,45 @@
 
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
+    
+    // 1. Skryjeme všechny obsahy tabů
     tabcontent = document.getElementsByClassName("tab-content");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].classList.remove("active");
-        tabcontent[i].style.display = "none"; // Přidáno pro jistotu
+        tabcontent[i].style.display = "none";
     }
+
+    // 2. Deaktivujeme všechna horní tlačítka
     tablinks = document.getElementsByClassName("tab-btn");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].classList.remove("active");
     }
-    document.getElementById(tabName).style.display = "block"; // Zobrazit
-    document.getElementById(tabName).classList.add("active");
+
+    // 3. Zobrazíme vybraný tab
+    const activeTab = document.getElementById(tabName);
+    if (activeTab) {
+        activeTab.style.display = "block";
+        activeTab.classList.add("active");
+    }
+    
+    // 4. Označíme tlačítko jako aktivní
     evt.currentTarget.classList.add("active");
+
+    // --- KLÍČOVÝ PŘÍDAVEK PRO SEKCI ETIKA ---
+    // Pokud funkce existuje (je načten soubor dataEtika.js), vykreslíme menu
+    if (typeof renderEtikaMenu === "function") {
+        renderEtikaMenu(tabName);
+    }
 }
+
+// 5. Automatické načtení prvního tabu po otevření stránky
+document.addEventListener('DOMContentLoaded', () => {
+    // Najdeme první tlačítko tabu a simulujeme kliknutí, aby se načetla data
+    const firstTabBtn = document.querySelector('.tab-btn');
+    if (firstTabBtn) {
+        firstTabBtn.click();
+    }
+});
 
 /* --- 2. PROMPT BUILDER (KAPITOLA GENEROVÁNÍ) --- */
 
@@ -321,6 +347,7 @@ const methodData = {
 
 
 function showMethod(id) {
+
     // 1. Vizuální přepnutí tlačítek
     document.querySelectorAll('.method-btn').forEach(btn => btn.classList.remove('active'));
     
@@ -532,4 +559,33 @@ function copyUkazkaPrompt(id) {
             btn.style.background = "#2c3e50"; // Návrat k tmavé
         }, 2000);
     });
+}
+
+function openLightbox(element) {
+    const img = element.querySelector('img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const captionText = document.getElementById('caption');
+
+    lightbox.style.display = "block";
+    lightboxImg.src = img.src;
+    captionText.innerHTML = img.alt;
+}
+
+function switchPath(evt, pathId) {
+    // Schovat všechen obsah
+    const contents = document.getElementsByClassName("path-content");
+    for (let i = 0; i < contents.length; i++) {
+        contents[i].classList.remove("active");
+    }
+
+    // Deaktivovat všechna tlačítka
+    const buttons = document.getElementsByClassName("tabc-btn");
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+    }
+
+    // Ukázat vybranou cestu a aktivovat tlačítko
+    document.getElementById(pathId).classList.add("active");
+    evt.currentTarget.classList.add("active");
 }
