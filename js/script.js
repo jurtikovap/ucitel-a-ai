@@ -606,14 +606,21 @@ function copyUkazkaPrompt(id) {
 }
 
 function openLightbox(element) {
-    const img = element.querySelector('img');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const captionText = document.getElementById('caption');
 
-    lightbox.style.display = "block";
-    lightboxImg.src = img.src;
-    captionText.innerHTML = img.alt;
+    // Tato řádka zajistí, že získáme správný zdroj obrázku:
+    // Pokud je prvek sám obrázkem (IMG), použije ho. Pokud ne, hledá IMG uvnitř.
+    const img = (element.tagName === 'IMG') ? element : element.querySelector('img');
+
+    if (img && lightbox && lightboxImg) {
+        lightbox.style.display = "block";
+        lightboxImg.src = img.src;
+        if (captionText) {
+            captionText.innerHTML = img.alt || ""; // Vloží popisek z alt, pokud existuje
+        }
+    }
 }
 
 function switchPath(evt, pathId) {
@@ -655,70 +662,62 @@ function switchNotebookPath(evt, pathId) {
 
 // 1. Data pro Textová usnadnění (3x2)
 const textToolsData = [
-    { title: "Tvořič promptů", desc: "pomocník pro psaní zadání pro žáky.", links: [{ txt: "Tvořič výukových promptů", url: "../kapitoly/generovani.html" }] },
+    { title: "Tvořič promptů", desc: "pomocník pro tvorbu zadání pro výukové materiály.", links: [{ txt: "Tvořič výukových promptů", url: "../kapitoly/generovani.html" }] },
     { title: "Tvořič gemů", desc: "vytvořte si experty.", links: [{ txt: "Tvořič gemů", url: "../kapitoly/ukazky.html#tab2" }, { txt: "NPI desatero", url: "../kapitoly/ukazky.html#tab5" }] },
-    { title: "Tvořič kvízů", desc: "rychlé prověření znalostí.", links: [{ txt: "Tvořič kvízů", url: "../kapitoly/generovani.html#tab2" }] },
+    { title: "Tvořič kvízů", desc: "rychlé vytvoření kvízů dvojí cestou.", links: [{ txt: "Tvořič kvízů", url: "../kapitoly/generovani.html#tab2" }] },
     { title: "AI promptuje", desc: "předejte práci AI.", links: [{ txt: "AI promptuje", url: "../kapitoly/vyuka.html#tab4" }] },
     { title: "Aktivita pro žáky", desc: "zapojení AI do výuky.", links: [{ txt: "AI do lavic", url: "../kapitoly/vyuka.html#tab5" }, { txt: "AI v lavicích", url: "../kapitoly/ukazky.html#tab3" }] },
-    { title: "Myšlenková mapa", desc: "vizualizace souvislostí v NotebookLM.", links: [{ txt: "Tvořič myšlenkových map", url: "../kapitoly/generovani.html#tab3" }, { txt: "Myšlenková mapa", url: "../img/nlm_mm.jpg" }] },
+    { title: "Myšlenková mapa", desc: "vizualizace souvislostí z dokumentů v NotebookLM.", links: [{ txt: "Tvořič myšlenkových map", url: "../kapitoly/generovani.html#tab3" }, { txt: "Myšlenková mapa", url: "../img/nlm_mm.jpg" }] },
     { title: "Etika", desc: "důležité body používání AI.", links: [{ txt: "Etika souhrn", url: "../kapitoly/etika.html" }] }
 ];
 
 // 2. Data pro Obrázková usnadnění
 const mediaToolsData = [
-    { 
-        title: "Napkin AI", 
-        desc: "Rychlá přeměna textu na vizuální diagramy.", 
-        images: ["../img/napkin_1.jpg", "../img/napkin_2.jpg"], 
-        url: "https://www.napkin.ai/" 
-    },
-    { 
-        title: "NotebookLM", 
-        desc: "Interaktivní průvodce z vašich dokumentů.", 
-        images: ["../img/nlm_info_1.jpg", "../img/nlm_info_2.jpg"], 
-        url: "../kapitoly/generovani.html#tab3" 
-    },
-    { 
-        title: "Microsoft Copilot", 
-        desc: "Generování a analýza vizuálních podkladů.", 
-        images: ["../img/cop_info_1.jpg", "../img/cop_info_2.jpg"], 
-        url: "https://copilot.microsoft.com/" 
-    }
+    { title: "Napkin AI", desc: "pomocník pro speciální vizuální schémata.", links: [{ txt: "Napkin AI", url: "https://napkin.ai" }], images: ["../img/napkin_1.jpg", "../img/napkin_2.jpg"]},
+    { title: "NotebookLM", desc: "vizualizace souvislostí z dokumentů, infografika a prezentace.", links: [{ txt: "NotebookLM", url: "https://notebooklm.google.com" }, { txt: "Výuka NotebookLM", url: "../kapitoly/generovani.html#tab3" }, { txt: "Prezentace", url: "../assets/nlm_pre.pdf" }], images: ["../img/nlm_info_1.jpg", "../img/nlm_info_2.jpg"] },
+    { title: "Copilot", desc: "infografika, obrázky, pozor na češtinu. Poslední dva obrázky z promptu.", links: [{ txt: "Copilot", url: "https://copilot.microsoft.com" }, { txt: "Prompty na obrázky", url: "../kapitoly/ukazky.html" }], images: ["../img/cop_info_1.jpg", "../img/cop_info_2.jpg", "../img/ukazky/recept_copilot.jpg", "../img/ukazky/zdravi_3.jpg"] },
+    { title: "Gemini", desc: "obrázky přesně dle popisu, skvělé infografiky z promptů.", links: [{ txt: "Google Gemini", url: "https://gemini.google.com" }, { txt: "Prompty na obrázky", url: "../kapitoly/ukazky.html" }], images: ["../img//ukazky/coko_vyroba.jpg", "../img/zabava/gem_5.jpg", "../img/zabava/gem_4.jpg", "../img/zabava/gem_2.jpg", "../img/zabava/gem_3.jpg"]},
+
 ];
 
-// 3. Hlavní funkce, která "vstříkne" kód do HTML
 function initHelpers() {
     const textGrid = document.getElementById('text-helper-grid');
     const mediaList = document.getElementById('media-helper-list');
 
+    // Vykreslení TEXTOVÉ části (zůstává, jak ji máš ráda)
     if (textGrid) {
         textGrid.innerHTML = textToolsData.map(item => `
             <div class="text-tool-card">
                 <p><strong>${item.title}</strong> ${item.desc}</p>
-                
-                <div style="margin-top: auto; display: flex; gap: 5px;">
+                <div style="margin-top: auto; display: flex; gap: 10px;">
                     ${item.links.map(l => `<a href="${l.url}" class="btn-small">${l.txt}</a>`).join('')}
                 </div>
             </div>
         `).join('');
     }
 
+    // Vykreslení OBRÁZKOVÉ části (nový sjednocený design)
     if (mediaList) {
         mediaList.innerHTML = mediaToolsData.map(item => `
-        <div class="helper-card">
-            <div class="ges">
-                ${item.images.map(img => `<img src="${img}" class="thumb-split" onclick="openLightbox(this)">`).join('')}
-            </div>
-            <div class="card-content">
+            <div class="text-tool-card">
                 <p><strong>${item.title}</strong> ${item.desc}</p>
-                <a href="${item.url}" target="_blank" class="btn-small">Vyzkoušet nástroj</a>
+                
+                <!-- Odkazy (stejné jako u textu) -->
+                <div style="margin-top: auto; display: flex; gap: 10px; margin-bottom: 10px;">
+                    ${item.links.map(l => `<a href="${l.url}" class="btn-small" target="_blank">${l.txt}</a>`).join('')}
+                </div>
+
+                <!-- Mini náhledy (přidané dospod) -->
+                <div style="display: flex; gap: 5px; border-top: 1px dashed #eee; padding-top: 10px;">
+                    ${item.images.map(img => `
+                        <img src="${img}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 1px solid #ddd;" onclick="openLightbox(this)">
+                    `).join('')}
+                </div>
             </div>
-        </div>
-    `).join('');
+        `).join('');
     }
 }
 
-// Spustíme hned po načtení skriptu
 initHelpers();
 
 // Tento kód se spustí hned po načtení stránky

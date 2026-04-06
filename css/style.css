@@ -1860,27 +1860,6 @@ footer {
 }
 
 
-/* Kontejner pro dva obrázky vedle sebe */
-.card-images {
-    display: flex;
-    gap: 2px; /* Tenká mezera mezi obrázky */
-    background: #eee;
-    height: 150px; /* Fixní výška pro symetrii */
-}
-
-/* Každý z obou obrázků */
-.thumb-split {
-    width: 50%; /* Každý zabere polovinu karty */
-    max-height: 150px;
-    object-fit: cover; /* Ořízne obrázek, aby vyplnil svou polovinu */
-    cursor: pointer;
-    transition: opacity 0.2s;
-}
-
-.thumb-split:hover {
-    opacity: 0.8;
-}
-
 /* Ostatní styly karty (shodné s textovou částí) */
 .helper-card {
     border: 1px solid #3498db;
@@ -1890,6 +1869,14 @@ footer {
     display: flex;
     flex-direction: column;
     background: white;
+    min-height: 220px;
+}
+/* Mřížka pro karty - zajistí, že se jich vejde víc vedle sebe */
+.helper-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
 }
 
 .card-content {
@@ -1899,6 +1886,34 @@ footer {
     flex-direction: column;
 }
 
+/* Nadpis a popisek v jednom řádku */
+.helper-card h4 { margin: 0; font-size: 1.1rem; }
+.helper-card .desc { color: #555; font-weight: normal; }
+
+/* Odkazy pod textem */
+.card-links {
+    margin: 15px 0;
+    display: flex;
+    gap: 15px;
+}
+.card-links a { color: #4a90e2; text-decoration: none; font-size: 0.9rem; }
+.card-links a:hover { text-decoration: underline; }
+
+/* Mini náhledy na konci karty */
+.mini-previews {
+    margin-top: auto; /* Tlačí obrázky dolů */
+    display: flex;
+    gap: 10px;
+    padding-top: 10px;
+}
+.mini-thumb {
+    width: 50px;
+    height: 50px;
+    object-fit: cover; /* Ořízne obrázek do čtverce */
+    border-radius: 4px;
+    border: 1px solid #eee;
+    cursor: pointer;
+}
 
 .thumb { width: 50px; height: 50px; object-fit: cover; cursor: pointer; margin-right: 5px; border-radius: 4px; }
 .btn-small, .btn-download { background:none; color: #3498db; padding: 4px 8px; border-radius: 4px; font-size: 12px; }
