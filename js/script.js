@@ -655,31 +655,34 @@ function switchNotebookPath(evt, pathId) {
 
 // 1. Data pro Textová usnadnění (3x2)
 const textToolsData = [
-    { title: "Tvořič promptů", desc: "Pomocník pro psaní zadání.", links: [{ txt: "Otevřít", url: "#" }] },
-    { title: "Tvořič gemů", desc: "Vytvořte si experty.", links: [{ txt: "Návod 1", url: "#" }, { txt: "Návod 2", url: "#" }] },
-    { title: "Tvořič kvízů", desc: "Rychlé prověření znalostí.", links: [{ txt: "Spustit", url: "#" }] },
-    { title: "AI promptuje", desc: "Metodika pro pokročilé.", links: [{ txt: "Více", url: "#" }] },
-    { title: "Aktivita pro žáky", desc: "Zapojení AI do výuky.", links: [{ txt: "Příklady", url: "#" }, { txt: "Metodika", url: "#" }] },
-    { title: "Myšlenková mapa", desc: "Vizualizace souvislostí.", links: [{ txt: "Odkaz", url: "#" }, { txt: "Soubor", url: "#" }] },
-    { title: "Etika", desc: "Vizualizace souvislostí.", links: [{ txt: "Odkaz", url: "#" }, { txt: "Soubor", url: "#" }] }
+    { title: "Tvořič promptů", desc: "pomocník pro psaní zadání pro žáky.", links: [{ txt: "Tvořič výukových promptů", url: "../kapitoly/generovani.html" }] },
+    { title: "Tvořič gemů", desc: "vytvořte si experty.", links: [{ txt: "Tvořič gemů", url: "../kapitoly/ukazky.html#tab2" }, { txt: "NPI desatero", url: "../kapitoly/ukazky.html#tab5" }] },
+    { title: "Tvořič kvízů", desc: "rychlé prověření znalostí.", links: [{ txt: "Tvořič kvízů", url: "../kapitoly/generovani.html#tab2" }] },
+    { title: "AI promptuje", desc: "předejte práci AI.", links: [{ txt: "AI promptuje", url: "../kapitoly/vyuka.html#tab4" }] },
+    { title: "Aktivita pro žáky", desc: "zapojení AI do výuky.", links: [{ txt: "AI do lavic", url: "../kapitoly/vyuka.html#tab5" }, { txt: "AI v lavicích", url: "../kapitoly/ukazky.html#tab3" }] },
+    { title: "Myšlenková mapa", desc: "vizualizace souvislostí v NotebookLM.", links: [{ txt: "Tvořič myšlenkových map", url: "../kapitoly/generovani.html#tab3" }, { txt: "Myšlenková mapa", url: "../img/nlm_mm.jpg" }] },
+    { title: "Etika", desc: "důležité body používání AI.", links: [{ txt: "Etika souhrn", url: "../kapitoly/etika.html" }] }
 ];
 
 // 2. Data pro Obrázková usnadnění
 const mediaToolsData = [
     { 
-        title: "Obrázy", 
-        images: ["img/info1.jpg", "img/info2.jpg", "img/info3.jpg"], 
-        files: [{ name: "PDF", url: "doc/info.pdf" }, { name: "DOCX", url: "doc/info.docx" }]
+        title: "Napkin AI", 
+        desc: "Rychlá přeměna textu na vizuální diagramy.", 
+        images: ["../img/napkin_1.jpg", "../img/napkin_2.jpg"], 
+        url: "https://www.napkin.ai/" 
     },
     { 
-        title: "Infografika", 
-        images: ["img/info1.jpg", "img/info2.jpg", "img/info3.jpg"], 
-        files: [{ name: "PDF", url: "doc/info.pdf" }, { name: "DOCX", url: "doc/info.docx" }]
+        title: "NotebookLM", 
+        desc: "Interaktivní průvodce z vašich dokumentů.", 
+        images: ["../img/nlm_info_1.jpg", "../img/nlm_info_2.jpg"], 
+        url: "../kapitoly/generovani.html#tab3" 
     },
     { 
-        title: "Prezentace", 
-        images: ["img/pres1.jpg"], 
-        files: [{ name: "PPTX", url: "doc/prezentace.pptx" }]
+        title: "Microsoft Copilot", 
+        desc: "Generování a analýza vizuálních podkladů.", 
+        images: ["../img/cop_info_1.jpg", "../img/cop_info_2.jpg"], 
+        url: "https://copilot.microsoft.com/" 
     }
 ];
 
@@ -691,8 +694,8 @@ function initHelpers() {
     if (textGrid) {
         textGrid.innerHTML = textToolsData.map(item => `
             <div class="text-tool-card">
-                <h4>${item.title}</h4>
-                <p>${item.desc}</p>
+                <p><strong>${item.title}</strong> ${item.desc}</p>
+                
                 <div style="margin-top: auto; display: flex; gap: 5px;">
                     ${item.links.map(l => `<a href="${l.url}" class="btn-small">${l.txt}</a>`).join('')}
                 </div>
@@ -702,18 +705,32 @@ function initHelpers() {
 
     if (mediaList) {
         mediaList.innerHTML = mediaToolsData.map(item => `
-            <div class="media-tool-row">
-                <div style="font-weight: bold;">${item.title}</div>
-                <div class="mini-previews">
-                    ${item.images.map(img => `<img src="${img}" class="thumb" onclick="openLightbox(this)">`).join('')}
-                </div>
-                <div class="file-links">
-                    ${item.files.map(f => `<a href="${f.url}" class="btn-download">${f.name}</a>`).join('')}
-                </div>
+        <div class="helper-card">
+            <div class="ges">
+                ${item.images.map(img => `<img src="${img}" class="thumb-split" onclick="openLightbox(this)">`).join('')}
             </div>
-        `).join('');
+            <div class="card-content">
+                <p><strong>${item.title}</strong> ${item.desc}</p>
+                <a href="${item.url}" target="_blank" class="btn-small">Vyzkoušet nástroj</a>
+            </div>
+        </div>
+    `).join('');
     }
 }
 
 // Spustíme hned po načtení skriptu
 initHelpers();
+
+// Tento kód se spustí hned po načtení stránky
+window.addEventListener('load', function() {
+    // Podívá se, jestli je v adrese mřížka (např. #tab2)
+    const hash = window.location.hash;
+    
+    if (hash) {
+        // Najde tlačítko, které má v sobě onclick s tímto ID a "klikne" na něj
+        const targetButton = document.querySelector(`[onclick*="${hash.replace('#', '')}"]`);
+        if (targetButton) {
+            targetButton.click();
+        }
+    }
+});
