@@ -7,7 +7,7 @@ const dataLavice = [
             id: "l-1-1",
             title: "Diferencovaný kvíz",
             popis: "AI vytvoří 3 úrovně stejných otázek (lehká, střední, těžká), aby si každý žák vybral svou výzvu.",
-            prompt: "Vytvoř 5 otázek k tématu [TÉMA]. Rozděl je do tří úrovní obtížnosti: Bronzová (základ), Stříbrná (aplikace) a Zlatá (analýza)."
+            prompt: "Vytvoř 5 otázek k tématu [TÉMA] ve třech úrovních obtížnosti: Bronzová (základ), Stříbrná (aplikace) a Zlatá (analýza)."
         },
         {
             id: "l-1-2",
@@ -43,7 +43,7 @@ const dataLavice = [
             id: "l-1-7",
             title: "Detektor nesmyslů",
             popis: "Kvíz, kde jsou schválně nesmyslné možnosti, a žáci musí vysvětlit, proč jsou špatně.",
-            prompt: "Vytvoř 3 otázky o [TÉMA]. U každé uveď jednu správnou odpověď a dvě záměrně vtipné nebo nesmyslné. Žáci musí zdůvodnit nesmyslnost."
+            prompt: "Vytvoř 3 otázky o [TÉMA]. U každé uveď jednu správnou odpověď a dvě záměrně vtipné nebo nesmyslné, ale k tématu. Žáci musí zdůvodnit nesmyslnost."
         }
     ]
 },

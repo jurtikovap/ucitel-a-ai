@@ -88,7 +88,7 @@ const dataEtika = {
                 popis: "Je nutné rozlišovat, kdo dílo vytvořil (autor) a kdo k němu má majetková práva (vlastník).",
                 priklady: [
                     { hlavni: "Osobnostní práva", podbody: ["Autor je vždy člověk (fyzická osoba)", "AI nemůže mít morální právo na dílo"] },
-                    { hlavni: "Majetková práva", podbody: ["Vlastníkem může být firma (OpenAI) nebo uživatel", "Určuje se podle licenčních podmínek (TOS)"] }
+                    { hlavni: "Majetková práva", podbody: ["Vlastníkem může být firma (OpenAI) nebo uživatel", "Určuje se podle licenčních podmínek"] }
                 ]
             },
             {
@@ -294,7 +294,7 @@ const dataEtika = {
                 title: "Bezpečnostní hranice",
                 popis: "Ochrana školního tajemství a soukromí žáků je absolutní prioritou.",
                 priklady: [
-                    { hlavni: "Zákaz citlivých dat", podbody: ["Nevkládat jména, diagnózy (IVP) ani adresy", "Data v cloudu se stávají majetkem firem"] },
+                    { hlavni: "Zákaz citlivých dat", podbody: ["Nevkládat jména, diagnózy (IVP) ani adresy", "Učení se z citlivých dat"] },
                     { hlavni: "Interní dokumenty", podbody: ["Nenahrávat zápisy z porad a metodiky", "Prioritní využívání školních licencí"] }
                 ]
             },
@@ -304,7 +304,7 @@ const dataEtika = {
                 popis: "Zneužití AI vede k degradaci dovedností a ztrátě důvěry.",
                 priklady: [
                     { hlavni: "Konec myšlení", podbody: ["Kopírování bez přemýšlení vede k atrofii mozku", "Plagiátorství bez přiznání je podvod"] },
-                    { hlavni: "Předpojatost (Bias)", podbody: ["AI šíří stereotypy (např. v kosmetice)", "Nutnost filtrovat sexistické či rasistické výstupy"] }
+                    { hlavni: "Předpojatost (Bias)", podbody: ["AI šíří stereotypy", "Nutnost filtrovat sexistické či rasistické výstupy"] }
                 ]
             },
             {
