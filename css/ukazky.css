@@ -673,3 +673,60 @@
     padding: 2px 0 8px 10px;; /* Odsazení zleva, aby to vypadalo jako podmenu */
 }
 
+/* Box pro celou kategorii */
+.inspiration-section {
+    border: 2px solid #4dd0e1; /* Tady změň barvu na svou novou */
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: white;
+}
+
+.inspiration-section h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.1rem;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 8px;
+}
+
+/* Vodorovný pás s obrázky */
+.inspiration-row {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto; /* Zapne vodorovný posuvník */
+    padding: 10px 0;
+    scrollbar-width: thin; /* Tenký posuvník pro Firefox */
+}
+
+/* Styl miniatur */
+.inspiration-row img.thumb {
+    height: 100px; /* Pevná výška dle zadání */
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    object-fit: cover; /* Aby se obrázek nedeformoval */
+}
+
+.inspiration-row img.thumb:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox (Zvětšení přes celou obrazovku) */
+#lightbox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border: 3px solid white;
+    border-radius: 8px;
+}

@@ -43,10 +43,11 @@
                 <button class="tab-btn" onclick="openTab(event, 'ukazka-tab2')">Gemy</button>
                 <button class="tab-btn" onclick="openTab(event, 'ukazka-tab3')">AI v lavicích</button>
                 <button class="tab-btn" onclick="openTab(event, 'ukazka-tab5')">NPI Desatero</button>               
+                <button class="tab-btn" onclick="openTab(event, 'ukazka-tab7')">Tvorba jinak</button>
                 <!-- 
                 <button class="tab-btn" onclick="openTab(event, 'ukazka-tab4')">Dynamika</button>
                 <button class="tab-btn" onclick="openTab(event, 'ukazka-tab6')">Herní mód</button>
-                <button class="tab-btn" onclick="openTab(event, 'ukazka-tab7')">NotebookLM</button> -->
+                 -->
             </div>
 
             <div id="ukazka-tab1" class="tab-content bg-ukazka active">
@@ -224,8 +225,32 @@
                 <div id="grid-hry" class="ukazky-grid"></div>
             </div>
 
-            <div id="ukazka-tab7" class="tab-content bg-ukazka">
-                <div id="grid-notebook" class="ukazky-grid"></div>
+            <div id="ukazka-tab7" class="tab-content bg-ukazka">                
+                <h3 style="margin-bottom: 10px; color: black;">Tvorba obrázků jinak</h3>
+                <p>Tvorba obrázků pomocí AI jde i bez promptů. Jen potřebujete předlohu, jak byste chtěli, aby výsledek vypadal.</p>
+                <p>Jak na to:
+                    <ul>
+                        <li>Zkopírujte si obrázek</li>
+                        <li>Vložte ho do AI</li>
+                        <li>Nechte si vytvořit prompt na tvorbu obrázku</li>
+                        <li>Rovnou napište, že chcete vytvořit obrázek dle předlohy na vaše téma</li>
+                    </ul>
+                </p>
+                <p>Generování přímo z nových chatů:
+                    <ul>
+                        <li>ChatGPT - možnost volby typu obrázku, vč. promptu, domýšlení věcí</li>
+                        <li>Gemini - možnost volby stylů obrázku, obrázek a popis změn, přesné dodržení zadání</li>
+                        <li>Copilot - možnost volby typu obrázku</li>
+                    </ul>
+                </p>
+                <div id="inspiration-container">
+                    <!-- Tady se automaticky vytvoří kategorie a obrázky -->
+                </div>
+
+                <!-- Prvek pro zvětšený obrázek -->
+                <div id="lightbox" onclick="closeLightbox()">
+                    <img id="lightbox-img" src="" alt="Zvětšeno">
+                </div>
             </div>
         </section>
 

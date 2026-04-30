@@ -238,3 +238,50 @@ function toggleGemsTable() {
     }
 }
 
+// 1. DATA OBRÁZKŮ (Sem budeš jen připisovat další řádky)
+const inspirationData = [
+    { category: "Architektura", src: "img/arch1.jpg" },
+    { category: "Architektura", src: "img/arch2.jpg" },
+    { category: "Portréty", src: "img/portret1.jpg" },
+    { category: "Portréty", src: "img/portret2.jpg" },
+    { category: "Portréty", src: "img/portret3.jpg" },
+    { category: "Ilustrace", src: "img/ilu1.jpg" }
+];
+
+// 2. FUNKCE PRO GENEROVÁNÍ GALERIE
+window.initInspiration = function() {
+    const container = document.getElementById('inspiration-container');
+    if (!container) return;
+
+    // Seskupení obrázků podle kategorií
+    const categories = [...new Set(inspirationData.map(item => item.category))];
+
+    container.innerHTML = categories.map(cat => {
+        const images = inspirationData.filter(img => img.category === cat);
+        return `
+            <div class="inspiration-section">
+                <h3>${cat}</h3>
+                <div class="inspiration-row">
+                    ${images.map(img => `
+                        <img src="${img.src}" alt="${cat}" onclick="openLightbox('${img.src}')" class="thumb">
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    }).join('');
+};
+
+// 3. FUNKCE PRO ZVĚTŠENÍ (Lightbox)
+window.openLightbox = function(src) {
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    lbImg.src = src;
+    lb.style.display = 'flex';
+};
+
+window.closeLightbox = function() {
+    document.getElementById('lightbox').style.display = 'none';
+};
+
+// Spuštění při načtení stránky
+initInspiration();
