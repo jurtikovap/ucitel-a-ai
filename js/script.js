@@ -733,3 +733,79 @@ window.addEventListener('load', function() {
         }
     }
 });
+
+// DATA PRO TAHÁK - Musí být na začátku souboru
+const cheatData = [
+    { cat: "Rychlost a formátování", cmd: "/ELI5", desc: "Vysvětli mi to jako pětiletému (bez žargonu).", ex: "/ELI5: Jak funguje kvantový počítač?" },
+    { cat: "Rychlost a formátování", cmd: "/TLDL", desc: "Krátké shrnutí dlouhého textu (články, e-maily, PDF).", ex: "/TLDL: [vložte text]" },
+    { cat: "Rychlost a formátování", cmd: "/BRIEFLY", desc: "Extrémně stručně, žádná vata.", ex: "/BRIEFLY: Napiš omluvný e-mail." },
+    { cat: "Rychlost a formátování", cmd: "/EXEC SUMMARY", desc: "Shrnutí na úrovni ředitele / pro rozhodovací pravomoci.", ex: "/EXEC SUMMARY: Zpráva o prodejích." },
+    { cat: "Rychlost a formátování", cmd: "/CHECKLIST", desc: "Přeměň odpověď na akční seznam úkolů.", ex: "/CHECKLIST: Jak připravit kampaň." },
+    { cat: "Rychlost a formátování", cmd: "/FORMAT AS [Typ]", desc: "Vynutí formát: Tabulka / JSON / Markdown / CSV.", ex: "/FORMAT AS TABLE: Porovnej home office vs kancelář." },
+    { cat: "Rychlost a formátování", cmd: "/TABULATE", desc: "Okamžitě hodí data do tabulky bez okecávání.", ex: "/TABULATE: Vývojářské jazyky." },
+    { cat: "Persona a tón", cmd: "/ACT AS [Role]", desc: "Přiřaď roli (marketér, právník, kuchař atd.).", ex: "/ACT AS Senior Copywriter" },
+    { cat: "Persona a tón", cmd: "/TONE [Nálada]", desc: "Nastav tón (formální, naléhavý, sarkastický...).", ex: "/TONE Professional: Napiš stížnost." },
+    { cat: "Persona a tón", cmd: "/AUDIENCE [Cílovka]", desc: "Přizpůsob složitost (začátečníci, experti).", ex: "/AUDIENCE Experti: Vysvětli mikroslužby." },
+    { cat: "Persona a tón", cmd: "/JARGO", desc: "Používej odborný, oborově specifický jazyk.", ex: "/JARGO: Popiš proces fotosyntézy." },
+    { cat: "Persona a tón", cmd: "/DEV MODE", desc: "Technický styl zaměřený na kód, stručný.", ex: "/DEV MODE: Funkce pro řazení v Pythonu." },
+    { cat: "Persona a tón", cmd: "/PM MODE", desc: "Styl projektového manažera: časové osy, rizika.", ex: "/PM MODE: Naplánuj tvorbu webu." },
+    { cat: "Persona a tón", cmd: "/REWRITE [Styl]", desc: "Přepíše text do jiného stylu (např. jako báseň).", ex: "/REWRITE Jako báseň: [text]" },
+    { cat: "Hluboká logika", cmd: "/STEP-BY-STEP", desc: "Strukturované uvažování, snižuje chyby v logice.", ex: "/STEP-BY-STEP: Jak vypočítat rozpočet?" },
+    { cat: "Hluboká logika", cmd: "/CHAIN OF THOUGHT", desc: "Propojené uvažování mezi myšlenkami.", ex: "/CHAIN OF THOUGHT: Vyřeš tento hlavolam." },
+    { cat: "Hluboká logika", cmd: "/FIRST PRINCIPLES", desc: "Rozlož problémy na základní pravdy.", ex: "/FIRST PRINCIPLES: Jak snížit náklady?" },
+    { cat: "Hluboká logika", cmd: "/DELIBERATE THINKING", desc: "Zpomal pro hlubší strategické uvažování.", ex: "/DELIBERATE THINKING: Mám investovat?" },
+    { cat: "Hluboká logika", cmd: "/NO AUTOPILOT", desc: "Vyhni se obecným a klišovitým odpovědím.", ex: "/NO AUTOPILOT: Vymysli název značky." },
+    { cat: "Hluboká logika", cmd: "/REFLECTIVE MODE", desc: "Sebereflexe odpovědi po jejím vygenerování.", ex: "/REFLECTIVE MODE: Napiš článek o historii." },
+    { cat: "Hluboká logika", cmd: "/EVAL-SELF", desc: "Kritické sebehodnocení na konci výstupu.", ex: "/EVAL-SELF: Zhodnoť kvalitu kódu." },
+    { cat: "Hluboká logika", cmd: "/DEBUG", desc: "Najde a vysvětlí chyby (zejména v kódu).", ex: "/DEBUG: Proč nefunguje tento JS? [kód]" },
+    { cat: "Analýza a strategie", cmd: "/SWOT", desc: "Silné stránky, slabé stránky, příležitosti, hrozby.", ex: "/SWOT: Zanalyzuj nápad na kavárnu." },
+    { cat: "Analýza a strategie", cmd: "/COMPARE", desc: "Porovnej dva nebo více přístupů.", ex: "/COMPARE: React vs Angular." },
+    { cat: "Analýza a strategie", cmd: "/MULTI-PERSPECTIVE", desc: "Analyzuj ze 3–4 úhlů pohledu.", ex: "/MULTI-PERSPECTIVE: 4denní pracovní týden." },
+    { cat: "Analýza a strategie", cmd: "/PITFALLS", desc: "Identifikuj, co by se mohlo pokazit.", ex: "/PITFALLS: Migrace databáze." },
+    { cat: "Analýza a strategie", cmd: "/ANALOGY", desc: "Vysvětlí složitý koncept pomocí přirovnání.", ex: "/ANALOGY: Vysvětli blockchain." },
+    { cat: "Analýza a strategie", cmd: "/BRAINSTORM", desc: "Vygeneruje seznam nápadů na dané téma.", ex: "/BRAINSTORM: 10 témat na blog." },
+    { cat: "Analýza a strategie", cmd: "/SKEPTIC", desc: "Najde slabiny v tvém nápadu (kritický pohled).", ex: "/SKEPTIC: Zhodnoť můj byznys plán." },
+    { cat: "Analýza a strategie", cmd: "/CONTEXT STACK", desc: "Udržuj předchozí kontext aktivní.", ex: "/CONTEXT STACK: Nezapomeň na parametry." }
+];
+
+// Vykreslení karet taháku
+window.renderCheats = function(data) {
+    const grid = document.getElementById('cheat-grid');
+    if (!grid) return;
+
+    grid.innerHTML = data.map(item => `
+        <div class="helper-card">
+            <span style="font-size: 0.7rem; color: #4a90e2; font-weight: bold; text-transform: uppercase;">${item.cat}</span>
+            <h4 style="color: #4a90e2; font-family: monospace; font-size: 1.1rem; margin: 5px 0;"><strong>${item.cmd}</strong></h4>
+            <p style="font-size: 0.9rem; margin-bottom: 10px;">${item.desc}</p>
+            <div style="background: #f0f7ff; padding: 8px; border-radius: 6px; font-size: 0.8rem; margin-bottom: 12px; border-left: 3px solid #4a90e2; color: #444;">
+                <em>Příklad: ${item.ex}</em>
+            </div>
+            <button class="btn-copy" onclick="copyText('${item.cmd}')" 
+                    style="width:100%; padding: 8px; cursor:pointer; background: white; border: 1px solid #4a90e2; color: #4a90e2; border-radius: 4px; font-weight: bold; font-size: 0.85rem;">
+                Kopírovat příkaz
+            </button>
+        </div>
+    `).join('');
+};
+
+window.filterCheats = function() {
+    const search = document.getElementById('cheatSearch').value.toLowerCase();
+    const category = document.getElementById('cheatCategory').value;
+
+    const filtered = cheatData.filter(item => {
+        const matchesSearch = item.cmd.toLowerCase().includes(search) || item.desc.toLowerCase().includes(search);
+        const matchesCat = category === "all" || item.cat === category;
+        return matchesSearch && matchesCat;
+    });
+
+    renderCheats(filtered);
+};
+
+window.copyText = function(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        alert("Zkopírováno: " + text);
+    });
+};
+
+renderCheats(cheatData);
