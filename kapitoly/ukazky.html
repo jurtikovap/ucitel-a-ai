@@ -232,8 +232,10 @@
                     <ul>
                         <li>Zkopírujte si obrázek</li>
                         <li>Vložte ho do AI</li>
-                        <li>Nechte si vytvořit prompt na tvorbu obrázku</li>
-                        <li>Rovnou napište, že chcete vytvořit obrázek dle předlohy na vaše téma</li>
+                        <ul>
+                            <li>Nechte si vytvořit prompt na tvorbu obrázku</li>
+                            <li>Rovnou napište, že chcete vytvořit obrázek dle předlohy na vaše téma</li>
+                        </ul>
                     </ul>
                 </p>
                 <p>Generování přímo z nových chatů:
@@ -247,10 +249,7 @@
                     <!-- Tady se automaticky vytvoří kategorie a obrázky -->
                 </div>
 
-                <!-- Prvek pro zvětšený obrázek -->
-                <div id="lightbox" onclick="closeLightbox()">
-                    <img id="lightbox-img" src="" alt="Zvětšeno">
-                </div>
+                
             </div>
         </section>
 
@@ -260,6 +259,12 @@
         <div id="modal-body-ukazka">
             </div>
     </div>
+</div>
+<!-- Lightbox prvek - ID musí zůstat stejná, pokud je používáš v CSS -->
+<div id="lightbox" onclick="closeInspiration()" style="display:none;">
+    <span class="close">&times;</span>
+    <img id="lightbox-img" src="" alt="Zvětšeno">
+    <div id="caption"></div>
 </div>
 
     </main>
@@ -278,6 +283,7 @@
 <script src="../js/data/dynamika.js"></script>
 <script src="../js/data/dataNPI.js"></script>
 <script src="../js/data/dataLavice.js"></script>
+<script src="../js/data/tvorba.js"></script>
 <script src="../js/ukazky.js"></script>
 <script src="../js/script.js"></script>
 </body>
