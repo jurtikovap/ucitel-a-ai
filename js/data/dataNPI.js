@@ -13,12 +13,12 @@ const dataNPI = [
                          <li>Pojmenuj asistenta, např. SOKRATOVSKÝ PRŮVODCE</li></ul>`,
         mojeFunkce: `<ul><li>Zde je aktivní učení či procvičování nové látky</li>
                          <li>Učitel<ul>
-                                <li>Zadá úvodní téma a může nahrát zdrojové soubory</li>
-                                <li>Určí cílovou metu pro žáky</li>
                                 <li>Nasdílí žákům odkaz na asistenta</li>
-                         </ul></li>
+                                <li>Zadá úvodní téma</li>
+                                <li>Určí cílovou metu pro žáky</li>
+                                </ul></li>
                          <li>Žák<ul>
-                                <li>Zahájí konverzaci pozdravem a volbou světa, ve kterém chce výuku</li>
+                                <li>Zahájí konverzaci a volbou světa, ve kterém chce výuku</li>
                                 <li>Vede rozhovor s asistentem a odpovídá na jeho otázky až na cílovou metu</li>
                          </ul></li>
                     </ul>`,
@@ -240,12 +240,12 @@ Na konci vygeneruj přehledný plán:
                          <li>Pojmenuj asistenta, např. DETEKTIV CHYB</li></ul>`,
         mojeFunkce: `<ul><li>Zde je kritické myšlení a hledání chyb</li>
                          <li>Učitel<ul>
-                                <li>Zadá úvodní téma a může nahrát zdrojové soubory</li>
-                                <li>Určí počet chyb v textu</li>
                                 <li>Nasdílí žákům odkaz na asistenta</li>
+                                <li>Určí počet chyb v textu</li>
+                                <li>Zadá úvodní téma a může nahrát zdrojové soubory</li>
                          </ul></li>
                          <li>Žák<ul>
-                                <li>Zahájí konverzaci pozdravem a volbou světa, ve kterém chce odborný text</li>
+                                <li>Zahájí konverzaci volbou světa, ve kterém chce odborný text</li>
                                 <li>Asistent vysvětlí cíl a pravidla hry</li>
                                 <li>Hledá chyby v textu a musí je vysvětlit</li>
                                 <li>Konec je, když jsou všechny chyby odhaleny</li>
@@ -301,9 +301,9 @@ PŘÍSNÉ PRAVIDLO PRO GENEROVÁNÍ TEXTU:
                          <li>Pojmenuj asistenta, např. KONSTRUKTIVNÍ KRITIK</li><ul>`,
         mojeFunkce: `<ul><li>Zde je vylepšování výstupů a zpětná vazba</li>
                          <li>Učitel<ul>
+                                <li>Nasdílí žákům odkaz na asistenta</li>
                                 <li>Zadá kritéria hodnocení (odbornost, gramatika, praktičnost...)</li>
                                 <li>Určí cíl (postup, slohovka, projekt ...)</li>
-                                <li>Nasdílí žákům odkaz na asistenta</li>
                          </ul></li>
                          <li>Žák<ul>
                                 <li>Zahájí konverzaci pozdravem a nahraje svoji práci</li>
@@ -365,9 +365,9 @@ POJISTKA PROTI RYCHLÉMU UKONČENÍ:
                          <li>Pojmenuj asistenta, např. OPONENT ARGUMENTÁTOR</li></ul>`,
         mojeFunkce: `<ul><li>Zde je obhajoba a argumentace</li>
                          <li>Učitel<ul>
+                                <li>Nasdílí žákům odkaz na asistenta</li>
                                 <li>Zadá úvodní téma diskuse</li>
                                 <li>Určí míru agresivity (A - Přátelský oponent, B - Tvrdý vyjednavač, C - Ďáblův advokát)</li>
-                                <li>Nasdílí žákům odkaz na asistenta</li>
                          </ul></li>
                          <li>Žák<ul>
                                 <li>Zahájí konverzaci pozdravem a dál se nechá vést asistentem</li>
@@ -424,9 +424,9 @@ PRAVIDLA CHOVÁNÍ
                          <li>Pojmenuj asistenta, např. OBOROVÝ EXPERT</li></ul>`,
         mojeFunkce: `<ul><li>Zde je prohloubení znalostí a kladení správných otázek</li>
                          <li>Učitel<ul>
+                                <li>Nasdílí žákům odkaz na asistenta</li>
                                 <li>Určí roli experta (šéfkuchar, básník, odborník)</li>
                                 <li>Určí žákovi, proč s expertem mluví</li>
-                                <li>Nasdílí žákům odkaz na asistenta</li>
                          </ul></li>
                          <li>Žák<ul>
                                 <li>Zahájí konverzaci pozdravem a dál se nechá vést asistentem</li>
